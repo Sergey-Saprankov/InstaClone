@@ -12,6 +12,7 @@ export const DeletePost = baseAPI.injectEndpoints({
       //invalidatesTags: ['User'],так или что то другое?
     }),
   }),
+  overrideExisting: true,
 })
 
 export const { useDeletePostMutation } = DeletePost

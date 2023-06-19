@@ -11,6 +11,7 @@ const posts = baseAPI.injectEndpoints({
       providesTags: ['Posts'],
     }),
   }),
+  overrideExisting: true,
 })
 
 export const {

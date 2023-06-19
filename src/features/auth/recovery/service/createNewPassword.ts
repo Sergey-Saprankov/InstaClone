@@ -12,5 +12,6 @@ export const createNewPassword = baseAPI.injectEndpoints({
       }),
     }),
   }),
+  overrideExisting: true,
 })
 export const { useCreateNewPasswordMutation } = createNewPassword

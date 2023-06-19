@@ -1,7 +1,6 @@
-import { PostSchema } from '../features/post/model/types/PostSchema'
-
 import { LoginSchema } from 'features/auth/login'
 import { RegistrationSchema } from 'features/auth/registration/model/types/RegistrationSchema'
+import { PostSchema } from 'features/post/model/types/PostSchema'
 import { UploadPhotoSchema } from 'features/profile/uploadPhoto/model/types/uploadPhotoSchema'
 import { baseAPI } from 'shared/api/baseAPI'
 import { AuthMeSchema } from 'shared/hoc'

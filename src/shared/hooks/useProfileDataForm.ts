@@ -1,5 +1,5 @@
 import { yupResolver } from '@hookform/resolvers/yup'
-import { useForm } from 'react-hook-form'
+import { Resolver, useForm } from 'react-hook-form'
 import * as yup from 'yup'
 
 const userProfileDataFormSchema = yup.object().shape({
@@ -24,6 +24,6 @@ export const useProfileDataForm = () => {
       city: '',
       aboutMe: '',
     },
-    resolver: yupResolver(userProfileDataFormSchema),
+    resolver: yupResolver(userProfileDataFormSchema) as Resolver<FormData>,
   })
 }

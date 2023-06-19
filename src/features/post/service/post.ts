@@ -9,6 +9,7 @@ const post = baseAPI.injectEndpoints({
       }),
     }),
   }),
+  overrideExisting: true,
 })
 
 export const { useGetPostQuery } = post

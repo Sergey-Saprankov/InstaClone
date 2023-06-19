@@ -8,6 +8,7 @@ export const getServerSideProps = wrapper.getServerSideProps(store => async cont
   const userId = store.getState().authMe.authMeData?.userId
 
   if (userId) {
+    console.log('DISPATCH')
     store.dispatch(getPosts.initiate(userId))
   }
 

@@ -11,6 +11,7 @@ export const EditPost = baseAPI.injectEndpoints({
       }),
     }),
   }),
+  overrideExisting: true,
 })
 
 export const { useEditPostMutation } = EditPost

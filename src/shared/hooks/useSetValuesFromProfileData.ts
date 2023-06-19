@@ -29,10 +29,9 @@ export const useSetValuesFromProfileData = (
     if (profileData) {
       for (const key in fieldMap) {
         if (key in profileData) {
-          setValue(
-            fieldMap[key as keyof ProfileParamsType]!,
-            profileData[key as keyof ProfileParamsType]
-          )
+          const value = profileData[key as keyof ProfileParamsType]
+
+          setValue(fieldMap[key as keyof ProfileParamsType]!, value !== null ? value : '')
         }
       }
     }

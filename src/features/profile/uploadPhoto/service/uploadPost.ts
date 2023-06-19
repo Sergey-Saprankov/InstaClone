@@ -23,6 +23,7 @@ const uploadPost = baseAPI.injectEndpoints({
       invalidatesTags: ['Posts'],
     }),
   }),
+  overrideExisting: true,
 })
 
 export const { useUploadMutation, useAddPostMutation } = uploadPost

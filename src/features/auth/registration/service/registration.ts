@@ -11,6 +11,7 @@ export const registration = baseAPI.injectEndpoints({
       }),
     }),
   }),
+  overrideExisting: true,
 })
 
 export const { useRegisterMutation } = registration

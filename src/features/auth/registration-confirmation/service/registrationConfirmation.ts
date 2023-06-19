@@ -11,6 +11,7 @@ export const registrationConfirmation = baseAPI.injectEndpoints({
       }),
     }),
   }),
+  overrideExisting: true,
 })
 
 export const { useRegistrationConfirmationMutation } = registrationConfirmation

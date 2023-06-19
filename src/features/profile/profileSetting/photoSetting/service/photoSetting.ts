@@ -21,6 +21,7 @@ export const PhotoSetting = baseAPI.injectEndpoints({
       }),
     }),
   }),
+  overrideExisting: true,
 })
 
 export const { useSendAvatarMutation, useDeleteAvatarMutation } = PhotoSetting

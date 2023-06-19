@@ -11,6 +11,7 @@ export const passwordRecovery = baseAPI.injectEndpoints({
       }),
     }),
   }),
+  overrideExisting: true,
 })
 
 export const { usePasswordRecoveryMutation } = passwordRecovery

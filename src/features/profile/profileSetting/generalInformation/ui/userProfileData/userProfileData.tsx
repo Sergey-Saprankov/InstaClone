@@ -8,8 +8,6 @@ import {
 
 import cls from './userProfileData.module.scss'
 
-import { getAuthMeData } from 'shared/hoc'
-import { useAppSelector } from 'shared/hooks/useAppSelector'
 import { useProfileDataForm } from 'shared/hooks/useProfileDataForm'
 import { useSetValuesFromProfileData } from 'shared/hooks/useSetValuesFromProfileData'
 import { Button, ButtonSize, ButtonTheme } from 'shared/ui/Button/Button'
@@ -40,12 +38,12 @@ export const UserProfileData = () => {
         <Controller
           control={control}
           name={'dateOfBirth'}
-          defaultValue={profileData?.dateOfBirth}
+          defaultValue={profileData?.dateOfBirth ?? ''}
           render={({ field }) => (
             <CustomDatePicker
               title={'Date of birthday'}
               start={field.value}
-              onChange={date => field.onChange(date)}
+              onChange={date => field.onChange(date as string)}
             />
           )}
         />

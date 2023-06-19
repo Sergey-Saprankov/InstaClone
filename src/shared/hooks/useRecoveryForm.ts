@@ -1,5 +1,5 @@
 import { yupResolver } from '@hookform/resolvers/yup'
-import { useForm } from 'react-hook-form'
+import { Resolver, useForm } from 'react-hook-form'
 import * as yup from 'yup'
 
 const recoverySchema = yup.object().shape({
@@ -15,6 +15,6 @@ export const useRecoveryForm = () => {
       password: '',
       confirmPassword: '',
     },
-    resolver: yupResolver(recoverySchema),
+    resolver: yupResolver(recoverySchema) as Resolver<FormData>,
   })
 }

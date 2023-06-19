@@ -10,6 +10,7 @@ export const Logout = baseAPI.injectEndpoints({
       // invalidatesTags: ['AuthMe'],
     }),
   }),
+  overrideExisting: true,
 })
 
 export const { useLogOutMutation } = Logout
