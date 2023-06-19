@@ -8,7 +8,7 @@ import { AppProps } from 'next/app'
 import { Provider } from 'react-redux'
 
 import { useLoader } from 'shared/hooks/useLoader'
-import { store, wrapper } from 'store/store'
+import { wrapper } from 'store/store'
 
 export type NextPageWithLayout<P = {}> = NextPage<P> & {
   getLayout?: (page: ReactElement) => ReactNode
