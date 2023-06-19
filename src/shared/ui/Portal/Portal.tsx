@@ -1,6 +1,5 @@
 import { useRef, useEffect, useState, ReactNode } from 'react'
 
-import { OverlayProps } from 'next/dist/client/components/react-dev-overlay/internal/components/Overlay/Overlay'
 import { createPortal } from 'react-dom'
 
 import styles from './Overlay.module.scss'
@@ -9,7 +8,7 @@ interface PortalProps {
   children: ReactNode
 }
 
-export const Portal = (props: OverlayProps) => {
+export const Portal = (props: PortalProps) => {
   const ref = useRef<Element | null>(null)
   const [mounted, setMounted] = useState(false)
 

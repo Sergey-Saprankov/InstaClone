@@ -21,7 +21,6 @@ function App({ Component, pageProps }: AppPropsWithLayout) {
   useLoader()
   const getLayout = Component.getLayout ?? (page => page)
 
-  // @ts-ignore
   return getLayout(<Component {...pageProps} />)
 }
 
