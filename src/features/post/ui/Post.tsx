@@ -20,7 +20,7 @@ export const Post: FC<PostProps> = memo(({ currentId, callBack }) => {
   const { data: userData } = useGetProfileQuery()
   const { data, isLoading } = useGetPostQuery(currentId, { skip: !currentId })
   const [isOpen, setIsOpen] = useState(Boolean(currentId))
-  const imageUrl = data?.images[0]?.url ?? ''
+  const imageUrl = data?.images?.filter(el => el.width === 1440)[0].url ?? ''
   const alt = data?.description ?? ''
   const userName = userData?.userName ?? ''
   const avatar = userData?.avatars?.[0].url ?? ''

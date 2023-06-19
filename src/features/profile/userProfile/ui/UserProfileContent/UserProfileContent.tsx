@@ -1,5 +1,6 @@
 import React, { useCallback, useEffect, useState } from 'react'
 
+import { de } from 'date-fns/locale'
 import { useInView } from 'react-intersection-observer'
 
 import cls from './UserProfileContent.module.scss'
@@ -44,15 +45,19 @@ export const UserProfileContent = () => {
     <>
       <div className={cls.UserProfileContent}>
         {data &&
-          data?.items.map(el => (
-            <Card
-              id={el.id}
-              key={el.id}
-              callBack={getCurrentPostId}
-              src={el.images[0].url}
-              alt={el.description}
-            />
-          ))}
+          data?.items.map(({ id, images, description }) => {
+            const src = images.filter(el => el.width === 1440)[0].url
+
+            return (
+              <Card
+                id={id}
+                key={id}
+                callBack={getCurrentPostId}
+                src={src}
+                alt={description ? description : 'post'}
+              />
+            )
+          })}
         {currentId && <Post callBack={getCurrentPostId} currentId={currentId} />}
       </div>
       <div ref={ref}></div>
