@@ -1,0 +1,32 @@
+.container {
+  width: 432px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.signInLink {
+  padding: 6px 24px;
+  width: 200px;
+  display: flex;
+  justify-content: center;
+  background-color: var(--primary-500);
+  margin-bottom: 72px;
+  border-radius: 2px;
+}
+
+.signInLinkText {
+  justify-content: center;
+}
+
+.mb54 {
+  margin-bottom: 54px;
+}
+
+.mb19 {
+  margin-bottom: 19px;
+}
+
+.alignSelfCenter {
+  align-self: center;
+}

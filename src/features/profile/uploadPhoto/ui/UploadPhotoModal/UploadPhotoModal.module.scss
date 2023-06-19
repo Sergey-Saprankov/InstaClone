@@ -1,0 +1,17 @@
+.content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 33vw;
+  height: 73vh;
+
+  background-color: var(--dark-400);
+  transition: all .1s ease-in-out;
+
+  border-radius: 15px;
+  //overflow-x: hidden;
+}
+
+.open {
+  width: 53vw;
+}

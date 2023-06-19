@@ -1,0 +1,65 @@
+.Text {
+  //color: inherit;
+
+  //transition: font-size .3s ease-in-out;
+}
+
+.interSemiBoldXL {
+  font: var(--font-semiBold-xl);
+}
+
+.interSemiBoldL {
+  font: var(--font-semiBold-l);
+}
+
+.interSemiBoldM {
+  font: var(--font-semiBold-m);
+}
+
+.interBoldXL {
+  font: var(--font-bold-xl);
+}
+
+.interBoldL {
+  font: var(--font-bold-l);
+}
+
+.interBoldM {
+  font: var(--font-bold-m);
+}
+
+.interBoldS {
+  font: var(--font-bold-s);
+}
+
+.interMediumL {
+  font: var(--font-medium-l);
+}
+
+.interRegularXL {
+  font: var(--font-regular-xl);
+}
+
+.interRegularL {
+  font: var(--font-regular-l);
+}
+
+.interRegularM {
+  font: var(--font-regular-m);
+}
+
+.light {
+  color: var(--light-100);
+}
+
+.error {
+  color: var(--danger-500);
+}
+
+.primary {
+  color: var(--primary-500);
+}
+
+.light900 {
+  color: var(--light-900);
+}

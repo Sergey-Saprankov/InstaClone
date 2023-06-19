@@ -1,0 +1,26 @@
+.NavLink {
+  //font: var(--font-medium-l);
+  //
+  //transition: color .2s ease-in-out;
+  cursor: pointer;
+
+  &:focus-visible {
+    outline: 2px solid var(--primary-700);
+  }
+}
+
+.primary {
+  color: var(--light-100);
+}
+
+.secondary {
+  color: var(--primary-500);
+}
+
+.grey {
+  color: var(--light-900);
+}
+
+.isActive {
+  color: var(--primary-500);
+}

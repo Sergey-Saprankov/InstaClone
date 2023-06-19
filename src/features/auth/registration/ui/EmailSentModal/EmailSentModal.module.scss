@@ -1,0 +1,31 @@
+.container {
+  width: 378px;
+  margin: 240px auto;
+
+  background-color: var(--dark-300);
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  padding: 12px 29px 11px 24px;
+  border-bottom: 1px solid var(--dark-100);
+}
+
+.main {
+  padding: 30px 24px 36px 24px;
+}
+
+.description {
+  color: var(--light-100);
+  margin-bottom: 18px;
+}
+
+.btnContainer {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.okBtn {
+  padding: 6px 36px;
+}

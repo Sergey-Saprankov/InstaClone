@@ -1,0 +1,199 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+:root {
+  --primary-100: #73A5FF;
+  --primary-300: #4C8DFF;
+  --primary-500: #397DF6;
+  --primary-700: #2F68CC;
+  --primary-900: #234E99;
+
+  --danger-100: #FF8099;
+  --danger-300: #F23D61;
+  --danger-500: #CC1439;
+  --danger-700: #990F2B;
+  --danger-900: #660A1D;
+
+  --warning-100: #FFD073;
+  --warning-300: #E5AC39;
+  --warning-500: #D99000;
+  --warning-700: #996600;
+  --warning-900: #664400;
+
+  --success-100: #80FFBF;
+  --success-300: #22E584;
+  --success-500: #14CC70;
+  --success-700: #0F9954;
+  --success-900: #0A6638;
+
+  --light-100: #FFFFFF;
+  --light-300: #F7FBFF;
+  --light-500: #EDF3FA;
+  --light-700: #D5DAE0;
+  --light-900: #BDC1C7;
+
+  --dark-100: #4C4C4C;
+  --dark-300: #333333;
+  --dark-400: #252323;
+  --dark-500: #171717;
+  --dark-700: #0D0D0D;
+  --dark-900: #000000;
+
+  --font-family-main: 'Inter', sans-serif;
+  --font-weight-regular: 400;
+  --font-weight-medium: 500;
+  --font-weight-semiBold: 600;
+  --font-weight-bold: 700;
+
+  --font-size-semiBold-xl: 26px;
+  --line-height-semiBold-xl: 36px;
+  --font-semiBold-xl: var(--font-weight-semiBold) var(--font-size-semiBold-xl) / var(--line-height-semiBold-xl) var(--font-family-main);
+
+  --font-size-semiBold-l: 16px;
+  --line-height-semiBold-l: 24px;
+  --font-semiBold-l: var(--font-weight-semiBold) var(--font-size-semiBold-l) / var(--line-height-semiBold-l) var(--font-family-main);
+
+  --font-size-semiBold-m: 12px;
+  --line-height-semiBold-m: 16px;
+  --font-semiBold-m: var(--font-weight-semiBold) var(--font-size-semiBold-m) / var(--line-height-semiBold-m) var(--font-family-main);
+
+  --font-size-bold-xl: 20px;
+  --line-height-bold-xl: 36px;
+  --font-bold-xl: var(--font-weight-bold) var(--font-size-bold-xl) / var(--line-height-bold-xl) var(--font-family-main);
+
+  --font-size-bold-l: 18px;
+  --line-height-bold-l: 24px;
+  --font-bold-l: var(--font-weight-bold) var(--font-size-bold-l) / var(--line-height-bold-l) var(--font-family-main);
+
+  --font-size-bold-m: 16px;
+  --line-height-bold-m: 24px;
+  --font-bold-m: var(--font-weight-bold) var(--font-size-bold-m) / var(--line-height-bold-m) var(--font-family-main);
+
+  --font-size-bold-s: 14px;
+  --line-height-bold-s: 24px;
+  --font-bold-s: var(--font-weight-bold) var(--font-size-bold-s) / var(--line-height-bold-s) var(--font-family-main);
+
+  --font-size-medium-l: 14px;
+  --line-height-medium-l: 24px;
+  --font-medium-l: var(--font-weight-medium) var(--font-size-medium-l) / var(--line-height-medium-l) var(--font-family-main);
+
+  --font-size-regular-xl: 16px;
+  --line-height-regular-xl: 24px;
+  --font-regular-xl: var(--font-weight-regular) var(--font-size-regular-xl) / var(--line-height-regular-xl) var(--font-family-main);
+
+  --font-size-regular-l: 14px;
+  --line-height-regular-l: 24px;
+  --font-regular-l: var(--font-weight-regular) var(--font-size-regular-l) / var(--line-height-regular-l) var(--font-family-main);
+
+  --font-size-regular-m: 12px;
+  --line-height-regular-m: 16px;
+  --font-regular-m: var(--font-weight-regular) var(--font-size-regular-m) / var(--line-height-regular-m) var(--font-family-main);
+}
+
+
+* {
+  padding: 0;
+  margin: 0;
+  border: none;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Links */
+
+a, a:link, a:visited  {
+  text-decoration: none;
+}
+
+a:hover  {
+  text-decoration: none;
+}
+
+h1, h2, h3, h4, h5, h6, p {
+  font-size: inherit;
+  font-weight: inherit;
+}
+
+ul, ul li {
+  list-style: none;
+}
+
+img {
+  vertical-align: top;
+}
+
+img, svg {
+  max-width: 100%;
+  height: auto;
+}
+
+address {
+  font-style: normal;
+}
+
+/* Form */
+
+input, textarea, button, select {
+  font-family: inherit;
+  font-size: inherit;
+  color: inherit;
+  background-color: transparent;
+}
+
+
+button, input[type="submit"] {
+  display: inline-block;
+  box-shadow: none;
+  background: transparent;
+  background: none;
+  cursor: pointer;
+}
+
+input:focus, input:active,
+button:focus, button:active {
+  outline: none;
+}
+
+button::-moz-focus-inner {
+  padding: 0;
+  border: 0;
+}
+
+label {
+  cursor: pointer;
+}
+
+legend {
+  display: block;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill,
+textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover,
+textarea:-webkit-autofill:focus,
+select:-webkit-autofill,
+select:-webkit-autofill:hover,
+select:-webkit-autofill:focus {
+  border-bottom: 1px solid var(--dark-300);
+  -webkit-text-fill-color: var(--light-100);
+  -webkit-box-shadow: 0 0 0 1000px var(--dark-500) inset;
+  transition: background-color 5000s ease-in-out 0s;
+  background: -webkit-linear-gradient(top, rgba(255, 255, 255, 0) 0%, rgba(0, 174, 255, 0.04) 50%, rgba(255, 255, 255, 0) 51%, rgba(0, 174, 255, 0.03) 100%);
+}
+
+
+
+body {
+  font: var(--font-regular-l);
+  width: 100vw;
+  min-height: 100vh;
+
+  background-color: var(--dark-900);
+  overflow-x: hidden;
+}

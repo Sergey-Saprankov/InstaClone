@@ -1,0 +1,21 @@
+.PostHeader {
+    padding: 11px 25px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid var(--dark-100);
+
+    .userContainer {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+
+      .avatarContainer {
+        position: relative;
+        width: 36px;
+        height: 36px;
+        border-radius: 50%;
+        overflow: hidden;
+      }
+    }
+}

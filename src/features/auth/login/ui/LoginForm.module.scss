@@ -1,0 +1,26 @@
+@import '../../logOut/ui/LogOutComponent.module';
+
+.form {
+  @extend .parentForm;
+  padding: 23px 24px 30px 24px;
+}
+
+.alignSelfEnd {
+  align-self: end;
+}
+
+.mb24 {
+  margin-bottom: 24px;
+}
+
+.mb60 {
+  margin-bottom: 60px;
+}
+
+.mb18 {
+  margin-bottom: 18px;
+}
+
+.mb12 {
+  margin-bottom: 12px;
+}

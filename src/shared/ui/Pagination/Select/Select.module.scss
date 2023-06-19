@@ -1,0 +1,57 @@
+.Select {
+  position: relative;
+  width: 55px;
+}
+
+.listBoxButton {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  height: 24px;
+  padding: 6px;
+  background-color: var(--dark-500);
+  color: var(--light-100);
+  border: 1px solid var(--dark-300);
+  border-radius: 2px;
+
+  &:focus-visible {
+   border: 2px solid var(--primary-500);
+  }
+}
+
+.arrowIcon {
+  width: 10px;
+  transform: rotate(0deg);
+  transition: all .4s ease-in-out;
+}
+
+.selected {
+  transform: rotate(180deg);
+}
+
+.listBoxOptions {
+  position: absolute;
+  width: 100%;
+  border: 1px solid var(--dark-300);
+  background-color: var(--dark-500);
+}
+
+.listBoxOption {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 36px;
+  padding: 6px;
+  color: var(--light-100);
+
+  cursor: pointer;
+}
+
+.listBoxOptionActive {
+  background-color: var(--dark-300);
+}
+
+.isFocus {
+  border: 2px solid var(--primary-500);
+}

@@ -1,0 +1,82 @@
+.wrapper {
+  position: relative;
+  width: min-content;
+
+  .absolute {
+    position: absolute;
+    z-index: 50;
+  }
+}
+
+.day {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+  width: 36px;
+  height: 36px;
+  color: var(--light-100);
+  border-radius: 50%;
+  font: var(--font-regular-xl);
+  &:hover {
+    background-color: var(--primary-500);
+    border-radius: 50%;
+  }
+
+  &:active {
+    background-color: var(--primary-900);
+    color: var(--dark-100);
+  }
+
+  transition: all .2s ease-in-out;
+}
+
+.calendar {
+  display: none;
+}
+
+.calendar:nth-child(2) {
+  display: none;
+}
+
+.weekDay {
+  color: var(--dark-100);
+}
+
+
+.popper {
+  padding: 0 !important;
+}
+
+.wrapper {
+  width: min-content;
+  cursor: pointer;
+}
+
+.container {
+  display: flex;
+  width: min-content;
+}
+
+.single {
+  width: 158px !important;
+}
+
+.singleOpen {
+  width: 330px !important;
+}
+
+.label {
+  color: var(--light-900);
+  display: flex;
+  flex-direction: column;
+}
+
+.customInput {
+  border: none;
+  outline: none;
+  .Input:hover {
+    border: none;
+    outline: none;
+  }
+}

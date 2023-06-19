@@ -1,0 +1,14 @@
+.Layout {
+  width: 100vw;
+  min-height: 100vh;
+}
+
+.contentContainer {
+  display: flex;
+  width: 100%;
+  min-height: calc(100vh - 61px);
+}
+
+.contentWrapper {
+  flex-grow: 1;
+}

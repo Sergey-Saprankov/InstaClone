@@ -1,0 +1,25 @@
+.UserProfileHeader {
+  display: flex;
+  gap: 38px;
+}
+
+.avatarContainer {
+  min-width: 200px;
+  height: 200px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.userProfileInfoContainer {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.description {
+  max-width: 730px;
+}

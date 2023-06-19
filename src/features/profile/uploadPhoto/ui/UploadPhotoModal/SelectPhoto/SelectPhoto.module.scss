@@ -1,0 +1,30 @@
+.SelectPhoto {
+  width: 33vw;
+  height: 73vh;
+}
+
+.header {
+  width: 100%;
+  height: 45px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  border-bottom: 1px solid var(--dark-100);
+}
+
+.selectContainer {
+  height: calc(100% - 45px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+}
+
+.description {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}

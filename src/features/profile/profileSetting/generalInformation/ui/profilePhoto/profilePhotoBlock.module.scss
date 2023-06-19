@@ -1,0 +1,50 @@
+
+.photoBlock {
+  display: flex;
+  flex-direction: column;
+  width: 200px;
+
+  align-items: center;
+  margin-right: 40px;
+  margin-top: 40px;
+}
+
+.photo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background-color: rgba(23, 23, 23, 1);
+  margin-bottom: 40px;
+  content: '';
+  width: 180px;
+  height: 180px;
+
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+
+.addButton {
+  padding: 10px;
+  font-weight: bold;
+}
+
+.userCameraContainer {
+  position: absolute;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 25px;
+  height: 25px;
+
+  background-color: #808080;
+  border-radius: 50%;
+}
+
+.imageContainer {
+  border-radius: 150px;
+  overflow: hidden;
+}

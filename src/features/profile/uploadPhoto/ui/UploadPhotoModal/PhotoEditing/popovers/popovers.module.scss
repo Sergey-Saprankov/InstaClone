@@ -1,0 +1,26 @@
+.popover {
+  position: relative;
+}
+
+.popoverPanel {
+  display: flex;
+  flex-direction: column;
+
+  min-width: 120px;
+  position: absolute;
+  z-index: 10;
+  bottom: 50px;
+
+  border-radius: 7px;
+  background-color: var(--dark-500);
+  color: var(--light-100);
+}
+
+.popoverButton {
+  padding: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background-color: var(--dark-500);
+}
