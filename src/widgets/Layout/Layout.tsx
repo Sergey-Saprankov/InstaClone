@@ -22,7 +22,7 @@ export const Layout: NextPage<PropsWithChildren> = props => {
 
   return (
     <div className={cls.Layout}>
-      <Header />
+      {/*<Header />*/}
       <div className={!isLoggedInUser ? cls.contentContainer : ''}>
         {!isLoggedInUser && <Sidebar />}
         <div className={cls.contentWrapper}>{children}</div>
