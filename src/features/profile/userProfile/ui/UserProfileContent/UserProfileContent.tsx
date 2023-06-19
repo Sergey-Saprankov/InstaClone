@@ -1,6 +1,5 @@
 import React, { useCallback, useEffect, useState } from 'react'
 
-import { de } from 'date-fns/locale'
 import { useInView } from 'react-intersection-observer'
 
 import cls from './UserProfileContent.module.scss'
@@ -46,7 +45,10 @@ export const UserProfileContent = () => {
       <div className={cls.UserProfileContent}>
         {data &&
           data?.items.map(({ id, images, description }) => {
-            const src = images.filter(el => el.width === 1440)[0].url
+            const mutableArray = [...images]
+
+            mutableArray.sort((a, b) => a.width - b.width)
+            const src = mutableArray[1].url
 
             return (
               <Card
