@@ -74,7 +74,12 @@ export const LoginForm = () => {
         </Text>
       </NavLink>
       <div className={cls.mb24}></div>
-      <Button type={'submit'} theme={ButtonTheme.PRIMARY} size={ButtonSize.XXl}>
+      <Button
+        className={cls.alignSelfCenter}
+        type={'submit'}
+        theme={ButtonTheme.PRIMARY}
+        size={ButtonSize.XXl}
+      >
         <Text tag={'span'} font={TextFontTheme.INTER_SEMI_BOLD_L} color={TextColorTheme.LIGHT}>
           Sign In
         </Text>

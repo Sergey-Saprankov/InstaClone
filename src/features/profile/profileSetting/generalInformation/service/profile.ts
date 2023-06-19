@@ -10,6 +10,7 @@ export const profile = baseAPI.injectEndpoints({
       query: () => {
         return {
           url: '/api/users/profile',
+          retries: 2,
         }
       },
       providesTags: ['User'],
@@ -22,7 +23,7 @@ export const profile = baseAPI.injectEndpoints({
       }),
       invalidatesTags: ['User'],
     }),
-    delProfile: build.mutation<void, number | null>({
+    delProfile: build.mutation<void, void>({
       query: arg => ({
         url: `/api/users/profile`,
         method: 'DELETE',

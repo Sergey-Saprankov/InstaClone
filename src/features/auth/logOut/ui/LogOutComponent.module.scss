@@ -1,11 +1,11 @@
 .parentForm {
-  width: 378px;
+  width: 400px;
   display: flex;
   flex-direction: column;
 
   background-color: var(--dark-500);
   border: 1px solid var(--dark-300);
-  border-radius: 2px;
+  border-radius: 15px;
 }
 
 .alignSelfCenter {
@@ -17,7 +17,8 @@
 .iconContainer {
   padding: 0 100px;
   display: flex;
-  justify-content: space-between;
+  gap: 40px;
+  justify-content: center;
 
   margin-bottom: 22px;
 }

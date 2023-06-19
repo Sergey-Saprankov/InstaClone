@@ -1,10 +1,8 @@
 import { useRouter } from 'next/router'
 
-import CloseIcon from '../../../../../../public/icon/close.svg'
-import { PATH } from '../../../../../shared/const/path'
-
 import cls from './EmailSentModal.module.scss'
 
+import { PATH } from 'shared/const/path'
 import { useAppSelector } from 'shared/hooks/useAppSelector'
 import { Button, ButtonTheme } from 'shared/ui/Button/Button'
 import { ModalHeader } from 'shared/ui/ModalHeader/ModalHeader'

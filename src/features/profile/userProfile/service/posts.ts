@@ -6,10 +6,15 @@ const posts = baseAPI.injectEndpoints({
     getPosts: build.query<PostsResponse, number>({
       query: (userId: number) => ({
         url: `api/posts/${userId}`,
+        retries: 2,
       }),
       providesTags: ['Posts'],
     }),
   }),
 })
 
-export const { useGetPostsQuery } = posts
+export const {
+  useGetPostsQuery,
+  util: { getRunningQueriesThunk },
+} = posts
+export const { getPosts } = posts.endpoints

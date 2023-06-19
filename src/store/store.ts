@@ -6,14 +6,14 @@ import {
   ReducersMapObject,
 } from '@reduxjs/toolkit'
 import { setupListeners } from '@reduxjs/toolkit/query'
+import { createWrapper } from 'next-redux-wrapper'
 import { toast } from 'react-toastify'
-
-import { postReducer } from '../features/post/model/slice/loginSlice'
 
 import { StateSchema } from './stateSchema'
 
 import { loginReducer } from 'features/auth/login'
 import { registrationReducer } from 'features/auth/registration/model/slice/registrationSlice'
+import { postReducer } from 'features/post/model/slice/loginSlice'
 import { uploadPhotoReducer } from 'features/profile/uploadPhoto'
 import { baseAPI } from 'shared/api/baseAPI'
 import { authMeReducer } from 'shared/hoc'
@@ -55,16 +55,28 @@ const rootReducer: ReducersMapObject<StateSchema> = {
   post: postReducer,
 }
 
-export const store = configureStore({
-  reducer: rootReducer,
-  middleware: gDM => gDM().concat([baseAPI.middleware, rtkQueryErrorLogger]),
-  preloadedState: loadState(),
-})
+export const makeStore = () =>
+  configureStore({
+    reducer: rootReducer,
+    middleware: gDM => gDM().concat([baseAPI.middleware, rtkQueryErrorLogger]),
+    preloadedState: loadState(),
+  })
 
-export type RootStateType = ReturnType<typeof store.getState>
-export type AppDispatch = typeof store.dispatch
+// export const store = configureStore({
+//   reducer: rootReducer,
+//   middleware: gDM => gDM().concat([baseAPI.middleware, rtkQueryErrorLogger]),
+//   preloadedState: loadState(),
+// })
+
+export type RootStateType = ReturnType<typeof makeStore>
+export type RootState = ReturnType<RootStateType['getState']>
+export type AppDispatch = RootStateType['dispatch']
+
+export const store = makeStore()
 
 setupListeners(store.dispatch)
 store.subscribe(() => {
   saveState(store.getState())
 })
+
+export const wrapper = createWrapper<RootStateType>(makeStore, { debug: true })

@@ -22,7 +22,6 @@ export const PasswordRecovery = ({ setIsModalOpen }: RegistrationFormType) => {
   const [passwordRecovery, { isLoading, isSuccess }] = usePasswordRecoveryMutation()
   const { control, handleSubmit } = useForgotForm()
   const [token, setToken] = useState<string | null>(null)
-  let recaptchaInstance
   const dispatch = useAppDispatch()
 
   const onSubmit = handleSubmit(data => {
@@ -75,8 +74,18 @@ export const PasswordRecovery = ({ setIsModalOpen }: RegistrationFormType) => {
 
       <div className={s.mb29}></div>
 
-      <Button type={'submit'} theme={ButtonTheme.PRIMARY} size={ButtonSize.XXl}>
-        <Text tag={'span'} font={TextFontTheme.INTER_SEMI_BOLD_L} color={TextColorTheme.LIGHT}>
+      <Button
+        className={s.alignSelfCenter}
+        type={'submit'}
+        theme={ButtonTheme.PRIMARY}
+        size={ButtonSize.XXl}
+      >
+        <Text
+          className={s.alignSelfCenter}
+          tag={'span'}
+          font={TextFontTheme.INTER_SEMI_BOLD_L}
+          color={TextColorTheme.LIGHT}
+        >
           Send Link
         </Text>
       </Button>
@@ -89,7 +98,7 @@ export const PasswordRecovery = ({ setIsModalOpen }: RegistrationFormType) => {
 
       <div className={s.mb29}></div>
 
-      <div>
+      <div className={s.recaptcha}>
         <ReCAPTCHA
           sitekey="6LeY2y0mAAAAANwI_paCWfoksCgBm1n2z9J0nwNQ"
           onChange={onChange}

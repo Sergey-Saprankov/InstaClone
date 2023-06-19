@@ -20,8 +20,6 @@ import { LoaderContent } from 'shared/ui/LoaderContent/LoaderContent'
 
 export const UserProfileData = () => {
   const { control, handleSubmit, setValue } = useProfileDataForm()
-  const authMeData = useAppSelector(getAuthMeData)
-  const userId = authMeData?.userId
   const { data: profileData, isLoading: isLoadingGetProfile } = useGetProfileQuery()
   const [profile, { isLoading: isLoadingUpdateProfile }] = useUpdateProfileMutation()
   const [delProfile] = useDelProfileMutation()
@@ -55,17 +53,19 @@ export const UserProfileData = () => {
         <ControlledTextArea control={control} name={'aboutMe'} title={'aboutMe'} />
       </div>
       <div className={cls.decor}></div>
-      <Button
-        type={'submit'}
-        theme={ButtonTheme.PRIMARY}
-        size={ButtonSize.XS}
-        className={cls.button}
-      >
-        Save Changes
-      </Button>
-      {/*//TODO*/}
-      {/*delete button*/}
-      <button onClick={() => delProfile(userId)}>DEL PROFILE</button>
+      <div className={cls.buttonContainer}>
+        <Button
+          className={cls.btn}
+          theme={ButtonTheme.LIGHT}
+          size={ButtonSize.L}
+          onClick={() => delProfile()}
+        >
+          delete profile
+        </Button>
+        <Button type={'submit'} theme={ButtonTheme.PRIMARY} size={ButtonSize.XS}>
+          Save Changes
+        </Button>
+      </div>
     </form>
   )
 }
