@@ -10,7 +10,6 @@ import { Sidebar } from '../Sidebar/ui/Sidebar'
 import cls from './Layout.module.scss'
 
 import { PATH } from 'shared/const/path'
-import { AuthProvider } from 'shared/hoc'
 
 export const Layout: NextPage<PropsWithChildren> = props => {
   const { asPath } = useRouter()
@@ -30,9 +29,7 @@ export const Layout: NextPage<PropsWithChildren> = props => {
 export const getLayout = (page: ReactElement) => {
   return (
     <>
-      <AuthProvider>
-        <Layout>{page}</Layout>
-      </AuthProvider>
+      <Layout>{page}</Layout>
       <ToastContainer />
     </>
   )

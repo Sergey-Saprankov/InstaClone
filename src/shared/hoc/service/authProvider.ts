@@ -16,11 +16,12 @@ const authMeApi = baseAPI.injectEndpoints({
 
           dispatch(setAuthMeDAta({ authMeData: data }))
         } catch (err) {
-          console.error(err)
+          // console.error(err)
         }
       },
     }),
   }),
+  overrideExisting: true,
 })
 
 export const { useAuthQuery } = authMeApi

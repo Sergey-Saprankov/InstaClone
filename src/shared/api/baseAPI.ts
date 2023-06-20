@@ -9,13 +9,13 @@ import { HYDRATE } from 'next-redux-wrapper'
 
 import { clearToken, setToken } from 'features/auth/login'
 import { BASE_URL } from 'shared/const/const'
-import { RootState } from 'store/store'
+import { RootStateType } from 'store/store'
 
 const baseQuery = fetchBaseQuery({
   baseUrl: BASE_URL,
   credentials: 'include',
   prepareHeaders: (headers, { getState }) => {
-    const accessToken = (getState() as RootState).login.accessToken
+    const accessToken = (getState() as RootStateType).login.accessToken
 
     if (accessToken) {
       headers.set('authorization', `Bearer ${accessToken}`)
