@@ -26,3 +26,5 @@ export default function App({ Component, pageProps, ...rest }: AppPropsWithLayou
 
   return <Provider store={store}>{getLayout(<Component {...pageProps} />)}</Provider>
 }
+
+//dev branch
