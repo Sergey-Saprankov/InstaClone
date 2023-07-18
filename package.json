@@ -8,11 +8,11 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "eslint": "eslint --fix --ext .js,.jsx,.ts,.tsx src"
+    "lint-fix": "eslint --fix"
   },
   "lint-staged": {
-    "lint": [
-      "yarn eslint"
+    "**/*.{js,ts,jsx,tsx}": [
+      "yarn lint-fix"
     ]
   },
   "dependencies": {
@@ -57,6 +57,7 @@
     "eslint-plugin-prettier": "^4.2.1",
     "eslint-plugin-react": "^7.30.1",
     "husky": "^8.0.3",
+    "lint-staged": "^13.2.3",
     "prettier": "^2.7.1",
     "prettier-config-it-incubator": "^1.0.1",
     "prettier-stylelint": "^0.4.2",
