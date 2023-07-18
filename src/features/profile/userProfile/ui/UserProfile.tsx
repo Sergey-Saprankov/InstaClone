@@ -7,6 +7,7 @@ import { useGetProfileQuery } from 'features/profile/profileSetting/generalInfor
 import { getUserId } from 'shared/hoc'
 import { useAppSelector } from 'shared/hooks/useAppSelector'
 import { Loader } from 'shared/ui/Loader/Loader'
+
 export const UserProfile = () => {
   const userId = useAppSelector(getUserId)
   const { data: profileData, isLoading: profileLoading } = useGetProfileQuery()
