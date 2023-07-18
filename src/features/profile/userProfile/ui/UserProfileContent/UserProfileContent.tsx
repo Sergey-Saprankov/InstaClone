@@ -1,25 +1,25 @@
-import React, { useCallback, useEffect, useState } from 'react'
+import React, { FC, memo, useCallback, useEffect, useState } from 'react'
 
 import { useInView } from 'react-intersection-observer'
+
+import { PostsResponse } from '../../service/types'
 
 import cls from './UserProfileContent.module.scss'
 
 import { Post } from 'features/post/ui/Post'
-import { useGetPostsQuery } from 'features/profile/userProfile/service/posts'
 import { getUserId } from 'shared/hoc'
 import { useAppSelector } from 'shared/hooks/useAppSelector'
 import { Card } from 'shared/ui/Card/Card'
-import { Loader } from 'shared/ui/Loader/Loader'
 
-export const UserProfileContent = () => {
+interface IUserProfileContentProps {
+  data?: PostsResponse
+}
+
+export const UserProfileContent: FC<IUserProfileContentProps> = memo(({ data }) => {
   const [currentId, setCurrentId] = useState<null | number>(null)
   const [page, setPage] = useState<number>(1)
 
   const userId = useAppSelector(getUserId)
-
-  const { data, isLoading } = useGetPostsQuery(userId, {
-    skip: !userId,
-  })
 
   const { ref, inView } = useInView()
 
@@ -38,13 +38,11 @@ export const UserProfileContent = () => {
     }
   }, [inView])
 
-  if (isLoading) return <Loader />
-
   return (
     <>
       <div className={cls.UserProfileContent}>
         {data &&
-          data?.items.map(({ id, images, description }) => {
+          data.items.map(({ id, images, description }) => {
             const mutableArray = [...images]
 
             mutableArray.sort((a, b) => a.width - b.width)
@@ -65,4 +63,4 @@ export const UserProfileContent = () => {
       <div ref={ref}></div>
     </>
   )
-}
+})
