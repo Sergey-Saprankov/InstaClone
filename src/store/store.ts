@@ -6,7 +6,6 @@ import {
   ReducersMapObject,
 } from '@reduxjs/toolkit'
 import { setupListeners } from '@reduxjs/toolkit/query'
-import { createWrapper } from 'next-redux-wrapper'
 import { toast } from 'react-toastify'
 
 import { StateSchema } from './stateSchema'
@@ -55,28 +54,31 @@ const rootReducer: ReducersMapObject<StateSchema> = {
   post: postReducer,
 }
 
-export const makeStore = () =>
-  configureStore({
-    reducer: rootReducer,
-    middleware: gDM => gDM().concat([baseAPI.middleware, rtkQueryErrorLogger]),
-    preloadedState: loadState(),
-  })
+// export const makeStore = () =>
+//   configureStore({
+//     reducer: rootReducer,
+//     middleware: gDM => gDM().concat([baseAPI.middleware, rtkQueryErrorLogger]),
+//     preloadedState: loadState(),
+//   })
 
-// export const store = configureStore({
-//   reducer: rootReducer,
-//   middleware: gDM => gDM().concat([baseAPI.middleware, rtkQueryErrorLogger]),
-//   preloadedState: loadState(),
-// })
+export const store = configureStore({
+  reducer: rootReducer,
+  middleware: gDM => gDM().concat([baseAPI.middleware, rtkQueryErrorLogger]),
+  preloadedState: loadState(),
+})
 
-export type RootStateType = ReturnType<typeof makeStore>
-export type RootState = ReturnType<RootStateType['getState']>
-export type AppDispatch = RootStateType['dispatch']
+// export type RootStateType = ReturnType<typeof makeStore>
+// export type RootState = ReturnType<RootStateType['getState']>
+// export type AppDispatch = RootStateType['dispatch']
 
-export const store = makeStore()
+// export const store = makeStore()
+
+export type RootStateType = ReturnType<typeof store.getState>
+export type AppDispatch = typeof store.dispatch
 
 setupListeners(store.dispatch)
 store.subscribe(() => {
   saveState(store.getState())
 })
 
-export const wrapper = createWrapper<RootStateType>(makeStore, { debug: true })
+// export const wrapper = createWrapper<RootStateType>(makeStore, { debug: true })
