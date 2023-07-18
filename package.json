@@ -15,8 +15,14 @@
   },
   "lint-staged": {
     "**/*.{js,ts,jsx,tsx}": [
-      "npm run lint-fix"
+      "npm run lint-fix",
+      "git add"
     ]
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
   },
   "dependencies": {
     "@headlessui/react": "^1.7.15",
