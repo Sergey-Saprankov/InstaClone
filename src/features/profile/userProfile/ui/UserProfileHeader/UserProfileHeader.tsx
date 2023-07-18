@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { FC, memo } from 'react'
 
 import Image from 'next/image'
 
@@ -9,14 +9,15 @@ import cls from './UserProfileHeader.module.scss'
 import { UserStats } from './UserStats/UserStats'
 
 import { useGetProfileQuery } from 'features/profile/profileSetting/generalInformation/service/profile'
+import { ProfileParamsType } from 'features/profile/profileSetting/generalInformation/service/types'
 import { Text, TextColorTheme, TextFontTheme } from 'shared/ui/Text/Text'
 
-export const UserProfileHeader = () => {
-  const { data } = useGetProfileQuery()
+interface IUserProfileHeaderProps {
+  data?: ProfileParamsType
+}
 
-  if (!data) return null
-
-  const url = data.avatars[0]?.url || defaultPhoto
+export const UserProfileHeader: FC<IUserProfileHeaderProps> = memo(({ data }) => {
+  const url = data?.avatars[0]?.url || defaultPhoto
 
   return (
     <div className={cls.UserProfileHeader}>
@@ -36,4 +37,4 @@ export const UserProfileHeader = () => {
       </div>
     </div>
   )
-}
+})
