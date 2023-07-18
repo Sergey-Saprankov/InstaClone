@@ -14,7 +14,7 @@ import { Loader } from 'shared/ui/Loader/Loader'
 export const UserProfile = () => {
   const userId = useAppSelector(getUserId)
   const { data: profileData, isLoading: profileLoading } = useGetProfileQuery()
-  const { data: postData, isLoading: postsLoading } = useGetPostsQuery(userId, {
+  const { data: postsData, isLoading: postsLoading } = useGetPostsQuery(userId, {
     skip: !userId,
   })
 
@@ -24,7 +24,7 @@ export const UserProfile = () => {
     <div className={cls.container}>
       <div className={cls.innerWrapper}>
         <UserProfileHeader data={profileData} />
-        <UserProfileContent data={postData} />
+        <UserProfileContent data={postsData} />
       </div>
     </div>
   )
