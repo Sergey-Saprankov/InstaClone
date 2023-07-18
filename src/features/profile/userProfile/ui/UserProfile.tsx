@@ -1,7 +1,5 @@
 import React from 'react'
-
 import { useGetPostsQuery } from '../service/posts'
-
 import cls from './UserProfile.module.scss'
 import { UserProfileContent } from './UserProfileContent/UserProfileContent'
 import { UserProfileHeader } from './UserProfileHeader/UserProfileHeader'
