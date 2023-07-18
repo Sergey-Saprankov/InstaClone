@@ -1,13 +1,15 @@
 import React from 'react'
 
+import { useGetPostsQuery } from '../service/posts'
+
 import cls from './UserProfile.module.scss'
 import { UserProfileContent } from './UserProfileContent/UserProfileContent'
 import { UserProfileHeader } from './UserProfileHeader/UserProfileHeader'
-import { useGetPostsQuery } from '../service/posts'
-import { useAppSelector } from 'shared/hooks/useAppSelector'
-import { getUserId } from 'shared/hoc'
-import { Loader } from 'shared/ui/Loader/Loader'
+
 import { useGetProfileQuery } from 'features/profile/profileSetting/generalInformation/service/profile'
+import { getUserId } from 'shared/hoc'
+import { useAppSelector } from 'shared/hooks/useAppSelector'
+import { Loader } from 'shared/ui/Loader/Loader'
 
 export const UserProfile = () => {
   const userId = useAppSelector(getUserId)
@@ -17,7 +19,7 @@ export const UserProfile = () => {
   })
 
   if (postsLoading || profileLoading) return <Loader />
-  
+
   return (
     <div className={cls.container}>
       <div className={cls.innerWrapper}>

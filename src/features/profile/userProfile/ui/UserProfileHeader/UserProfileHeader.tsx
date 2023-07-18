@@ -9,15 +9,14 @@ import cls from './UserProfileHeader.module.scss'
 import { UserStats } from './UserStats/UserStats'
 
 import { useGetProfileQuery } from 'features/profile/profileSetting/generalInformation/service/profile'
-import { Text, TextColorTheme, TextFontTheme } from 'shared/ui/Text/Text'
 import { ProfileParamsType } from 'features/profile/profileSetting/generalInformation/service/types'
+import { Text, TextColorTheme, TextFontTheme } from 'shared/ui/Text/Text'
 
 interface IUserProfileHeaderProps {
   data?: ProfileParamsType
 }
 
-export const UserProfileHeader: FC<IUserProfileHeaderProps> = memo(({data}) => {
-
+export const UserProfileHeader: FC<IUserProfileHeaderProps> = memo(({ data }) => {
   const url = data?.avatars[0]?.url || defaultPhoto
 
   return (
@@ -38,5 +37,4 @@ export const UserProfileHeader: FC<IUserProfileHeaderProps> = memo(({data}) => {
       </div>
     </div>
   )
-}
-)
+})

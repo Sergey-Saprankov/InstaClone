@@ -2,25 +2,24 @@ import React, { FC, memo, useCallback, useEffect, useState } from 'react'
 
 import { useInView } from 'react-intersection-observer'
 
+import { PostsResponse } from '../../service/types'
+
 import cls from './UserProfileContent.module.scss'
 
 import { Post } from 'features/post/ui/Post'
 import { getUserId } from 'shared/hoc'
 import { useAppSelector } from 'shared/hooks/useAppSelector'
 import { Card } from 'shared/ui/Card/Card'
-import { PostsResponse } from '../../service/types'
 
 interface IUserProfileContentProps {
   data?: PostsResponse
 }
 
-export const UserProfileContent: FC<IUserProfileContentProps> = memo(({data}) => {
+export const UserProfileContent: FC<IUserProfileContentProps> = memo(({ data }) => {
   const [currentId, setCurrentId] = useState<null | number>(null)
   const [page, setPage] = useState<number>(1)
 
   const userId = useAppSelector(getUserId)
-
-
 
   const { ref, inView } = useInView()
 
@@ -64,5 +63,4 @@ export const UserProfileContent: FC<IUserProfileContentProps> = memo(({data}) =>
       <div ref={ref}></div>
     </>
   )
-}
-)
+})
