@@ -1,18 +1,20 @@
 .Post {
   display: flex;
   align-items: center;
+
   width: 75vw;
   height: 85vh;
 
-  background-color: var(--dark-900);
   color: var(--light-100);
-  opacity: 1;
 
+  opacity: 1;
+  background-color: var(--dark-900);
   border: 1px solid var(--dark-100);
 }
 
 .imageContainer {
   position: relative;
+
   width: 40vw;
   height: 100%;
 }
@@ -20,6 +22,7 @@
 .postContainer {
   display: flex;
   flex-direction: column;
+
   width: 35vw;
   height: 100%;
 }
@@ -28,11 +31,13 @@
 
 .mainContent {
   flex-grow: 1;
+
   border-bottom: 1px solid var(--dark-100);
 }
 
 .otherBlock {
   height: 107px;
+
   border-bottom: 1px solid var(--dark-100);
 }
 

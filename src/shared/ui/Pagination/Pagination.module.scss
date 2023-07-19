@@ -3,33 +3,38 @@
   -khtml-user-select: none;
   user-select: none;
 
-  margin-top: 100px;
-  width: 100%;
   display: flex;
+  column-gap: 24px;
   align-items: center;
   justify-content: center;
-  column-gap: 24px;
+
+  width: 100%;
+  margin-top: 100px;
 }
 
 .paginationContainer {
   display: flex;
-  align-items: center;
   column-gap: 12px;
+  align-items: center;
+
+  color: var(--light-100);
 
   //background: white;
-  color: var(--light-100);
 }
 
 .paginationContainer button {
-  height: 24px;
-  min-width: 24px;
-  padding: 2px;
   display: flex;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
+
+  min-width: 24px;
+  height: 24px;
+  padding: 2px;
+
+  font: var(--font-regular-l);
 
   border-radius: 2px;
-  font: var(--font-regular-l);
+
   transition: background-color .2s;
 
   &:focus-visible {
@@ -37,12 +42,14 @@
   }
 
   &.active {
-    background-color: var(--light-100);
     color: var(--dark-900);
+
+    background-color: var(--light-100);
   }
 
   &.isDisabledDot {
     cursor: default;
+
     outline: none;
   }
 
@@ -52,25 +59,29 @@
 }
 
 .disabled {
-  //color: var(--dark-100);
-  opacity: 0.3;
   cursor: default;
+
+  opacity: 0.3;
   outline: none;
+
+  //color: var(--dark-100);
 }
 
 .arrowLeft {
   height: 6px;
+
   rotate: 90deg;
 }
 
 .arrowRight {
   height: 6px;
+
   rotate: -90deg;
 }
 
 .selectCountPageContainer {
   display: flex;
-  align-items: center;
   column-gap: 9px;
+  align-items: center;
 }
 

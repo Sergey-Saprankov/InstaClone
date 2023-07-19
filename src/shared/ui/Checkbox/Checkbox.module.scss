@@ -1,16 +1,17 @@
 .CheckBox {
+  cursor: pointer;
+
   position: relative;
+
   display: flex;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
 
   background: none;
-
   border: 2px solid var(--light-500);
-
   border-radius: 4px;
 
-  cursor: pointer;
+  transition: all .4s ease-in-out;
 
   &:hover {
     .decoration {
@@ -23,37 +24,37 @@
       }
     }
   }
-
-  transition: all .4s ease-in-out;
   
 }
 
 .decoration {
   position: absolute;
-  left: 50%;
+  z-index: -10;
   top: 50%;
+  left: 50%;
   transform: translate(-50%, -50%);
+
   width: 36px;
   height: 36px;
-  border-radius: 50%;
+
   background: none;
+  border-radius: 50%;
 
   transition: all .3s ease-in-out;
-
-  z-index: -10;
 }
 
 .container {
   display: flex;
-  align-items: center;
   gap: 11px;
+  align-items: center;
 
   &:focus {
     border: none;
     outline: none;
     .decoration {
-      background-color: var(--dark-500);
       z-index: -10;
+
+      background-color: var(--dark-500);
     }
   }
 }
@@ -65,8 +66,9 @@
 }
 
 .isDisabled {
-  border: 2px solid var(--light-900);
   cursor: inherit;
+
+  border: 2px solid var(--light-900);
   .decoration {
     display: none;
   }
@@ -83,7 +85,8 @@
 
 
 .label {
-  color: var(--light-100);
   cursor: pointer;
+
+  color: var(--light-100);
 }
 

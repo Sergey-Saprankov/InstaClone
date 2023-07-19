@@ -1,9 +1,10 @@
 .registration_container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
   width: 100vw;
   height: calc(100vh - 61px);
-  display: flex;
-  justify-content: center;
-  align-items: center;
 
   background-color: var(--dark-900);
 }

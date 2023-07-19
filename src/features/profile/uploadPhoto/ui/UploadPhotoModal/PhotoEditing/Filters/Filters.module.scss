@@ -1,43 +1,45 @@
 .Filters {
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
   width: 100%;
   height: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  overflow: hidden;
 
 }
 
 .innerWrapper {
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
-  align-items: center;
   gap: 30px;
+  align-items: center;
+  justify-content: center;
 }
 
 .container {
+  cursor: pointer;
+
   display: flex;
   flex-direction: column;
-  align-items: center;
   gap: 5px;
+  align-items: center;
+
+  transition: all .2s ease-in-out;
 
   &:hover {
     opacity: .8;
   }
-
-  transition: all .2s ease-in-out;
-
-  cursor: pointer;
 }
 
 .block {
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
   max-width: 5vw;
   max-height: 10vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: var(--dark-100);
 
-  overflow: hidden;
+  background-color: var(--dark-100);
 }

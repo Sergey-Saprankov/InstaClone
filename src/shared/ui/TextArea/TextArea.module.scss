@@ -1,31 +1,36 @@
 .textArea{
-  position: relative;
-  width: 100%;
-  overflow: hidden;
-  padding: 6px 12px;
-  border: 1px solid var(--dark-300);
-  border-radius: 2px;
   resize: none;
+
+  position: relative;
+
+  overflow: hidden;
+
+  width: 100%;
+  padding: 6px 12px;
+
   font: var(--font-regular-xl);
   color: var(--light-100);
+
   background-color: var(--dark-500);
+  border: 1px solid var(--dark-300);
+  border-radius: 2px;
   outline: none;
 
   &:active {
     color: var(--light-100);
+
     border-color: var(--light-100);
   }
 
   &:hover {
     color: var(--light-900);
+
     border-color: var(--dark-100);
   }
-  //&:focus-visible {
-  //  outline: 2px solid var(--primary-700);
-  //}
 
   &:disabled {
     color: var(--dark-100);
+
     border-color: var(--dark-100);
   }
 }
@@ -38,6 +43,7 @@
 
 .label {
   position: relative;
+
   color: var(--light-900);
 }
 
@@ -50,12 +56,12 @@
   border: none;
 
   &:active {
-    outline: none;
     border: none;
+    outline: none;
   }
 
   &:focus {
-    outline: none;
     border: none;
+    outline: none;
   }
 }

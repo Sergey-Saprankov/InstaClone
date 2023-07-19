@@ -1,11 +1,13 @@
 .Header {
   position: sticky;
   top: 0;
+
+  display: flex;
+  justify-content: space-between;
+
   width: 100%;
   height: 61px;
   padding: 12px 60px;
-  display: flex;
-  justify-content: space-between;
 
   background-color: var(--dark-700);
   border-bottom: 1px solid var(--dark-300);

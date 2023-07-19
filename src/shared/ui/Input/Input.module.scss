@@ -1,10 +1,11 @@
 .Input {
-  padding: 5px 0 5px 5px;
   width: 100%;
+  padding: 5px 0 5px 5px;
 
   color: var(--light-100);
-  border-bottom: 1px solid var(--dark-300);
+
   background: none;
+  border-bottom: 1px solid var(--dark-300);
   caret-color: var(--light-100);
 
   &:hover {
@@ -35,15 +36,13 @@
 
 .label {
   position: relative;
+
   color: var(--light-900);
-  //&:focus-within {
-  //  outline: 2px solid var(--primary-700);
-  //}
 }
 
 .btn {
   position: absolute;
-  right: 5px;
   top: 20px;
+  right: 5px;
 }
 

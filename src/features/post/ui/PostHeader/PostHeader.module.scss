@@ -1,21 +1,26 @@
 .PostHeader {
-    padding: 11px 25px;
-    width: 100%;
     display: flex;
     justify-content: space-between;
+
+    width: 100%;
+    padding: 11px 25px;
+
     border-bottom: 1px solid var(--dark-100);
 
     .userContainer {
       display: flex;
-      align-items: center;
       gap: 12px;
+      align-items: center;
 
       .avatarContainer {
         position: relative;
+
+        overflow: hidden;
+
         width: 36px;
         height: 36px;
+
         border-radius: 50%;
-        overflow: hidden;
       }
     }
 }

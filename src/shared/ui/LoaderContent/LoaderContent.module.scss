@@ -1,27 +1,32 @@
 .Loader {
   position: absolute;
+  z-index: 10;
   top: 0;
+  right: 0;
   bottom: 0;
   left: 0;
-  right: 0;
+
   display: flex;
-  justify-content: center;
   align-items: center;
-  z-index: 10;
-  background: var(--dark-900);
+  justify-content: center;
+
   opacity: .9;
+  background: var(--dark-900);
 }
 
 .loader {
+  display: inline-block;
+
+  box-sizing: border-box;
   width: 20px;
   height: 20px;
+
   border: 3px solid var(--light-100);
-  border-bottom-color:  var(--dark-100);
   border-right-color: var(--dark-100);
+  border-bottom-color:  var(--dark-100);
   border-left-color: var(--dark-100);
   border-radius: 50%;
-  display: inline-block;
-  box-sizing: border-box;
+
   animation: rotation 0.7s linear infinite;
 }
 
@@ -36,6 +41,7 @@
 
 .text {
   margin-left: 10px;
+
   font: var(--font-size-regular-m);
   color: var(--light-100);
 }

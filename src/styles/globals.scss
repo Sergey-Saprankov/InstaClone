@@ -91,8 +91,9 @@
 
 
 * {
-  padding: 0;
   margin: 0;
+  padding: 0;
+
   border: none;
 }
 
@@ -140,16 +141,19 @@ input, textarea, button, select {
   font-family: inherit;
   font-size: inherit;
   color: inherit;
+
   background-color: transparent;
 }
 
 
 button, input[type="submit"] {
+  cursor: pointer;
+
   display: inline-block;
-  box-shadow: none;
+
   background: transparent;
   background: none;
-  cursor: pointer;
+  box-shadow: none;
 }
 
 input:focus, input:active,
@@ -159,6 +163,7 @@ button:focus, button:active {
 
 button::-moz-focus-inner {
   padding: 0;
+
   border: 0;
 }
 
@@ -180,20 +185,24 @@ textarea:-webkit-autofill:focus,
 select:-webkit-autofill,
 select:-webkit-autofill:hover,
 select:-webkit-autofill:focus {
-  border-bottom: 1px solid var(--dark-300);
-  -webkit-text-fill-color: var(--light-100);
-  -webkit-box-shadow: 0 0 0 1000px var(--dark-500) inset;
-  transition: background-color 5000s ease-in-out 0s;
   background: -webkit-linear-gradient(top, rgba(255, 255, 255, 0) 0%, rgba(0, 174, 255, 0.04) 50%, rgba(255, 255, 255, 0) 51%, rgba(0, 174, 255, 0.03) 100%);
+  border-bottom: 1px solid var(--dark-300);
+  -webkit-box-shadow: 0 0 0 1000px var(--dark-500) inset;
+
+  transition: background-color 5000s ease-in-out 0s;
+
+  -webkit-text-fill-color: var(--light-100);
 }
 
 
 
 body {
-  font: var(--font-regular-l);
+  overflow-x: hidden;
+
   width: 100vw;
   min-height: 100vh;
 
+  font: var(--font-regular-l);
+
   background-color: var(--dark-900);
-  overflow-x: hidden;
 }

@@ -1,5 +1,6 @@
 .wrapper {
   position: relative;
+
   width: min-content;
 
   .absolute {
@@ -10,25 +11,29 @@
 
 .day {
   display: flex;
-  justify-content: center;
   align-items: center;
-  margin: 0;
+  justify-content: center;
+
   width: 36px;
   height: 36px;
-  color: var(--light-100);
-  border-radius: 50%;
+  margin: 0;
+
   font: var(--font-regular-xl);
+  color: var(--light-100);
+
+  border-radius: 50%;
+
+  transition: all .2s ease-in-out;
   &:hover {
     background-color: var(--primary-500);
     border-radius: 50%;
   }
 
   &:active {
-    background-color: var(--primary-900);
     color: var(--dark-100);
-  }
 
-  transition: all .2s ease-in-out;
+    background-color: var(--primary-900);
+  }
 }
 
 .calendar {
@@ -49,12 +54,14 @@
 }
 
 .wrapper {
-  width: min-content;
   cursor: pointer;
+
+  width: min-content;
 }
 
 .container {
   display: flex;
+
   width: min-content;
 }
 
@@ -67,9 +74,10 @@
 }
 
 .label {
-  color: var(--light-900);
   display: flex;
   flex-direction: column;
+
+  color: var(--light-900);
 }
 
 .customInput {

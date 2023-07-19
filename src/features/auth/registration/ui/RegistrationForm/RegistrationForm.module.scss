@@ -1,7 +1,9 @@
 @import 'features/auth/logOut/ui/LogOutComponent.module';
 
 .form {
+
   @extend .parentForm;
+
   padding: 29px 23px 18px 25px;
 }
 

@@ -1,29 +1,35 @@
 .itemContainer {
-  padding: 12px;
   display: flex;
   column-gap: 12px;
+
+  padding: 12px;
 }
 
 .item {
+  cursor: pointer;
+
   position: relative;
+
   width: 76px;
   height: 82px;
+
   background-repeat: no-repeat;
-  background-size: cover;
   background-position: center;
-  cursor: pointer;
+  background-size: cover;
 }
 
 .deleteIcon {
-  width: 14px;
-  height: 14px;
-  padding: 3px;
+  cursor: pointer;
+
   position: absolute;
   top: 2px;
   right: 2px;
 
+  width: 14px;
+  height: 14px;
+  padding: 3px;
+
   background-color: var(--dark-500);
-  cursor: pointer;
 }
 
 .popoverPanel {
