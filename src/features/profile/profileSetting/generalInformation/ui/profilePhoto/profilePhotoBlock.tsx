@@ -4,6 +4,7 @@ import Image from 'next/image'
 
 import Photo from '../../../../../../../public/icon/photo.svg'
 import defaultPhoto from '../../../../../../../public/test/defaulAva.jpg'
+import { LangSwitcher } from '../../../../../../widgets/LangSwitcher'
 
 import cls from './profilePhotoBlock.module.scss'
 
@@ -38,6 +39,7 @@ export const ProfilePhotoBlock = () => {
         Add a Profile Photo
       </Button>
       <SettingPhotoModal isModalOpen={isModalOpen} setIsModalOpen={setIsModalOpen} />
+      <LangSwitcher className={cls.langSwitcher} />
     </div>
   )
 }
