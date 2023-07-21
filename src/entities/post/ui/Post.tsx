@@ -2,11 +2,10 @@ import { FC, memo, useCallback, useState } from 'react'
 
 import Image from 'next/image'
 
+import { useGetPostQuery } from '../service/post'
+
 import cls from './Post.module.scss'
 
-import { useGetPostQuery } from 'features/post/service/post'
-import { PostHeader } from 'features/post/ui/PostHeader/PostHeader'
-import { PostMessage } from 'features/post/ui/PostMessage/PostMessage'
 import { useGetProfileQuery } from 'features/profile/profileSetting/generalInformation/service/profile'
 import { LoaderContent } from 'shared/ui/LoaderContent/LoaderContent'
 import { Modal } from 'shared/ui/Modal/Modal'
@@ -44,12 +43,12 @@ export const Post: FC<PostProps> = memo(({ currentId, callBack }) => {
                 fill={true}
               />
             </div>
-            <div className={cls.postContainer}>
+            {/* <div className={cls.postContainer}>
               <PostHeader avatar={avatar} userName={userName} />
               <div className={cls.mainContent}></div>
               <div className={cls.otherBlock}></div>
               <PostMessage />
-            </div>
+            </div> */}
           </>
         )}
       </div>

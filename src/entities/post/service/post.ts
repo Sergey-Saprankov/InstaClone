@@ -1,4 +1,5 @@
-import { ResponsePost } from 'features/post/service/types'
+import { ResponsePost } from './types'
+
 import { baseAPI } from 'shared/api/baseAPI'
 
 const post = baseAPI.injectEndpoints({

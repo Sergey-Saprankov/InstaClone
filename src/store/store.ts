@@ -12,7 +12,6 @@ import { StateSchema } from './stateSchema'
 
 import { loginReducer } from 'features/auth/login'
 import { registrationReducer } from 'features/auth/registration/model/slice/registrationSlice'
-import { postReducer } from 'features/post/model/slice/loginSlice'
 import { uploadPhotoReducer } from 'features/profile/uploadPhoto'
 import { baseAPI } from 'shared/api/baseAPI'
 import { authMeReducer } from 'shared/hoc'
@@ -51,7 +50,6 @@ const rootReducer: ReducersMapObject<StateSchema> = {
   registration: registrationReducer,
   authMe: authMeReducer,
   uploadPhoto: uploadPhotoReducer,
-  post: postReducer,
 }
 
 // export const makeStore = () =>

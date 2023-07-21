@@ -6,7 +6,7 @@ import { PostsResponse } from '../../service/types'
 
 import cls from './UserProfileContent.module.scss'
 
-import { Post } from 'features/post/ui/Post'
+import { Post } from 'entities/post'
 import { getUserId } from 'shared/hoc'
 import { useAppSelector } from 'shared/hooks/useAppSelector'
 import { Card } from 'shared/ui/Card/Card'
