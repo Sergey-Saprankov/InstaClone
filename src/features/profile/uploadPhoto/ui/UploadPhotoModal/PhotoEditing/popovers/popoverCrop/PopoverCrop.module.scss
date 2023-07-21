@@ -1,11 +1,14 @@
 .item {
   cursor: pointer;
+
   display: flex;
-  align-items: center;
   column-gap: 12px;
+  align-items: center;
+
   padding: 14px 18px;
   &:not(:last-child) {
-    border-bottom: 1px solid var(--dark-300);
     width: 100%;
+
+    border-bottom: 1px solid var(--dark-300);
   }
 }

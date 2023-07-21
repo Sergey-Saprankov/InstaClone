@@ -3,24 +3,28 @@
 }
 
 .popoverPanel {
-  display: flex;
-  flex-direction: column;
-
-  min-width: 120px;
   position: absolute;
   z-index: 10;
   bottom: 50px;
 
-  border-radius: 7px;
-  background-color: var(--dark-500);
+  display: flex;
+  flex-direction: column;
+
+  min-width: 120px;
+
   color: var(--light-100);
+
+  background-color: var(--dark-500);
+  border-radius: 7px;
 }
 
 .popoverButton {
-  padding: 8px;
   display: flex;
   align-items: center;
   justify-content: center;
-  border-radius: 50%;
+
+  padding: 8px;
+
   background-color: var(--dark-500);
+  border-radius: 50%;
 }

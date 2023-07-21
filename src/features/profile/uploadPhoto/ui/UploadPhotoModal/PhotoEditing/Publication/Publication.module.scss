@@ -1,22 +1,24 @@
 .Publication {
+  overflow: hidden;
   display: flex;
   flex-direction: column;
-  overflow: hidden;
 }
 
 .userInfo {
   display: flex;
-  align-items: center;
   gap: 12px;
+  align-items: center;
+
   margin-bottom: 19px;
 }
 
 .avatarContainer {
+  overflow: hidden;
+
   width: 38px;
   height: 38px;
-  border-radius: 50%;
 
-  overflow: hidden;
+  border-radius: 50%;
 }
 
 .textArea {
@@ -25,5 +27,6 @@
 
 .count {
   align-self: flex-end;
+
   margin-top: -4px;
 }

@@ -24,6 +24,8 @@ export const PasswordRecovery = ({ setIsModalOpen }: RegistrationFormType) => {
   const [token, setToken] = useState<string | null>(null)
   const dispatch = useAppDispatch()
 
+  console.log()
+
   const onSubmit = handleSubmit(data => {
     if (!token) {
       return
@@ -99,11 +101,7 @@ export const PasswordRecovery = ({ setIsModalOpen }: RegistrationFormType) => {
       <div className={s.mb29}></div>
 
       <div className={s.recaptcha}>
-        <ReCAPTCHA
-          sitekey="6LeY2y0mAAAAANwI_paCWfoksCgBm1n2z9J0nwNQ"
-          onChange={onChange}
-          theme={'dark'}
-        />
+        <ReCAPTCHA sitekey={process.env.NEXT_PUBLIC_SITE_KEY as string} theme={'dark'} />
       </div>
     </form>
   )

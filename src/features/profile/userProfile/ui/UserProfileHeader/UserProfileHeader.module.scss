@@ -4,19 +4,21 @@
 }
 
 .avatarContainer {
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
   width: 150px;
   height: 150px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+
   border-radius: 50%;
-  overflow: hidden;
 }
 
 .userProfileInfoContainer {
-  flex-grow: 1;
   display: flex;
   flex-direction: column;
+  flex-grow: 1;
   gap: 20px;
 }
 

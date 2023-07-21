@@ -1,13 +1,15 @@
 .PostMessage {
   display: flex;
-  padding:0 20px;
   align-items: center;
   justify-content: space-between;
+
   height: 50px;
+  padding:0 20px;
 }
 
 .textArea {
   flex-grow: 1;
-  padding: 5px 0;
+
   height: 100%;
+  padding: 5px 0;
 }

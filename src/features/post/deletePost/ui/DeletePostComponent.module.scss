@@ -1,7 +1,8 @@
 .parentForm {
-  width: 378px;
   display: flex;
   flex-direction: column;
+
+  width: 378px;
 
   background-color: var(--dark-500);
   border: 1px solid var(--dark-300);
@@ -15,11 +16,11 @@
 }
 
 .iconContainer {
-  padding: 0 100px;
   display: flex;
   justify-content: space-between;
 
   margin-bottom: 22px;
+  padding: 0 100px;
 }
 
 .transform {

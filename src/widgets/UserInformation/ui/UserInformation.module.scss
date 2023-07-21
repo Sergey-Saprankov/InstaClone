@@ -1,12 +1,13 @@
 .UserInformation {
   display: flex;
   flex-direction: column;
-  color: var(--light-100);
   gap: 24px;
+
+  color: var(--light-100);
 }
 
 .navLink {
   display: flex;
-  align-items: center;
   gap: 12px;
+  align-items: center;
 }

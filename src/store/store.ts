@@ -72,6 +72,7 @@ export const store = configureStore({
 // export type AppDispatch = RootStateType['dispatch']
 
 // export const store = makeStore()
+// testing text
 
 export type RootStateType = ReturnType<typeof store.getState>
 export type AppDispatch = typeof store.dispatch

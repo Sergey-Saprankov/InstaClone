@@ -1,47 +1,59 @@
 .Loader {
   position: fixed;
+  z-index: 2000;
   top: 0;
+  right: 0;
   bottom: 0;
   left: 0;
-  right: 0;
+
   display: flex;
-  justify-content: center;
   align-items: center;
-  z-index: 2000;
-  background: var(--dark-900);
+  justify-content: center;
+
   opacity: .9;
+  background: var(--dark-900);
 }
 
 .loader {
+  position: relative;
+
+  display: block;
+
+  box-sizing: border-box;
   width: 8px;
   height: 40px;
-  border-radius: 4px;
-  display: block;
   margin: 20px auto;
-  position: relative;
-  background: var(--primary-500);
+
   color: var(--color-dark);
-  box-sizing: border-box;
+
+  background: var(--primary-500);
+  border-radius: 4px;
+
   animation: animloader 0.3s 0.3s linear infinite alternate;
 }
 
 .loader::after,
 .loader::before {
   content: '';
+
+  position: absolute;
+  z-index: 2000;
+  top: 50%;
+  left: 20px;
+  transform: translateY(-50%);
+
+  box-sizing: border-box;
   width: 8px;
   height: 40px;
-  border-radius: 4px;
+
   background: var(--primary-500);
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  left: 20px;
-  box-sizing: border-box;
+  border-radius: 4px;
+
   animation: animloader 0.3s 0.45s linear infinite alternate;
-  z-index: 2000;
 }
 .loader::before {
   left: -20px;
+
   animation-delay: 0s;
 }
 

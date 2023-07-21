@@ -10,8 +10,10 @@
 
 .button {
   padding: 6px 24px;
-  color: var(--dark-100);
+
   font: var(--font-semiBold-l);
+  color: var(--dark-100);
+
   border-bottom: 2px solid var(--dark-100);
 
   &:hover:not(&:disabled) {
@@ -20,29 +22,35 @@
 
   &:disabled:not(.buttonActive) {
     cursor: default;
-    border-color: var(--dark-300);
+
     color: var(--dark-300);
+
+    border-color: var(--dark-300);
   }
 
   &:focus-visible:not(&:disabled) {
-    outline: 2px solid var(--primary-700);
     border-radius: 2px;
+    outline: 2px solid var(--primary-700);
   }
 }
 
 .buttonActive {
   color: var(--primary-500);
+
   border-bottom: 2px solid var(--primary-500);
 
   &:disabled {
     cursor: default;
+
     color: var(--primary-900);
+
     border-color: var(--primary-900);
   }
 }
 
 .content {
   display: none;
+
   color: white;
 }
 

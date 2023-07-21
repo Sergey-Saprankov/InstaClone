@@ -11,9 +11,13 @@
     "postinstall": "husky install",
     "prepack": "pinst --disable",
     "postpack": "pinst --enable",
-    "lint-fix": "eslint --fix"
+    "lint-fix": "eslint --fix",
+    "stylelint-fix": "stylelint \"**/*.{css,scss}\" --fix"
   },
   "lint-staged": {
+    "**/*.{css,scss}": [
+      "npm run stylelint-fix"
+    ],
     "**/*.{js,ts,jsx,tsx}": [
       "npm run lint-fix"
     ]
