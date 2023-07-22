@@ -7,14 +7,14 @@ import defaultPhoto from '../../../../../../../public/test/defaulAva.jpg'
 
 import cls from './profilePhotoBlock.module.scss'
 
-import { useGetProfileQuery } from 'features/profile/profileSetting/generalInformation/service/profile'
 import { SettingPhotoModal } from 'features/profile/profileSetting/photoSetting/ui/SettingPhotoModal/SettingPhotoModal'
+import { useGetUserInfoQuery } from 'modules/user/service/user'
 import { Button, ButtonSize, ButtonTheme } from 'shared/ui/Button/Button'
 
 export const ProfilePhotoBlock = () => {
   const [isModalOpen, setIsModalOpen] = useState<boolean>(false)
 
-  const { data } = useGetProfileQuery()
+  const { data } = useGetUserInfoQuery()
 
   const url = data?.avatars[0]?.url || defaultPhoto
 

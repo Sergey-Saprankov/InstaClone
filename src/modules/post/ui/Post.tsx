@@ -10,7 +10,7 @@ import { useGetPostQuery } from '../service/post'
 import cls from './Post.module.scss'
 import { PostHeader } from './PostHeader/PostHeader'
 
-import { useGetProfileQuery } from 'features/profile/profileSetting/generalInformation/service/profile'
+import { useGetUserInfoQuery } from 'modules/user/service/user'
 import { classNames } from 'shared/lib/classNames/classNames'
 import { Button, ButtonTheme } from 'shared/ui/Button/Button'
 import { Loader } from 'shared/ui/Loader/Loader'

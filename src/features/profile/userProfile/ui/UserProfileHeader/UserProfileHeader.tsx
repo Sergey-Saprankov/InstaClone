@@ -8,8 +8,7 @@ import { UserInfoHeader } from './UserInfoHeader/UserInfoHeader'
 import cls from './UserProfileHeader.module.scss'
 import { UserStats } from './UserStats/UserStats'
 
-import { useGetProfileQuery } from 'features/profile/profileSetting/generalInformation/service/profile'
-import { ProfileParamsType } from 'features/profile/profileSetting/generalInformation/service/types'
+import { ProfileParamsType } from 'modules/user/service/types'
 import { Text, TextColorTheme, TextFontTheme } from 'shared/ui/Text/Text'
 
 interface IUserProfileHeaderProps {
