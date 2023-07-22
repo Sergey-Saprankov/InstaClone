@@ -20,7 +20,7 @@
   height: 100%;
 
   opacity: 1;
-  background-color: rgba(0, 0, 0, 0.2);
+  background-color: rgba(0, 0, 0, 0.888);
 }
 
 .opened {
@@ -32,12 +32,11 @@
 }
 
 .closeIcon {
-  pointer-events: none;
   cursor: pointer;
 
   position: absolute;
-  top: 20px;
-  right: 20px;
+  top: 5px;
+  right: 15px;
 
   overflow: hidden;
 }

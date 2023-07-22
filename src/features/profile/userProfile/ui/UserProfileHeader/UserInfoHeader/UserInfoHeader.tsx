@@ -6,14 +6,14 @@ import Star from '../../../../../../../public/icon/Star.svg'
 
 import cls from './UserInfoHeader.module.scss'
 
-import { useGetProfileQuery } from 'features/profile/profileSetting/generalInformation/service/profile'
+import { useGetUserInfoQuery } from 'modules/user/service/user'
 import { PATH } from 'shared/const/path'
 import { Button, ButtonSize, ButtonTheme } from 'shared/ui/Button/Button'
 import { Text, TextColorTheme, TextFontTheme } from 'shared/ui/Text/Text'
 
 export const UserInfoHeader = () => {
   const { push } = useRouter()
-  const { data } = useGetProfileQuery()
+  const { data } = useGetUserInfoQuery()
 
   if (!data) return null
 
