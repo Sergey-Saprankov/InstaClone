@@ -6,7 +6,7 @@ import { PostsResponse } from '../../service/types'
 
 import cls from './UserProfileContent.module.scss'
 
-import { Post } from 'features/post/ui/Post'
+import { Post } from 'modules/post'
 import { getUserId } from 'shared/hoc'
 import { useAppSelector } from 'shared/hooks/useAppSelector'
 import { Card } from 'shared/ui/Card/Card'
@@ -17,14 +17,16 @@ interface IUserProfileContentProps {
 
 export const UserProfileContent: FC<IUserProfileContentProps> = memo(({ data }) => {
   const [currentId, setCurrentId] = useState<null | number>(null)
+  const [currentImg, setCurrentImg] = useState<string>('')
   const [page, setPage] = useState<number>(1)
 
   const userId = useAppSelector(getUserId)
 
   const { ref, inView } = useInView()
 
-  const getCurrentPostId = useCallback((id: number | null) => {
+  const getCurrentPostId = useCallback((id: number | null, src: string) => {
     setCurrentId(id)
+    setCurrentImg(src)
   }, [])
 
   useEffect(() => {
@@ -58,7 +60,7 @@ export const UserProfileContent: FC<IUserProfileContentProps> = memo(({ data }) 
               />
             )
           })}
-        {currentId && <Post callBack={getCurrentPostId} currentId={currentId} />}
+        {currentId && <Post src={currentImg} callBack={getCurrentPostId} currentId={currentId} />}
       </div>
       <div ref={ref}></div>
     </>
