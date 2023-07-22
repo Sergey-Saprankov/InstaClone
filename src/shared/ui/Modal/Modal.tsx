@@ -1,4 +1,4 @@
-import { FC, memo, MouseEvent, ReactNode } from 'react'
+import { FC, memo, MouseEvent, ReactNode, useEffect } from 'react'
 
 import Close from '../../../../public/icon/close.svg'
 
@@ -14,6 +14,13 @@ interface ModalProps {
 }
 
 export const Modal: FC<ModalProps> = memo(({ callback, isOpen, children }) => {
+  useEffect(() => {
+    document.body.style.overflow = 'hidden'
+
+    return () => {
+      document.body.style.overflow = 'unset'
+    }
+  }, [isOpen])
   const onClickContentHandler = (e: MouseEvent<HTMLDivElement>) => {
     e.stopPropagation()
   }
