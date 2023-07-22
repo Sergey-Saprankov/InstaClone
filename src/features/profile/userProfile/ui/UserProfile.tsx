@@ -1,8 +1,5 @@
 import React, { useEffect, useState } from 'react'
 
-import { useRouter } from 'next/router'
-
-import { PATH } from '../../../../shared/const/path'
 import { LoaderContent } from '../../../../shared/ui/LoaderContent/LoaderContent'
 import { SomethingWentWrong } from '../../../../shared/ui/SomethingWentWrong/SomethingWentWrong'
 import { useGetPostsQuery } from '../service/posts'
@@ -14,7 +11,6 @@ import { UserProfileHeader } from './UserProfileHeader/UserProfileHeader'
 import { useGetUserInfoQuery } from 'modules/user/service/user'
 import { getUserId } from 'shared/hoc'
 import { useAppSelector } from 'shared/hooks/useAppSelector'
-import { Loader } from 'shared/ui/Loader/Loader'
 
 export const UserProfile = () => {
   const [isLoading, setIsLoading] = useState(true)
