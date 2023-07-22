@@ -21,7 +21,7 @@ export const Sidebar = () => {
     <aside className={classNames(cls.Sidebar, mods, [])}>
       <div className={cls.innerWrapper}>
         <div onClick={() => setIsOpen(prev => !prev)} className={cls.decor}>
-          <Arrow className={isOpen ? '' : cls.close} />
+          <Arrow width={'7'} height={'12'} className={isOpen ? '' : cls.close} />
         </div>
         <Text
           className={isOpen ? cls.fontNone : cls.text}
