@@ -3,14 +3,14 @@ export interface PostsResponse {
   pagesCount: number
   page: number
   pageSize: number
-  items: Post[]
+  items: IPost[]
 }
 
 export interface PostRequest {
   userId: number
 }
 
-interface Post {
+export interface IPost {
   id: number
   description: string
   location: string

@@ -11,12 +11,12 @@ interface CardProps {
   id: number
   src: string
   alt: string
-  callBack: (value: number, src: string) => void
+  callBack: (value: number) => void
 }
 
 export const Card: FC<CardProps> = memo(({ className = '', id, src, alt, callBack }) => {
   const onClickHandler = () => {
-    callBack(id, src)
+    callBack(id)
   }
 
   return (
