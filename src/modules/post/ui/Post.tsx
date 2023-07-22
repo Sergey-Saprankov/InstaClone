@@ -9,7 +9,7 @@ import { useGetPostQuery } from '../service/post'
 
 import cls from './Post.module.scss'
 
-import { useGetProfileQuery } from 'features/profile/profileSetting/generalInformation/service/profile'
+import { useGetUserInfoQuery } from 'modules/user/service/user'
 import { classNames } from 'shared/lib/classNames/classNames'
 import { Button, ButtonTheme } from 'shared/ui/Button/Button'
 import { Loader } from 'shared/ui/Loader/Loader'
@@ -29,7 +29,7 @@ interface PostProps {
 
 export const Post: FC<PostProps> = memo(
   ({ currentId, callBack, src, alt, onChangeStep, step, endIndex, currentIndex }) => {
-    // const { data: userData } = useGetProfileQuery()
+    // const { data: userData } = useGetUserInfoQuery()
     const { data, isLoading } = useGetPostQuery(currentId, { skip: !currentId })
     const [isOpen, setIsOpen] = useState(Boolean(currentId))
     // const userName = userData?.userName ?? ''

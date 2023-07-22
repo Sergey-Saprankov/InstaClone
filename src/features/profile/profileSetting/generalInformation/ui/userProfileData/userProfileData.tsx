@@ -1,13 +1,10 @@
 import { Controller } from 'react-hook-form'
 
-import {
-  useDelProfileMutation,
-  useGetProfileQuery,
-  useUpdateProfileMutation,
-} from '../../service/profile'
+import { useDelProfileMutation, useUpdateProfileMutation } from '../../service/profile'
 
 import cls from './userProfileData.module.scss'
 
+import { useGetUserInfoQuery } from 'modules/user/service/user'
 import { useProfileDataForm } from 'shared/hooks/useProfileDataForm'
 import { useSetValuesFromProfileData } from 'shared/hooks/useSetValuesFromProfileData'
 import { Button, ButtonSize, ButtonTheme } from 'shared/ui/Button/Button'
@@ -18,7 +15,7 @@ import { LoaderContent } from 'shared/ui/LoaderContent/LoaderContent'
 
 export const UserProfileData = () => {
   const { control, handleSubmit, setValue } = useProfileDataForm()
-  const { data: profileData, isLoading: isLoadingGetProfile } = useGetProfileQuery()
+  const { data: profileData, isLoading: isLoadingGetProfile } = useGetUserInfoQuery()
   const [profile, { isLoading: isLoadingUpdateProfile }] = useUpdateProfileMutation()
   const [delProfile] = useDelProfileMutation()
 
