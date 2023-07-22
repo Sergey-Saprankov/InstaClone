@@ -1,5 +1,10 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 
+import { useRouter } from 'next/router'
+
+import { PATH } from '../../../../shared/const/path'
+import { LoaderContent } from '../../../../shared/ui/LoaderContent/LoaderContent'
+import { SomethingWentWrong } from '../../../../shared/ui/SomethingWentWrong/SomethingWentWrong'
 import { useGetPostsQuery } from '../service/posts'
 
 import cls from './UserProfile.module.scss'
@@ -12,19 +17,38 @@ import { useAppSelector } from 'shared/hooks/useAppSelector'
 import { Loader } from 'shared/ui/Loader/Loader'
 
 export const UserProfile = () => {
+  const [isLoading, setIsLoading] = useState(true)
   const userId = useAppSelector(getUserId)
-  const { data: profileData, isLoading: profileLoading } = useGetUserInfoQuery()
-  const { data: postsData, isLoading: postsLoading } = useGetPostsQuery(userId, {
+  const {
+    data: profileData,
+    isSuccess: isSuccessUser,
+    isLoading: isLoadingUser,
+    isError: isErrorUser,
+  } = useGetUserInfoQuery()
+  const {
+    data: postsData,
+    isSuccess: isSuccessPost,
+    isLoading: isLoadingPosts,
+    isError: isErrorPosts,
+  } = useGetPostsQuery(userId, {
     skip: !userId,
   })
 
-  if (postsLoading || profileLoading) return <Loader />
+  useEffect(() => {
+    if (!isLoadingUser && !isLoadingPosts) setIsLoading(false)
+  }, [isLoadingPosts, isLoadingUser])
 
   return (
     <div className={cls.container}>
       <div className={cls.innerWrapper}>
-        <UserProfileHeader data={profileData} />
-        <UserProfileContent data={postsData} />
+        {isLoading && <LoaderContent isText />}
+        {(isErrorPosts || isErrorUser) && <SomethingWentWrong />}
+        {isSuccessPost && isSuccessUser && (
+          <>
+            <UserProfileHeader data={profileData} />
+            <UserProfileContent data={postsData} />
+          </>
+        )}
       </div>
     </div>
   )
