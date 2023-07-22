@@ -1,4 +1,6 @@
 .Post {
+  position: relative;
+
   display: flex;
   align-items: center;
 
@@ -20,10 +22,12 @@
 }
 
 .postContainer {
+  position: relative;
+
   display: flex;
   flex-direction: column;
 
-  width: 40vw;
+  width: 35vw;
   height: 100%;
 }
 
@@ -41,6 +45,40 @@
   border-bottom: 1px solid var(--dark-100);
 }
 
-.loader {
-  opacity: 1;
+.decor {
+  cursor: pointer;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 32px;
+  height: 32px;
+
+  background-color: var(--light-100);
+  border-radius: 50%;
+
+  transition: all .2s ease-in-out;
+
+  &:hover {
+    opacity: .6;
+  }
+}
+
+.arrow {
+  fill: var(--dark-900);
+}
+
+.rotate {
+  transform: rotate(180deg);
+}
+
+.arrowLeftPosition {
+  position: absolute;
+  left: -6vw;
+}
+
+.arrowRightPosition {
+  position: absolute;
+  right: -6vw;
 }
