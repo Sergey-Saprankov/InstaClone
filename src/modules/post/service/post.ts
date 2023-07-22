@@ -9,8 +9,15 @@ const post = baseAPI.injectEndpoints({
         url: `/api/posts/p/${postId}`,
       }),
     }),
+    deletePost: build.mutation<void, number>({
+      query: (postId: number) => ({
+        url: `/api/posts/${postId}`,
+        method: 'DELETE',
+      }),
+      invalidatesTags: ['Posts'],
+    }),
   }),
   overrideExisting: true,
 })
 
-export const { useGetPostQuery } = post
+export const { useGetPostQuery, useDeletePostMutation } = post

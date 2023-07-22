@@ -8,6 +8,7 @@ import Arrow from '../../../../public/icon/arrow.svg'
 import { useGetPostQuery } from '../service/post'
 
 import cls from './Post.module.scss'
+import { PostHeader } from './PostHeader/PostHeader'
 
 import { useGetProfileQuery } from 'features/profile/profileSetting/generalInformation/service/profile'
 import { classNames } from 'shared/lib/classNames/classNames'
@@ -30,8 +31,9 @@ interface PostProps {
 export const Post: FC<PostProps> = memo(
   ({ currentId, callBack, src, alt, onChangeStep, step, endIndex, currentIndex }) => {
     // const { data: userData } = useGetProfileQuery()
-    const { data, isLoading } = useGetPostQuery(currentId, { skip: !currentId })
+    const { data: postData, isLoading } = useGetPostQuery(currentId, { skip: !currentId })
     const [isOpen, setIsOpen] = useState(Boolean(currentId))
+    const description = postData?.description || ''
     // const userName = userData?.userName ?? ''
     // const avatar = userData?.avatars?.[0].url ?? ''
     const onChangeOpen = useCallback(() => {
@@ -47,8 +49,6 @@ export const Post: FC<PostProps> = memo(
     const onChangeNextPostHandler = () => {
       onChangeStep(++step)
     }
-
-    const onKeyDown = (e: KeyboardEvent) => {}
 
     useEffect(() => {
       const handleKeyPress = (e: KeyboardEvent) => {
@@ -82,7 +82,7 @@ export const Post: FC<PostProps> = memo(
 
     return (
       <Modal callback={onChangeOpen} isOpen={isOpen}>
-        <div onKeyDown={onKeyDown} className={cls.Post}>
+        <div className={cls.Post}>
           {currentIndex > 0 && (
             <div
               onClick={onChangePrevPostHandler}
@@ -111,7 +111,13 @@ export const Post: FC<PostProps> = memo(
             />
           </div>
           <div className={cls.postContainer}>
-            {isLoading ? <LoaderContent isText={true} /> : <div></div>}
+            {isLoading ? (
+              <LoaderContent isText={true} />
+            ) : (
+              <>
+                <PostHeader currentId={currentId} onChangeOpenPost={onChangeOpen} />
+              </>
+            )}
             {/* <PostHeader avatar={avatar} userName={userName} />
               <div className={cls.mainContent}></div>
               <div className={cls.otherBlock}></div>
