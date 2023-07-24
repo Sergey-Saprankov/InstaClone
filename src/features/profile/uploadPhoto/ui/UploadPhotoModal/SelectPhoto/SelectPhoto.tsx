@@ -1,5 +1,7 @@
 import { useCallback } from 'react'
 
+import { useTranslation } from '../../../../../../shared/hooks/useTranslation'
+
 import cls from './SelectPhoto.module.scss'
 
 import {
@@ -23,6 +25,8 @@ export const SelectPhoto = () => {
     [dispatch]
   )
 
+  const { t } = useTranslation()
+
   return (
     <div className={cls.SelectPhoto}>
       <header className={cls.header}>
@@ -38,7 +42,10 @@ export const SelectPhoto = () => {
           </Text>
         </div>
 
-        <InputTypeFile setSelectedImage={onChangePhoto} />
+        <InputTypeFile
+          setSelectedImage={onChangePhoto}
+          label={t.profileSettingPage.selectFromComputer}
+        />
       </div>
     </div>
   )

@@ -6,10 +6,12 @@ import { Button, ButtonTheme } from 'shared/ui/Button/Button'
 
 type InputTypeFileProps = {
   setSelectedImage: (image: File) => void
+  label: string
 }
 
-export const InputTypeFile = ({ setSelectedImage }: InputTypeFileProps) => {
+export const InputTypeFile = ({ setSelectedImage, label }: InputTypeFileProps) => {
   const inputRef = useRef<HTMLInputElement>(null)
+
   const selectFileHandler = () => {
     inputRef && inputRef.current?.click()
   }
@@ -25,7 +27,7 @@ export const InputTypeFile = ({ setSelectedImage }: InputTypeFileProps) => {
   return (
     <div>
       <Button theme={ButtonTheme.PRIMARY} onClick={selectFileHandler} className={cls.btn}>
-        Select from Computer
+        {label}
       </Button>
       <input
         style={{ display: 'none' }}

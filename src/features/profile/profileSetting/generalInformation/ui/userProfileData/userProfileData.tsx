@@ -1,5 +1,6 @@
 import { Controller } from 'react-hook-form'
 
+import { useTranslation } from '../../../../../../shared/hooks/useTranslation'
 import {
   useDelProfileMutation,
   useGetProfileQuery,
@@ -24,6 +25,8 @@ export const UserProfileData = () => {
 
   useSetValuesFromProfileData(setValue, profileData)
 
+  const { t } = useTranslation()
+
   const onSubmit = handleSubmit(data => {
     profile(data)
   })
@@ -32,23 +35,39 @@ export const UserProfileData = () => {
     <form className={cls.form} onSubmit={onSubmit}>
       <div className={cls.form}>
         {(isLoadingGetProfile || isLoadingUpdateProfile) && <LoaderContent />}
-        <ControlledInputNew control={control} name={'userName'} title={'User Name'} />
-        <ControlledInputNew control={control} name={'firstName'} title={'First Name'} />
-        <ControlledInputNew control={control} name={'lastName'} title={'Last Name'} />
+        <ControlledInputNew
+          control={control}
+          name={'userName'}
+          title={t.profileSettingPage.userName}
+        />
+        <ControlledInputNew
+          control={control}
+          name={'firstName'}
+          title={t.profileSettingPage.firstName}
+        />
+        <ControlledInputNew
+          control={control}
+          name={'lastName'}
+          title={t.profileSettingPage.lastName}
+        />
         <Controller
           control={control}
           name={'dateOfBirth'}
           defaultValue={profileData?.dateOfBirth ?? ''}
           render={({ field }) => (
             <CustomDatePicker
-              title={'Date of birthday'}
+              title={t.profileSettingPage.dateOfBirthday}
               start={field.value}
               onChange={date => field.onChange(date as string)}
             />
           )}
         />
-        <ControlledInputNew control={control} name={'city'} title={'City'} />
-        <ControlledTextArea control={control} name={'aboutMe'} title={'aboutMe'} />
+        <ControlledInputNew control={control} name={'city'} title={t.profileSettingPage.city} />
+        <ControlledTextArea
+          control={control}
+          name={'aboutMe'}
+          title={t.profileSettingPage.aboutMe}
+        />
       </div>
       <div className={cls.decor}></div>
       <div className={cls.buttonContainer}>
@@ -58,10 +77,10 @@ export const UserProfileData = () => {
           size={ButtonSize.L}
           onClick={() => delProfile()}
         >
-          delete profile
+          {t.profileSettingPage.deleteProfile}
         </Button>
         <Button type={'submit'} theme={ButtonTheme.PRIMARY} size={ButtonSize.XS}>
-          Save Changes
+          {t.profileSettingPage.saveChanges}
         </Button>
       </div>
     </form>

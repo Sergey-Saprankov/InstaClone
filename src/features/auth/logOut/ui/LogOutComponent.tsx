@@ -3,6 +3,7 @@ import { FC, memo, useState } from 'react'
 import { useRouter } from 'next/router'
 
 import Logout from '../../../../../public/icon/log-out.svg'
+import { useTranslation } from '../../../../shared/hooks/useTranslation'
 
 import cls from './LogOutComponent.module.scss'
 
@@ -29,6 +30,8 @@ export const LogOutComponent: FC<LogOutComponentProps> = memo(({ className = '' 
   const authMeData = useAppSelector(getAuthMeData)
   const email = authMeData?.email
   const [showModal, setShowModal] = useState<boolean>(false) //modal
+
+  const { t } = useTranslation()
   const closeModal = () => {
     setShowModal(false)
   }
@@ -55,7 +58,7 @@ export const LogOutComponent: FC<LogOutComponentProps> = memo(({ className = '' 
           font={TextFontTheme.INTER_MEDIUM_L}
           color={TextColorTheme.LIGHT}
         >
-          Log Out
+          {t.sidebar.logOut}
         </Text>
       </Button>
       <Modal title={'Log Out'} active={showModal} onClose={closeModal} onSubmit={onSubmit}>

@@ -2,6 +2,8 @@ import React, { FC, memo } from 'react'
 
 import Bookmark from '../../../../public/icon/bookmark.svg'
 import Statistic from '../../../../public/icon/trending-up.svg'
+import { useTranslation } from '../../../shared/hooks/useTranslation'
+import { userInformationType } from '../../UserNavigation/ui/UserNavigation'
 
 import cls from './UserInformation.module.scss'
 
@@ -14,12 +16,14 @@ interface UserInformationProps {
   className?: string
 }
 
-const userInformationList = [
-  { id: '1', title: 'Statistics', Icon: Statistic, href: PATH.STATISTICS },
-  { id: '2', title: 'Favorites', Icon: Bookmark, href: PATH.FAVORITES },
+const userInformationList: userInformationType[] = [
+  { id: '1', title: 'statistics', Icon: Statistic, href: PATH.STATISTICS },
+  { id: '2', title: 'favorites', Icon: Bookmark, href: PATH.FAVORITES },
 ]
 
 export const UserInformation: FC<UserInformationProps> = memo(({ className = '' }) => {
+  const { t } = useTranslation()
+
   return (
     <ul className={classNames(cls.UserInformation, {}, [])}>
       {userInformationList.map(({ id, title, Icon, href }) => (
@@ -27,7 +31,7 @@ export const UserInformation: FC<UserInformationProps> = memo(({ className = '' 
           <NavLink href={href} color={NavLinkColor.PRIMARY} className={cls.navLink}>
             <Icon fill={'currentColor'} />
             <Text tag={'span'} font={TextFontTheme.INTER_MEDIUM_L} className={className}>
-              {title}
+              {t.sidebar[title]}
             </Text>
           </NavLink>
         </li>

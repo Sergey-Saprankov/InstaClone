@@ -26,15 +26,15 @@ export const ProfileSettingComponent = () => {
         </Tab>
 
         <Tab value={'tab-2'} currentValue={currentTab} onClick={changeTabHandler}>
-          Devices
+          {t.profileSettingPage.devices}
         </Tab>
 
         <Tab value={'tab-3'} currentValue={currentTab} onClick={changeTabHandler}>
-          Account Management
+          {t.profileSettingPage.accountManagement}
         </Tab>
 
         <Tab value={'tab-4'} currentValue={currentTab} onClick={changeTabHandler}>
-          My payments
+          {t.profileSettingPage.myPayments}
         </Tab>
       </Tabs>
 

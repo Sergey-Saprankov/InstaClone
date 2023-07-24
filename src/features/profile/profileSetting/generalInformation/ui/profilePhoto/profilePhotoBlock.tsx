@@ -4,6 +4,7 @@ import Image from 'next/image'
 
 import Photo from '../../../../../../../public/icon/photo.svg'
 import defaultPhoto from '../../../../../../../public/test/defaulAva.jpg'
+import { useTranslation } from '../../../../../../shared/hooks/useTranslation'
 import { LangSwitcher } from '../../../../../../widgets/LangSwitcher'
 
 import cls from './profilePhotoBlock.module.scss'
@@ -16,6 +17,8 @@ export const ProfilePhotoBlock = () => {
   const [isModalOpen, setIsModalOpen] = useState<boolean>(false)
 
   const { data } = useGetProfileQuery()
+
+  const { t } = useTranslation()
 
   const url = data?.avatars[0]?.url || defaultPhoto
 
@@ -36,7 +39,7 @@ export const ProfilePhotoBlock = () => {
         size={ButtonSize.M}
         onClick={() => setIsModalOpen(true)}
       >
-        Add a Profile Photo
+        {t.profileSettingPage.addProfilePhoto}
       </Button>
       <SettingPhotoModal isModalOpen={isModalOpen} setIsModalOpen={setIsModalOpen} />
       <LangSwitcher className={cls.langSwitcher} />
