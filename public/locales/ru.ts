@@ -48,9 +48,48 @@ export const ru = {
         cancel: 'Отмена'
     },
 
+    login: {
+        signIn: 'Войти',
+        email: 'Эл. адрес',
+        password: 'Пароль',
+        forgotPassword: 'Забыли пароль?',
+        hasAccount: 'У вас ещё нет аккаунта?',
+        signUp: 'Зарегистрироваться'
+    },
+
+    register: {
+        signUp: 'Зарегистрироваться',
+        userName: 'Имя пользователя',
+        email: 'Эл. почта',
+        password: 'Пароль',
+        passwordConfirm: 'Повторите пароль',
+        hasAccount: 'Уже есть аккаунт?',
+        signIn: 'Войти',
+    },
+
+    passwordRecovery: {
+        forgotPassword: 'Не удается войти?',
+        email: 'Email',
+        description: 'Введите свой электронный адрес, и мы отправим вам дальнейшие инструкции.',
+        sendLink: 'Получить ссылку для входа',
+        backSignIn: 'Вернуться к входу',
+        createPassword: 'Создать пароль',
+        newPassword: 'Новый пароль',
+        passwordConfirm: 'Повторите пароль',
+        passwordLength: 'Пароль должен содержать от 6 до 20 символов',
+    },
+
     logOutModal: {
         logOut: 'Выйти',
         confirmation: 'Вы уверенны что хотите выйти из аккаунта?',
+    },
+
+    validationMessages: {
+        emailRequired: 'Введите адрес эл.почты',
+        emailCorrect: 'Введите корректный адрес эл.почты',
+        passwordRequired: 'Введите пароль',
+        passwordNotMatch: 'Пароли не совпадают',
+        userNameRequired: 'Введите имя пользователя'
     },
 
     common: {

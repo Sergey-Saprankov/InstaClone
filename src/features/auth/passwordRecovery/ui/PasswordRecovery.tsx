@@ -1,6 +1,8 @@
-import { useState } from 'react'
+import React, { useState } from 'react'
 
 import ReCAPTCHA from 'react-google-recaptcha'
+
+import { useTranslation } from '../../../../shared/hooks/useTranslation'
 
 import { usePasswordRecoveryMutation } from 'features/auth/passwordRecovery/service/passwordRecoveryApi'
 import s from 'features/auth/passwordRecovery/ui/PasswordRecovery.module.scss'
@@ -24,7 +26,7 @@ export const PasswordRecovery = ({ setIsModalOpen }: RegistrationFormType) => {
   const [token, setToken] = useState<string | null>(null)
   const dispatch = useAppDispatch()
 
-  console.log()
+  const { t } = useTranslation()
 
   const onSubmit = handleSubmit(data => {
     if (!token) {
@@ -55,7 +57,7 @@ export const PasswordRecovery = ({ setIsModalOpen }: RegistrationFormType) => {
         font={TextFontTheme.INTER_BOLD_XL}
         color={TextColorTheme.LIGHT}
       >
-        Forgot Password
+        {t.passwordRecovery.forgotPassword}
       </Text>
 
       <ControlledInputNew
@@ -63,14 +65,14 @@ export const PasswordRecovery = ({ setIsModalOpen }: RegistrationFormType) => {
         name={'email'}
         type={'email'}
         placeholder={'Epam@epam.com'}
-        title={'Email'}
+        title={t.passwordRecovery.email}
       />
 
       <div className={s.mb15}></div>
 
       <NavLink className={s.alignSelfEnd} href={'#'} color={NavLinkColor.GREY}>
         <Text tag={'span'} font={TextFontTheme.INTER_REGULAR_L}>
-          Enter your email address and we will send you further instructions
+          {t.passwordRecovery.forgotPassword}
         </Text>
       </NavLink>
 
@@ -88,14 +90,14 @@ export const PasswordRecovery = ({ setIsModalOpen }: RegistrationFormType) => {
           font={TextFontTheme.INTER_SEMI_BOLD_L}
           color={TextColorTheme.LIGHT}
         >
-          Send Link
+          {t.passwordRecovery.sendLink}
         </Text>
       </Button>
 
       <div className={s.mb29}></div>
 
       <NavLink className={s.alignSelfCenter} href={PATH.LOGIN} color={NavLinkColor.SECONDARY}>
-        Back to Sign In
+        {t.passwordRecovery.backSignIn}
       </NavLink>
 
       <div className={s.mb29}></div>

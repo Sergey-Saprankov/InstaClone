@@ -51,6 +51,45 @@ export const en: LocaleType = {
         cancel: 'Cancel'
     },
 
+    login: {
+        signIn: 'Sign In',
+        email: 'Email',
+        password: 'Password',
+        forgotPassword: 'Forgot Password',
+        hasAccount: 'Don’t have an account?',
+        signUp: 'Sign Up'
+    },
+
+    register: {
+        signUp: 'Sign Up',
+        userName: 'User name',
+        email: 'Email',
+        password: 'Password',
+        passwordConfirm: 'Password confirmation',
+        hasAccount: 'Do you have an account?',
+        signIn: 'Sign In',
+    },
+
+    passwordRecovery: {
+        forgotPassword: 'Forgot Password',
+        email: 'Email',
+        description: 'Enter your email address and we will send you further instructions',
+        sendLink: 'Send sink',
+        backSignIn: 'Back to Sign In',
+        createPassword: 'Create New Password',
+        newPassword: 'New password',
+        passwordConfirm: 'Password confirmation',
+        passwordLength: 'Your password must be between 6 and 20 characters',
+    },
+
+    validationMessages: {
+        emailRequired: 'Email is required',
+        emailCorrect: 'Email should be valid',
+        passwordRequired: 'Password is required',
+        passwordNotMatch: 'Password not match',
+        userNameRequired: 'User mame is required'
+    },
+
     logOutModal: {
         logOut: 'LogOut',
         confirmation: 'Are you really want to log out of your account',

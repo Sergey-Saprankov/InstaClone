@@ -1,19 +1,16 @@
 import { memo } from 'react'
 
 import { useRouter } from 'next/router'
-import { FieldValues } from 'react-hook-form'
 
+import { useTranslation } from '../../../../shared/hooks/useTranslation'
 import { useCreateNewPasswordMutation } from '../service/createNewPassword'
 
 import s from './CreateNewPassword.module.scss'
 
 import { PATH } from 'shared/const/path'
-import { useAppDispatch } from 'shared/hooks/useAppDispatch'
-import { useFormHandler } from 'shared/hooks/useFormHandler'
 import { useRecoveryForm } from 'shared/hooks/useRecoveryForm'
 import { Button, ButtonSize, ButtonTheme } from 'shared/ui/Button/Button'
 import { ControlledInputNew } from 'shared/ui/ControlledInput/ControlledInput'
-import { Input } from 'shared/ui/Input/Input'
 import { Loader } from 'shared/ui/Loader/Loader'
 import { Text, TextColorTheme, TextFontTheme } from 'shared/ui/Text/Text'
 
@@ -24,7 +21,8 @@ export const CreateNewPasswordForm = memo(() => {
 
   const { control, handleSubmit } = useRecoveryForm()
 
-  const dispatch = useAppDispatch()
+  const { t } = useTranslation()
+
   const onSubmit = handleSubmit(data => {
     const payload = {
       newPassword: data.password,
@@ -49,7 +47,7 @@ export const CreateNewPasswordForm = memo(() => {
         font={TextFontTheme.INTER_BOLD_XL}
         color={TextColorTheme.LIGHT}
       >
-        Create New Password
+        {t.passwordRecovery.createPassword}
       </Text>
 
       <ControlledInputNew
@@ -57,7 +55,7 @@ export const CreateNewPasswordForm = memo(() => {
         name={'password'}
         type={'password'}
         placeholder={'******************'}
-        title={'Password'}
+        title={t.passwordRecovery.newPassword}
       />
 
       <div className={s.mb22}></div>
@@ -67,7 +65,7 @@ export const CreateNewPasswordForm = memo(() => {
         type={'password'}
         name={'confirmPassword'}
         placeholder={'******************'}
-        title={'Password confirmation'}
+        title={t.passwordRecovery.passwordConfirm}
       />
       <div className={s.mb18}></div>
       <Text
@@ -76,12 +74,12 @@ export const CreateNewPasswordForm = memo(() => {
         color={TextColorTheme.LIGHT}
         font={TextFontTheme.INTER_REGULAR_XL}
       >
-        Your password must be between 6 and 20 characters
+        {t.passwordRecovery.passwordLength}
       </Text>
       <div className={s.mb41}></div>
       <Button type={'submit'} className={s.mb18} theme={ButtonTheme.PRIMARY} size={ButtonSize.XXl}>
         <Text tag={'span'} font={TextFontTheme.INTER_SEMI_BOLD_L} color={TextColorTheme.LIGHT}>
-          Create New Password
+          {t.passwordRecovery.createPassword}
         </Text>
       </Button>
     </form>
