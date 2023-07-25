@@ -48,8 +48,15 @@ export const ru = {
         cancel: 'Отмена'
     },
 
+    logOutModal: {
+        logOut: 'Выйти',
+        confirmation: 'Вы уверенны что хотите выйти из аккаунта?',
+    },
+
     common: {
         selectFromComputer: 'Выбрать на компьютере',
+        yes: 'Да',
+        no: 'Нет',
     }
 }
 

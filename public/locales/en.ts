@@ -51,7 +51,14 @@ export const en: LocaleType = {
         cancel: 'Cancel'
     },
 
+    logOutModal: {
+        logOut: 'LogOut',
+        confirmation: 'Are you really want to log out of your account',
+    },
+
     common: {
         selectFromComputer: 'Select from Computer',
+        yes: 'Yes',
+        no: 'No'
     }
 }
