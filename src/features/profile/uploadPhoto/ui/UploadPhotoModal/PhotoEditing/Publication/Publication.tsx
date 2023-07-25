@@ -7,9 +7,9 @@ import { useTranslation } from '../../../../../../../shared/hooks/useTranslation
 
 import cls from './Publication.module.scss'
 
-import { useGetProfileQuery } from 'features/profile/profileSetting/generalInformation/service/profile'
 import { getDescription } from 'features/profile/uploadPhoto/model/selectors/getDescription/getDescription'
 import { setDescriptionPost } from 'features/profile/uploadPhoto/model/slice/uploadPhotoSlice'
+import { useGetUserInfoQuery } from 'modules/user/service/user'
 import { useAppDispatch } from 'shared/hooks/useAppDispatch'
 import { useAppSelector } from 'shared/hooks/useAppSelector'
 import { Text, TextColorTheme, TextFontTheme } from 'shared/ui/Text/Text'
@@ -18,7 +18,7 @@ import { TextArea } from 'shared/ui/TextArea/TextArea'
 export const Publication = () => {
   const description = useAppSelector(getDescription)
   const dispatch = useAppDispatch()
-  const { data } = useGetProfileQuery()
+  const { data } = useGetUserInfoQuery()
 
   const { t } = useTranslation()
 
