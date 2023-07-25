@@ -1,5 +1,7 @@
 import { FC, memo } from 'react'
 
+import { useTranslation } from '../../../../../../../shared/hooks/useTranslation'
+
 import cls from './CloseModal.module.scss'
 
 import {
@@ -19,6 +21,9 @@ interface CloseModalProps {
 
 export const CloseModal: FC<CloseModalProps> = memo(({ isOpen, callBack }) => {
   const dispatch = useAppDispatch()
+
+  const { t } = useTranslation()
+
   const mods = {
     [cls.open]: isOpen,
   }
@@ -35,23 +40,23 @@ export const CloseModal: FC<CloseModalProps> = memo(({ isOpen, callBack }) => {
       <div className={cls.content}>
         <header className={cls.header}>
           <Text tag={'h2'} font={TextFontTheme.INTER_REGULAR_XL} color={TextColorTheme.LIGHT}>
-            Cancel publication ?
+            {t.create.cancelPublication}
           </Text>
           <Text tag={'p'} font={TextFontTheme.INTER_REGULAR_L} color={TextColorTheme.LIGHT}>
-            If you exit, the changes will not be saved.
+            {t.create.changesWillNotBeSaved}
           </Text>
         </header>
         <div className={classNames(cls.buttonBlock, {}, [cls.border])}>
           <Button onClick={onDeleteHandler} theme={ButtonTheme.Clear}>
             <Text tag={'span'} font={TextFontTheme.INTER_REGULAR_L} color={TextColorTheme.ERROR}>
-              Delete
+              {t.create.delete}
             </Text>
           </Button>
         </div>
         <div className={cls.buttonBlock}>
           <Button onClick={callBack} theme={ButtonTheme.Clear}>
             <Text tag={'span'} font={TextFontTheme.INTER_REGULAR_L} color={TextColorTheme.LIGHT}>
-              Cancel
+              {t.create.cancel}
             </Text>
           </Button>
         </div>

@@ -15,7 +15,7 @@ export const en: LocaleType = {
         aboutMe: 'About Me',
         deleteProfile: 'Delete Profile',
         saveChanges: 'Save Changes',
-        selectFromComputer: 'Select from Computer',
+
     },
 
     sidebar: {
@@ -35,9 +35,23 @@ export const en: LocaleType = {
         publications: 'Publications',
     },
 
-    // create: {
-    //     createNewPost: 'Create new post',
-    //     selectAPhotoInYourComputer: 'Select a photo on your computer',
-    //     selectFromComputer: 'Select from Computer',
-    // }
+    create: {
+        createNewPost: 'Create new post',
+        selectAPhotoInYourComputer: 'Select a photo on your computer',
+        crop: 'Crop',
+        publication: 'Publication',
+        next: 'Next',
+        publish: 'Publish',
+        original: 'Original',
+        addPublicationDescriptions: 'Add publication descriptions',
+        yourPostHasBeenShared: 'Your post has been shared',
+        cancelPublication: 'Cancel publication ?',
+        changesWillNotBeSaved: 'If you exit, the changes will not be saved',
+        delete: 'Delete',
+        cancel: 'Cancel'
+    },
+
+    common: {
+        selectFromComputer: 'Select from Computer',
+    }
 }

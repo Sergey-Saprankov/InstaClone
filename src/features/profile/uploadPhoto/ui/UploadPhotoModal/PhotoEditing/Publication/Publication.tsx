@@ -3,6 +3,7 @@ import { useCallback } from 'react'
 import Image from 'next/image'
 
 import defaultAva from '../../../../../../../../public/test/defaulAva.jpg'
+import { useTranslation } from '../../../../../../../shared/hooks/useTranslation'
 
 import cls from './Publication.module.scss'
 
@@ -18,6 +19,8 @@ export const Publication = () => {
   const description = useAppSelector(getDescription)
   const dispatch = useAppDispatch()
   const { data } = useGetProfileQuery()
+
+  const { t } = useTranslation()
 
   const onChangeDescription = useCallback(
     (value: string) => {
@@ -48,7 +51,7 @@ export const Publication = () => {
         onChange={onChangeDescription}
         value={description}
         className={cls.textArea}
-        title={'Add publication descriptions'}
+        title={t.create.addPublicationDescriptions}
       />
       <Text
         className={cls.count}

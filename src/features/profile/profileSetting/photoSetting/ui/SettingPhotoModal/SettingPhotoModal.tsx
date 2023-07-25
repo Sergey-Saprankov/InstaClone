@@ -115,7 +115,7 @@ export const SettingPhotoModal = ({ isModalOpen, setIsModalOpen }: SettingPhotoM
             ) : (
               <InputTypeFile
                 setSelectedImage={setSelectedImage}
-                label={t.profileSettingPage.selectFromComputer}
+                label={t.common.selectFromComputer}
               />
             )}
           </div>

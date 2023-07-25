@@ -13,7 +13,6 @@ export const ru = {
         aboutMe: 'Расскажите о себе',
         deleteProfile: 'Удалить Профиль',
         saveChanges: 'Сохранить',
-        selectFromComputer: 'Выбрать на компьютере',
     },
 
     sidebar: {
@@ -33,11 +32,25 @@ export const ru = {
         publications: 'Публикации',
     },
 
-    // create: {
-    //     createNewPost: 'Создание публикации',
-    //     selectAPhotoInYourComputer: 'Перетащите сюда фото',
-    //     selectFromComputer: 'Выбрать на компьютере',
-    // }
+    create: {
+        createNewPost: 'Создание публикации',
+        selectAPhotoInYourComputer: 'Перетащите сюда фото',
+        crop: 'Обрезать',
+        publication: 'Создание публикации',
+        next: 'Далее',
+        publish: 'Поделиться',
+        original: 'Оригинал',
+        addPublicationDescriptions:' Добавьте описание',
+        yourPostHasBeenShared: 'Публикация размещена',
+        cancelPublication: 'Отменить публикацию ?',
+        changesWillNotBeSaved: 'Если вы выйдете, изменения не будут сохранены.',
+        delete: 'Удалить',
+        cancel: 'Отмена'
+    },
+
+    common: {
+        selectFromComputer: 'Выбрать на компьютере',
+    }
 }
 
 export type LocaleType = typeof ru
