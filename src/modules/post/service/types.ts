@@ -14,3 +14,8 @@ interface Image {
   fileSize: number
   uploadId: string
 }
+
+export interface IUpdatePostRequest {
+  postId: number
+  description: string
+}

@@ -1,0 +1,22 @@
+.Publication {
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+
+    width: 40%;
+    padding: 10px;
+  }
+  
+  .textArea {
+    height: 120px;
+  }
+  
+  .count {
+    align-self: flex-end;
+  
+    margin-top: -4px;
+  }
+
+  .mb20 {
+    margin-bottom: 20px;
+  }

@@ -1,0 +1,36 @@
+.items {
+    display: flex;
+    flex-direction: column;
+
+    width: 400px;
+
+    background-color: var(--dark-400);
+    border-radius: 15px;
+}
+
+.item {
+    cursor: pointer;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    height: 50px;
+
+    border-bottom: 1px solid #504f4f6a;
+
+    transition: all .2s ease-in-out;
+
+    &:hover {
+        opacity: .6;
+    }  
+    
+    &:first-child {
+        color: var(--danger-300);
+    }
+
+    &:last-child {
+        border: none;
+    }
+
+}

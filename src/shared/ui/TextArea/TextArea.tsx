@@ -31,7 +31,7 @@ export const TextArea: FC<TextAreaProps> = ({
   title,
   value,
   theme = 'primary',
-  placeholder = 'Text-area',
+  placeholder = 'Write a caption...',
   register,
   nameForValidate = '',
   disabled = false,
