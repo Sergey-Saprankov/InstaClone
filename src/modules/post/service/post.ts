@@ -1,4 +1,4 @@
-import { ResponsePost } from './types'
+import { IUpdatePostRequest, ResponsePost } from './types'
 
 import { baseAPI } from 'shared/api/baseAPI'
 
@@ -8,6 +8,7 @@ const post = baseAPI.injectEndpoints({
       query: (postId: number) => ({
         url: `/api/posts/p/${postId}`,
       }),
+      providesTags: ['Post'],
     }),
     deletePost: build.mutation<void, number>({
       query: (postId: number) => ({
@@ -16,8 +17,16 @@ const post = baseAPI.injectEndpoints({
       }),
       invalidatesTags: ['Posts'],
     }),
+    updatePost: build.mutation<void, IUpdatePostRequest>({
+      query: ({ postId, description }) => ({
+        url: `/api/posts/${postId}`,
+        method: 'PUT',
+        body: { description },
+      }),
+      invalidatesTags: ['Post'],
+    }),
   }),
   overrideExisting: true,
 })
 
-export const { useGetPostQuery, useDeletePostMutation } = post
+export const { useGetPostQuery, useDeletePostMutation, useUpdatePostMutation } = post

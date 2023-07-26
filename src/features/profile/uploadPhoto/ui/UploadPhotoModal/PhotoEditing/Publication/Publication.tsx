@@ -9,6 +9,7 @@ import cls from './Publication.module.scss'
 
 import { getDescription } from 'features/profile/uploadPhoto/model/selectors/getDescription/getDescription'
 import { setDescriptionPost } from 'features/profile/uploadPhoto/model/slice/uploadPhotoSlice'
+import { UserAvatarSmall } from 'modules/user'
 import { useGetUserInfoQuery } from 'modules/user/service/user'
 import { useAppDispatch } from 'shared/hooks/useAppDispatch'
 import { useAppSelector } from 'shared/hooks/useAppSelector'
@@ -18,7 +19,6 @@ import { TextArea } from 'shared/ui/TextArea/TextArea'
 export const Publication = () => {
   const description = useAppSelector(getDescription)
   const dispatch = useAppDispatch()
-  const { data } = useGetUserInfoQuery()
 
   const { t } = useTranslation()
 
@@ -31,21 +31,9 @@ export const Publication = () => {
     [dispatch, description]
   )
 
-  if (!data) return null
-
-  const src = data.avatars[1]?.url || defaultAva
-  const userName = data.userName
-
   return (
     <div className={cls.Publication}>
-      <div className={cls.userInfo}>
-        <div className={cls.avatarContainer}>
-          <Image src={src} alt={'user avatar'} width={38} height={38} />
-        </div>
-        <Text tag={'span'} font={TextFontTheme.INTER_REGULAR_L} color={TextColorTheme.LIGHT}>
-          {userName}
-        </Text>
-      </div>
+      <UserAvatarSmall className={cls.mb20} />
       <TextArea
         disabled={description.length > 500}
         onChange={onChangeDescription}
