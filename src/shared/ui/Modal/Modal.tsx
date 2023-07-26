@@ -15,12 +15,14 @@ interface ModalProps {
 
 export const Modal: FC<ModalProps> = memo(({ callback, isOpen, children }) => {
   useEffect(() => {
+    const originalOverflow = document.body.style.overflow
+
     document.body.style.overflow = 'hidden'
 
     return () => {
-      document.body.style.overflow = 'unset'
+      document.body.style.overflow = originalOverflow
     }
-  }, [isOpen])
+  }, [])
   const onClickContentHandler = (e: MouseEvent<HTMLDivElement>) => {
     e.stopPropagation()
   }
