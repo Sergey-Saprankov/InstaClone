@@ -1,5 +1,6 @@
 import Github from '../../../../../../public/icon/github-svgrepo-com.svg'
 import Google from '../../../../../../public/icon/google-svgrepo-com.svg'
+import { useTranslation } from '../../../../../shared/hooks/useTranslation'
 import formCls from '../../../logOut/ui/LogOutComponent.module.scss'
 
 import { setEmail } from 'features/auth/registration/model/slice/registrationSlice'
@@ -23,6 +24,9 @@ export const RegistrationForm = ({ setIsModalOpen }: RegistrationFormType) => {
   const { control, handleSubmit } = useRegisterForm()
 
   const dispatch = useAppDispatch()
+
+  const { t } = useTranslation()
+
   const onSubmit = handleSubmit(data => {
     const payload = {
       userName: data.userName,
@@ -45,7 +49,7 @@ export const RegistrationForm = ({ setIsModalOpen }: RegistrationFormType) => {
         font={TextFontTheme.INTER_BOLD_XL}
         color={TextColorTheme.LIGHT}
       >
-        Sign Up
+        {t.register.signUp}
       </Text>
 
       <div className={formCls.iconContainer}>
@@ -57,14 +61,19 @@ export const RegistrationForm = ({ setIsModalOpen }: RegistrationFormType) => {
         </Button>
       </div>
 
-      <ControlledInputNew control={control} name={'userName'} placeholder={'Epam'} title={'Epam'} />
+      <ControlledInputNew
+        control={control}
+        name={'userName'}
+        placeholder={'User name'}
+        title={t.register.userName}
+      />
       <div className={cls.mb36}></div>
 
       <ControlledInputNew
         control={control}
         name={'email'}
         placeholder={'EpamEpam@epam.com'}
-        title={'Email'}
+        title={t.register.email}
       />
       <div className={cls.mb36}></div>
       <ControlledInputNew
@@ -72,7 +81,7 @@ export const RegistrationForm = ({ setIsModalOpen }: RegistrationFormType) => {
         name={'password'}
         type={'password'}
         placeholder={'******************'}
-        title={'Password'}
+        title={t.register.password}
       />
       <div className={cls.mb36}></div>
       <ControlledInputNew
@@ -80,12 +89,12 @@ export const RegistrationForm = ({ setIsModalOpen }: RegistrationFormType) => {
         type={'password'}
         name={'confirmPassword'}
         placeholder={'******************'}
-        title={'Password confirmation'}
+        title={t.register.passwordConfirm}
       />
       <div className={cls.mb36}></div>
       <Button type={'submit'} theme={ButtonTheme.PRIMARY} size={ButtonSize.XXl}>
         <Text tag={'span'} font={TextFontTheme.INTER_SEMI_BOLD_L} color={TextColorTheme.LIGHT}>
-          Sign Up
+          {t.register.signUp}
         </Text>
       </Button>
       <div className={cls.mb18}></div>
@@ -95,12 +104,12 @@ export const RegistrationForm = ({ setIsModalOpen }: RegistrationFormType) => {
         color={TextColorTheme.LIGHT}
         font={TextFontTheme.INTER_REGULAR_XL}
       >
-        Do you have an account?
+        {t.register.hasAccount}
       </Text>
       <div className={cls.mb12}></div>
 
       <NavLink className={cls.alignSelfCenterPure} href={PATH.LOGIN} color={NavLinkColor.SECONDARY}>
-        Sign In
+        {t.register.signIn}
       </NavLink>
     </form>
   )

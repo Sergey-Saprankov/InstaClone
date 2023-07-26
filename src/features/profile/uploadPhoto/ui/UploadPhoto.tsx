@@ -1,6 +1,7 @@
 import { FC, memo, useCallback, useState } from 'react'
 
 import Plus from '../../../../../public/icon/plus-square.svg'
+import { useTranslation } from '../../../../shared/hooks/useTranslation'
 
 import cls from './UploadPhoto.module.scss'
 import { UploadPhotoModal } from './UploadPhotoModal/UploadPhotoModal'
@@ -34,6 +35,8 @@ export const UploadPhoto: FC<UploadPhotoProps> = memo(({ className = '' }) => {
     setIsOpen(prev => !prev)
   }
 
+  const { t } = useTranslation()
+
   const onChangeModalOpened = useCallback(() => {
     if (step === STEP.PUBLICATION_COMPLETED) {
       setIsOpen(false)
@@ -56,7 +59,7 @@ export const UploadPhoto: FC<UploadPhotoProps> = memo(({ className = '' }) => {
       <Button onClick={onClickHandler} theme={ButtonTheme.Clear} className={cls.btn}>
         <Plus fill={'currentColor'} />
         <Text tag={'span'} font={TextFontTheme.INTER_MEDIUM_L} className={className}>
-          Create
+          {t.sidebar.create}
         </Text>
       </Button>
       {isOpen && (

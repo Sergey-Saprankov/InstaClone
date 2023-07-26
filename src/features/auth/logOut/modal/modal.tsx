@@ -1,6 +1,7 @@
 import { PropsWithChildren } from 'react'
 
 import Close from '../../../../../public/icon/close.svg'
+import { useTranslation } from '../../../../shared/hooks/useTranslation'
 
 import cls from './modal.module.scss'
 
@@ -22,6 +23,8 @@ export const Modal = ({
   title,
   children,
 }: PropsWithChildren<ModalType>) => {
+  const { t } = useTranslation()
+
   if (!active) {
     return null
   }
@@ -43,12 +46,12 @@ export const Modal = ({
           <div className={cls.modalFooter}>
             <Button theme={ButtonTheme.OUTLINE} onClick={onSubmit} size={ButtonSize.XS}>
               <Text tag={'span'} font={TextFontTheme.INTER_SEMI_BOLD_L}>
-                Yes
+                {t.common.yes}
               </Text>
             </Button>
             <Button theme={ButtonTheme.PRIMARY} onClick={onClose} size={ButtonSize.XS}>
               <Text tag={'span'} font={TextFontTheme.INTER_SEMI_BOLD_L}>
-                No
+                {t.common.no}
               </Text>
             </Button>
           </div>

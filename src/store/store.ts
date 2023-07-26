@@ -52,25 +52,11 @@ const rootReducer: ReducersMapObject<StateSchema> = {
   uploadPhoto: uploadPhotoReducer,
 }
 
-// export const makeStore = () =>
-//   configureStore({
-//     reducer: rootReducer,
-//     middleware: gDM => gDM().concat([baseAPI.middleware, rtkQueryErrorLogger]),
-//     preloadedState: loadState(),
-//   })
-
 export const store = configureStore({
   reducer: rootReducer,
   middleware: gDM => gDM().concat([baseAPI.middleware, rtkQueryErrorLogger]),
   preloadedState: loadState(),
 })
-
-// export type RootStateType = ReturnType<typeof makeStore>
-// export type RootState = ReturnType<RootStateType['getState']>
-// export type AppDispatch = RootStateType['dispatch']
-
-// export const store = makeStore()
-// testing text
 
 export type RootStateType = ReturnType<typeof store.getState>
 export type AppDispatch = typeof store.dispatch
@@ -79,5 +65,3 @@ setupListeners(store.dispatch)
 store.subscribe(() => {
   saveState(store.getState())
 })
-
-// export const wrapper = createWrapper<RootStateType>(makeStore, { debug: true })
