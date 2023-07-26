@@ -1,7 +1,10 @@
+import React from 'react'
+
 import { useRouter } from 'next/router'
 
 import Github from '../../../../../public/icon/github-svgrepo-com.svg'
 import Google from '../../../../../public/icon/google-svgrepo-com.svg'
+import { useTranslation } from '../../../../shared/hooks/useTranslation'
 import formCls from '../../logOut/ui/LogOutComponent.module.scss'
 
 import cls from './LoginForm.module.scss'
@@ -19,6 +22,8 @@ export const LoginForm = () => {
   const router = useRouter()
   const [login, { isLoading, isSuccess }] = useLoginMutation()
   const { control, handleSubmit } = useLoginForm()
+
+  const { t } = useTranslation()
 
   const onSubmit = handleSubmit(data => {
     login(data)
@@ -40,7 +45,7 @@ export const LoginForm = () => {
         font={TextFontTheme.INTER_BOLD_XL}
         color={TextColorTheme.LIGHT}
       >
-        Sign In
+        {t.login.signIn}
       </Text>
 
       <div className={formCls.iconContainer}>
@@ -57,7 +62,7 @@ export const LoginForm = () => {
         name={'email'}
         type={'email'}
         placeholder={'Epam@epam.com'}
-        title={'Email'}
+        title={t.login.email}
       />
       <div className={cls.mb24}></div>
       <ControlledInputNew
@@ -65,12 +70,12 @@ export const LoginForm = () => {
         name={'password'}
         type={'password'}
         placeholder={'Epam@epam.com'}
-        title={'Password'}
+        title={t.login.password}
       />
       <div className={cls.mb60}></div>
       <NavLink className={cls.alignSelfEnd} href={PATH.PASSWORD_RECOVERY} color={NavLinkColor.GREY}>
         <Text tag={'span'} font={TextFontTheme.INTER_REGULAR_L}>
-          Forgot Password
+          {t.login.forgotPassword}
         </Text>
       </NavLink>
       <div className={cls.mb24}></div>
@@ -81,7 +86,7 @@ export const LoginForm = () => {
         size={ButtonSize.XXl}
       >
         <Text tag={'span'} font={TextFontTheme.INTER_SEMI_BOLD_L} color={TextColorTheme.LIGHT}>
-          Sign In
+          {t.login.signIn}
         </Text>
       </Button>
       <div className={cls.mb18}></div>
@@ -91,7 +96,7 @@ export const LoginForm = () => {
         color={TextColorTheme.LIGHT}
         font={TextFontTheme.INTER_REGULAR_XL}
       >
-        Don’t have an account?
+        {t.login.hasAccount}
       </Text>
       <div className={cls.mb12}></div>
       <NavLink
@@ -99,7 +104,7 @@ export const LoginForm = () => {
         href={PATH.REGISTRATION}
         color={NavLinkColor.SECONDARY}
       >
-        Sign Up
+        {t.login.signUp}
       </NavLink>
     </form>
   )

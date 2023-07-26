@@ -2,13 +2,27 @@ import { yupResolver } from '@hookform/resolvers/yup'
 import { useForm } from 'react-hook-form'
 import * as yup from 'yup'
 
-const loginSchema = yup.object().shape({
-  email: yup.string().email().required(),
-  password: yup.string().required(),
-})
+import { LocaleType } from '../../../public/locales/ru'
 
-type FormData = yup.InferType<typeof loginSchema>
+import { useTranslation } from './useTranslation'
+
+const createLoginSchema = (t: LocaleType) => {
+  return yup.object().shape({
+    email: yup
+      .string()
+      .email(t.validationMessages.emailCorrect)
+      .required(t.validationMessages.emailRequired),
+    password: yup.string().required(t.validationMessages.passwordRequired),
+  })
+}
+
+type FormData = yup.InferType<ReturnType<typeof createLoginSchema>>
+
 export const useLoginForm = () => {
+  const { t } = useTranslation()
+
+  const loginSchema = createLoginSchema(t)
+
   return useForm<FormData>({
     mode: 'onSubmit',
     defaultValues: {

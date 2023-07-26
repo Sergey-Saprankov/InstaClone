@@ -1,5 +1,7 @@
 import { useCallback } from 'react'
 
+import { useTranslation } from '../../../../../../shared/hooks/useTranslation'
+
 import cls from './SelectPhoto.module.scss'
 
 import {
@@ -23,22 +25,24 @@ export const SelectPhoto = () => {
     [dispatch]
   )
 
+  const { t } = useTranslation()
+
   return (
     <div className={cls.SelectPhoto}>
       <header className={cls.header}>
         <Text tag={'h2'} font={TextFontTheme.INTER_SEMI_BOLD_L} color={TextColorTheme.LIGHT}>
-          Create new post
+          {t.create.createNewPost}
         </Text>
       </header>
       <div className={cls.selectContainer}>
         <div className={cls.description}>
           <Photo />
           <Text tag={'p'} font={TextFontTheme.INTER_SEMI_BOLD_L} color={TextColorTheme.LIGHT}>
-            Select a photo on your computer
+            {t.create.selectAPhotoInYourComputer}
           </Text>
         </div>
 
-        <InputTypeFile setSelectedImage={onChangePhoto} />
+        <InputTypeFile setSelectedImage={onChangePhoto} label={t.common.selectFromComputer} />
       </div>
     </div>
   )

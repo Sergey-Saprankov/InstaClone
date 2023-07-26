@@ -2,15 +2,29 @@ import { yupResolver } from '@hookform/resolvers/yup'
 import { Resolver, useForm } from 'react-hook-form'
 import * as yup from 'yup'
 
-const registerSchema = yup.object().shape({
-  userName: yup.string().required().min(6).max(30),
-  email: yup.string().email().required(),
-  password: yup.string().required(),
-  confirmPassword: yup.string().oneOf([yup.ref('password')], 'Passwords does not match'),
-})
+import { LocaleType } from '../../../public/locales/ru'
 
-type FormData = yup.InferType<typeof registerSchema>
+import { useTranslation } from './useTranslation'
+
+const createRegisterSchema = (t: LocaleType) =>
+  yup.object().shape({
+    userName: yup.string().required(t.validationMessages.userNameRequired).min(6).max(30),
+    email: yup
+      .string()
+      .email(t.validationMessages.emailCorrect)
+      .required(t.validationMessages.emailRequired),
+    password: yup.string().required(t.validationMessages.passwordRequired),
+    confirmPassword: yup
+      .string()
+      .oneOf([yup.ref('password')], t.validationMessages.passwordNotMatch),
+  })
+
+type FormData = yup.InferType<ReturnType<typeof createRegisterSchema>>
 export const useRegisterForm = () => {
+  const { t } = useTranslation()
+
+  const registerSchema = createRegisterSchema(t)
+
   return useForm<FormData>({
     mode: 'onSubmit',
     defaultValues: {

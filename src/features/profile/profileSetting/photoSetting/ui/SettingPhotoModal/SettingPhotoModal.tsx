@@ -3,6 +3,7 @@ import React, { useRef, useState } from 'react'
 import AvatarEditor from 'react-avatar-editor'
 
 import Photo from '../../../../../../../public/icon/photo.svg'
+import { useTranslation } from '../../../../../../shared/hooks/useTranslation'
 
 import cls from './SettingPhotoModal.module.scss'
 
@@ -24,6 +25,8 @@ export const SettingPhotoModal = ({ isModalOpen, setIsModalOpen }: SettingPhotoM
   const editorRef = useRef<AvatarEditor>(null)
   const [position, setPosition] = useState<{ x: number; y: number }>({ x: 0.5, y: 0.5 })
   const [sendAvatar, { isLoading: isAvatarLoading }] = useSendAvatarMutation()
+
+  const { t } = useTranslation()
 
   const handleSaveAvatar = () => {
     if (editorRef.current) {
@@ -62,7 +65,10 @@ export const SettingPhotoModal = ({ isModalOpen, setIsModalOpen }: SettingPhotoM
     <Portal>
       <div className={cls.container}>
         {isAvatarLoading && <LoaderContent />}
-        <ModalHeader title={'Add a Profile Photo'} handleButtonClick={handleButtonClick} />
+        <ModalHeader
+          title={t.profileSettingPage.addProfilePhoto}
+          handleButtonClick={handleButtonClick}
+        />
         <div className={cls.main}>
           <div
             className={classNames(
@@ -104,10 +110,13 @@ export const SettingPhotoModal = ({ isModalOpen, setIsModalOpen }: SettingPhotoM
                 className={cls.saveBtn}
                 onClick={handleSaveAvatar}
               >
-                Save
+                {t.profileSettingPage.saveChanges}
               </Button>
             ) : (
-              <InputTypeFile setSelectedImage={setSelectedImage} />
+              <InputTypeFile
+                setSelectedImage={setSelectedImage}
+                label={t.common.selectFromComputer}
+              />
             )}
           </div>
         </div>

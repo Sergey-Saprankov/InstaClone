@@ -1,4 +1,5 @@
 import ArrowBack from '../../../../../../../../public/icon/arrow-back.svg'
+import { useTranslation } from '../../../../../../../shared/hooks/useTranslation'
 
 import { getStep } from 'features/profile/uploadPhoto/model/selectors/getStep/getStep'
 import { setCloseModal, setStep } from 'features/profile/uploadPhoto/model/slice/uploadPhotoSlice'
@@ -17,6 +18,8 @@ type PropsType = {
 export const PhotoEditingHeader = ({ onPublishPost }: PropsType) => {
   const step = useAppSelector(getStep)
   const dispatch = useAppDispatch()
+
+  const { t } = useTranslation()
 
   const onNextStepHandler = () => {
     if (step < 2) {
@@ -43,12 +46,12 @@ export const PhotoEditingHeader = ({ onPublishPost }: PropsType) => {
       </Button>
 
       <Text tag={'h2'} font={TextFontTheme.INTER_SEMI_BOLD_L} color={TextColorTheme.LIGHT}>
-        {step < STEP.PUBLICATION ? 'Crop' : 'Publication'}
+        {step < STEP.PUBLICATION ? t.create.crop : t.create.publication}
       </Text>
 
       <Button onClick={step < 2 ? onNextStepHandler : onPublishPost} theme={ButtonTheme.Clear}>
         <Text tag={'span'} font={TextFontTheme.INTER_REGULAR_L} color={TextColorTheme.PRIMARY}>
-          {step < STEP.PUBLICATION ? 'Next' : 'Publish'}
+          {step < STEP.PUBLICATION ? t.create.next : t.create.publish}
         </Text>
       </Button>
     </header>

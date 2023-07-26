@@ -1,5 +1,7 @@
 import { useCallback, useState } from 'react'
 
+import { useTranslation } from '../../../../shared/hooks/useTranslation'
+
 import cls from './ProfileSettingComponent.module.scss'
 
 import { GeneralInformation } from 'features/profile/profileSetting/generalInformation/ui/GeneralInformation'
@@ -10,6 +12,8 @@ export type TabsType = 'tab-1' | 'tab-2' | 'tab-3' | 'tab-4'
 export const ProfileSettingComponent = () => {
   const [currentTab, setCurrentTab] = useState<TabsType>('tab-1')
 
+  const { t } = useTranslation()
+
   const changeTabHandler = useCallback((value: TabsType) => {
     setCurrentTab(value)
   }, [])
@@ -18,19 +22,19 @@ export const ProfileSettingComponent = () => {
     <div className={cls.container}>
       <Tabs>
         <Tab value={'tab-1'} currentValue={currentTab} onClick={changeTabHandler}>
-          General information
+          {t.profileSettingPage.generalInformation}
         </Tab>
 
         <Tab value={'tab-2'} currentValue={currentTab} onClick={changeTabHandler}>
-          Devices
+          {t.profileSettingPage.devices}
         </Tab>
 
         <Tab value={'tab-3'} currentValue={currentTab} onClick={changeTabHandler}>
-          Account Management
+          {t.profileSettingPage.accountManagement}
         </Tab>
 
         <Tab value={'tab-4'} currentValue={currentTab} onClick={changeTabHandler}>
-          My payments
+          {t.profileSettingPage.myPayments}
         </Tab>
       </Tabs>
 
