@@ -49,7 +49,7 @@ export const LogOutComponent: FC<LogOutComponentProps> = memo(({ className = '' 
   }
 
   return (
-    <div className={classNames('', {}, [])}>
+    <div className={classNames(cls.LogOut, {}, [])}>
       <Button className={cls.btn} theme={ButtonTheme.Clear} onClick={logOutHandler}>
         <Logout />
         <Text

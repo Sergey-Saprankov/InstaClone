@@ -36,7 +36,7 @@ export const LangSelect = ({ options, value, onChange, className = '' }: LangSel
         >
           <LangOption key={value} language={value as LanguageType} />
           <ArrowLight
-            className={classNames(cls.arrowIcon, { [cls.selected]: isActive }, [])}
+            className={classNames(cls.arrowIcon, { [cls.selected]: isActive }, [className])}
             alt={'arrow icon'}
           />
         </Listbox.Button>
