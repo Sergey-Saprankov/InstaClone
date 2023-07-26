@@ -33,8 +33,6 @@ export const PasswordRecovery = ({ setIsModalOpen }: RegistrationFormType) => {
       return
     }
 
-    console.log(11)
-
     const payload = {
       email: data.email,
       recaptcha: token,

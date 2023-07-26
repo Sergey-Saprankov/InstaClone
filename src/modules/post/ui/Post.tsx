@@ -30,12 +30,10 @@ interface PostProps {
 
 export const Post: FC<PostProps> = memo(
   ({ currentId, callBack, src, alt, onChangeStep, step, endIndex, currentIndex }) => {
-    // const { data: userData } = useGetProfileQuery()
     const { data: postData, isLoading } = useGetPostQuery(currentId, { skip: !currentId })
     const [isOpen, setIsOpen] = useState(Boolean(currentId))
     const description = postData?.description || ''
-    // const userName = userData?.userName ?? ''
-    // const avatar = userData?.avatars?.[0].url ?? ''
+
     const onChangeOpen = useCallback(() => {
       setIsOpen(Boolean(null))
       callBack(null)
@@ -115,13 +113,15 @@ export const Post: FC<PostProps> = memo(
               <LoaderContent isText={true} />
             ) : (
               <>
-                <PostHeader currentId={currentId} onChangeOpenPost={onChangeOpen} />
+                <PostHeader
+                  descriptionPost={description}
+                  alt={alt}
+                  src={src}
+                  currentId={currentId}
+                  onChangeOpenPost={onChangeOpen}
+                />
               </>
             )}
-            {/* <PostHeader avatar={avatar} userName={userName} />
-              <div className={cls.mainContent}></div>
-              <div className={cls.otherBlock}></div>
-              <PostMessage /> */}
           </div>
         </div>
       </Modal>

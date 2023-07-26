@@ -11,21 +11,16 @@
   font: var(--font-regular-xl);
   color: var(--light-100);
 
-  background-color: var(--dark-500);
-  border: 1px solid var(--dark-300);
+  background-color: var(--dark-400);
   border-radius: 2px;
   outline: none;
 
   &:active {
     color: var(--light-100);
-
-    border-color: var(--light-100);
   }
 
   &:hover {
     color: var(--light-900);
-
-    border-color: var(--dark-100);
   }
 
   &:disabled {

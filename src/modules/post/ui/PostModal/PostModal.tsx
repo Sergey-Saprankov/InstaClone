@@ -1,5 +1,8 @@
-import { MouseEvent, FC, memo, useState } from 'react'
+import { MouseEvent, FC, memo, useState, useCallback } from 'react'
 
+import { ChangePostMenu } from './ChangePostMenu/ChangePostMenu'
+import { DeletePost } from './DeletePost/DeletePost'
+import { EditPost } from './EditPost/EditPost'
 import cls from './PostModal.module.scss'
 
 import { useDeletePostMutation } from 'modules/post/service/post'
@@ -12,86 +15,60 @@ interface IPostModal {
   callBack: () => void
   currentId: number
   onChangeOpenPost: () => void
+  src: string
+  alt: string
+  descriptionPost: string
 }
 
-const postModalItems = [
-  { id: 3, title: 'Hide like count' },
-  { id: 4, title: 'Turn off commenting' },
-  { id: 5, title: 'Go to post' },
-  { id: 6, title: 'Share to' },
-  { id: 7, title: 'Copy link' },
-  { id: 8, title: 'Embed' },
-  { id: 9, title: 'About this account' },
-]
+export type ModalStatus = 'list' | 'delete' | 'edit'
 
-export const PostModal: FC<IPostModal> = memo(({ callBack, currentId, onChangeOpenPost }) => {
-  const [isDeletePost, setIsDeletePost] = useState(false)
-  const [isEditPost, setIsEditPost] = useState(false)
-  const [deletePost, { isLoading: deletePostLoading, isSuccess }] = useDeletePostMutation()
-  const onCloseHandler = () => {
-    callBack()
-  }
+export const PostModal: FC<IPostModal> = memo(
+  ({ callBack, currentId, onChangeOpenPost, src, alt, descriptionPost }) => {
+    const [status, setStatus] = useState<ModalStatus>('list')
+    const [deletePost, { isLoading: deletePostLoading, isSuccess }] = useDeletePostMutation()
+    const onCloseHandler = () => {
+      callBack()
+    }
 
-  const onClickContentHandler = (e: MouseEvent<HTMLUListElement>) => {
-    e.stopPropagation()
-  }
+    const onChangeStatusModal = useCallback((status: ModalStatus) => {
+      setStatus(status)
+    }, [])
 
-  const onOpenDeleteModal = () => {
-    setIsDeletePost(true)
-  }
+    const onDeletePost = useCallback(() => {
+      deletePost(currentId)
+    }, [currentId])
 
-  const onDeletePost = () => {
-    setIsDeletePost(false)
-    deletePost(currentId).unwrap
-  }
+    const onClickContentHandler = (e: MouseEvent<HTMLUListElement>) => {
+      e.stopPropagation()
+    }
 
-  if (deletePostLoading) return <LoaderContent isText className={cls.position} />
-  if (isSuccess) {
-    callBack()
-    onChangeOpenPost()
-  }
+    if (deletePostLoading) return <LoaderContent isText className={cls.position} />
+    if (isSuccess) {
+      callBack()
+      onChangeOpenPost()
+    }
 
-  return (
-    <div onClick={onCloseHandler} className={cls.modal}>
-      <div className={cls.content}>
-        {!isDeletePost && (
-          <ul onClick={onClickContentHandler} className={cls.items}>
-            <li onClick={onOpenDeleteModal} className={cls.item}>
-              <Button theme={ButtonTheme.Clear}>Delete</Button>
-            </li>
-            <li className={cls.item}>
-              <Button theme={ButtonTheme.Clear}>Edit</Button>
-            </li>
-            {postModalItems.map(item => (
-              <li className={cls.item} key={item.id}>
-                {item.title}
-              </li>
-            ))}
-            <li onClick={onCloseHandler} className={cls.item}>
-              <Button theme={ButtonTheme.Clear}>Cancel</Button>
-            </li>
-          </ul>
-        )}
-        {isDeletePost && (
-          <ul onClick={onClickContentHandler} className={cls.items}>
-            <div className={cls.deleteModalHeader}>
-              <Text tag={'h3'} font={TextFontTheme.INTER_REGULAR_L}>
-                Delete Post ?
-              </Text>
-              <Text tag={'p'} font={TextFontTheme.INTER_REGULAR_M}>
-                Are you sure you want delete this post ?
-              </Text>
-            </div>
+    return (
+      <div onClick={onCloseHandler} className={cls.modal}>
+        <div className={cls.content}>
+          {status === 'list' && (
+            <ChangePostMenu changeStatus={onChangeStatusModal} onCloseModal={callBack} />
+          )}
+          {status === 'delete' && (
+            <DeletePost onDeletePost={onDeletePost} onCloseModal={callBack} />
+          )}
 
-            <li onClick={onDeletePost} className={classNames(cls.item, {}, [cls.danger])}>
-              <Button theme={ButtonTheme.Clear}>Delete</Button>
-            </li>
-            <li onClick={onCloseHandler} className={cls.item}>
-              <Button theme={ButtonTheme.Clear}>Cancel</Button>
-            </li>
-          </ul>
-        )}
+          {status === 'edit' && (
+            <EditPost
+              currentId={currentId}
+              onCloseModal={callBack}
+              descriptionPost={descriptionPost}
+              src={src}
+              alt={alt}
+            />
+          )}
+        </div>
       </div>
-    </div>
-  )
-})
+    )
+  }
+)

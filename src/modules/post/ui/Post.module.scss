@@ -4,8 +4,8 @@
   display: flex;
   align-items: center;
 
-  width: 90vw;
-  height: 95vh;
+  width: 70vw;
+  height: 90vh;
 
   color: var(--light-100);
 
@@ -17,7 +17,7 @@
 .imageContainer {
   position: relative;
 
-  width: 50vw;
+  width: 40vw;
   height: 100%;
 }
 
@@ -27,7 +27,7 @@
   display: flex;
   flex-direction: column;
 
-  width: 40vw;
+  width:30vw;
   height: 100%;
 }
 
@@ -75,10 +75,10 @@
 
 .arrowLeftPosition {
   position: absolute;
-  left: -4vw;
+  left: -12vw;
 }
 
 .arrowRightPosition {
   position: absolute;
-  right: -4vw;
+  right: -12vw;
 }
