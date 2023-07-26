@@ -4,21 +4,8 @@
   flex-direction: column;
 }
 
-.userInfo {
-  display: flex;
-  gap: 12px;
-  align-items: center;
-
-  margin-bottom: 19px;
-}
-
-.avatarContainer {
-  overflow: hidden;
-
-  width: 38px;
-  height: 38px;
-
-  border-radius: 50%;
+.mb20 {
+  margin-bottom: 20px;
 }
 
 .textArea {
