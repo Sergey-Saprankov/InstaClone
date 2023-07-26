@@ -61,7 +61,7 @@ export const LoginForm = () => {
         control={control}
         name={'email'}
         type={'email'}
-        placeholder={'Epam@epam.com'}
+        placeholder={'user@mailto.plus'}
         title={t.login.email}
       />
       <div className={cls.mb24}></div>
@@ -69,7 +69,7 @@ export const LoginForm = () => {
         control={control}
         name={'password'}
         type={'password'}
-        placeholder={'Epam@epam.com'}
+        placeholder={'12345678'}
         title={t.login.password}
       />
       <div className={cls.mb60}></div>
