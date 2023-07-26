@@ -33,6 +33,8 @@ export const PasswordRecovery = ({ setIsModalOpen }: RegistrationFormType) => {
       return
     }
 
+    console.log(11)
+
     const payload = {
       email: data.email,
       recaptcha: token,
@@ -83,6 +85,7 @@ export const PasswordRecovery = ({ setIsModalOpen }: RegistrationFormType) => {
         type={'submit'}
         theme={ButtonTheme.PRIMARY}
         size={ButtonSize.XXl}
+        onClick={() => console.log(222)}
       >
         <Text
           className={s.alignSelfCenter}
@@ -103,7 +106,11 @@ export const PasswordRecovery = ({ setIsModalOpen }: RegistrationFormType) => {
       <div className={s.mb29}></div>
 
       <div className={s.recaptcha}>
-        <ReCAPTCHA sitekey={process.env.NEXT_PUBLIC_SITE_KEY as string} theme={'dark'} />
+        <ReCAPTCHA
+          onChange={onChange}
+          sitekey={process.env.NEXT_PUBLIC_SITE_KEY as string}
+          theme={'dark'}
+        />
       </div>
     </form>
   )
