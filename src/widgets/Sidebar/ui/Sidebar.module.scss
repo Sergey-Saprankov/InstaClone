@@ -12,8 +12,8 @@
   transition: all .4s ease-in-out;
 
   &.sidebarClose {
-    width: 43px;
-    padding: 74px 0 36px 6px;
+    width: 60px;
+    padding: 74px 0 36px 15px;
   }
 }
 
@@ -26,11 +26,13 @@
   margin: 0 auto;
 
   font: var(--font-medium-l);
-
-  //align-items: center;
 }
 
 .bottom {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+
   margin-top: auto
 }
 

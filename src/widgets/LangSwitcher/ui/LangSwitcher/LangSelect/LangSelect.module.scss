@@ -1,7 +1,7 @@
 .Select {
   position: relative;
 
-  width: 210px;
+  width: 150px;
 
   &:focus {
     border: none;
@@ -31,7 +31,7 @@
 .arrowIcon {
   transform: rotate(0deg);
 
-  transition: all .4s ease-in-out;
+  transition: all .1s ease-in-out;
 }
 
 

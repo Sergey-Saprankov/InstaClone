@@ -42,7 +42,6 @@ export const ProfilePhotoBlock = () => {
         {t.profileSettingPage.addProfilePhoto}
       </Button>
       <SettingPhotoModal isModalOpen={isModalOpen} setIsModalOpen={setIsModalOpen} />
-      <LangSwitcher className={cls.langSwitcher} />
     </div>
   )
 }
