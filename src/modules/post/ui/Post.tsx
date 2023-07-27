@@ -53,17 +53,17 @@ export const Post: FC<PostProps> = memo(
           onChangeStep(0)
         }
 
-        if (e.key === 'ArrowLeft') {
-          if (currentIndex > 0) {
-            onChangeStep(--step)
-          }
-        }
-
-        if (e.key === 'ArrowRight') {
-          if (currentIndex < endIndex) {
-            onChangeStep(++step)
-          }
-        }
+        // if (e.key === 'ArrowLeft') {
+        //   if (currentIndex > 0) {
+        //     onChangeStep(--step)
+        //   }
+        // }
+        //
+        // if (e.key === 'ArrowRight') {
+        //   if (currentIndex < endIndex) {
+        //     onChangeStep(++step)
+        //   }
+        // }
       }
 
       //@ts-ignore
