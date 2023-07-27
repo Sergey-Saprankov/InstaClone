@@ -12,9 +12,10 @@ import { Text, TextColorTheme, TextFontTheme } from 'shared/ui/Text/Text'
 
 interface IUserAvatarSmall {
   className?: string
+  description?: string
 }
 
-export const UserAvatarSmall: FC<IUserAvatarSmall> = ({ className = '' }) => {
+export const UserAvatarSmall: FC<IUserAvatarSmall> = ({ className = '', description }) => {
   const { data } = useGetUserInfoQuery()
 
   if (!data) return null
@@ -27,9 +28,19 @@ export const UserAvatarSmall: FC<IUserAvatarSmall> = ({ className = '' }) => {
       <div className={cls.avatarContainer}>
         <Image src={src} alt={'user avatar'} width={38} height={38} />
       </div>
-      <Text tag={'span'} font={TextFontTheme.INTER_REGULAR_L} color={TextColorTheme.LIGHT}>
-        {userName}
-      </Text>
+      <div>
+        <Text
+          className={cls.title}
+          tag={'span'}
+          font={TextFontTheme.INTER_BOLD_S}
+          color={TextColorTheme.LIGHT}
+        >
+          {userName}
+        </Text>
+        <Text tag={'span'} font={TextFontTheme.INTER_REGULAR_L} color={TextColorTheme.LIGHT}>
+          {description}
+        </Text>
+      </div>
     </div>
   )
 }

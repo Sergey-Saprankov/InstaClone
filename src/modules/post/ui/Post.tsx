@@ -1,6 +1,4 @@
-import { log } from 'console'
-
-import { FC, memo, useCallback, useState, KeyboardEvent, useEffect, useRef } from 'react'
+import { FC, memo, useCallback, useState, KeyboardEvent, useEffect } from 'react'
 
 import Image from 'next/image'
 
@@ -8,12 +6,11 @@ import Arrow from '../../../../public/icon/arrow.svg'
 import { useGetPostQuery } from '../service/post'
 
 import cls from './Post.module.scss'
+import { PostBody } from './PostBody/PostBody'
+import { PostFooter } from './PostFooter/PostFooter'
 import { PostHeader } from './PostHeader/PostHeader'
 
-import { useGetUserInfoQuery } from 'modules/user/service/user'
 import { classNames } from 'shared/lib/classNames/classNames'
-import { Button, ButtonTheme } from 'shared/ui/Button/Button'
-import { Loader } from 'shared/ui/Loader/Loader'
 import { LoaderContent } from 'shared/ui/LoaderContent/LoaderContent'
 import { Modal } from 'shared/ui/Modal/Modal'
 
@@ -30,7 +27,7 @@ interface PostProps {
 
 export const Post: FC<PostProps> = memo(
   ({ currentId, callBack, src, alt, onChangeStep, step, endIndex, currentIndex }) => {
-    const { data: postData, isLoading } = useGetPostQuery(currentId, { skip: !currentId })
+    const { data: postData, isFetching } = useGetPostQuery(currentId, { skip: !currentId })
     const [isOpen, setIsOpen] = useState(Boolean(currentId))
     const description = postData?.description || ''
 
@@ -109,7 +106,7 @@ export const Post: FC<PostProps> = memo(
             />
           </div>
           <div className={cls.postContainer}>
-            {isLoading ? (
+            {isFetching ? (
               <LoaderContent isText={true} />
             ) : (
               <>
@@ -120,6 +117,8 @@ export const Post: FC<PostProps> = memo(
                   currentId={currentId}
                   onChangeOpenPost={onChangeOpen}
                 />
+                <PostBody currentId={currentId} description={description} />
+                <PostFooter />
               </>
             )}
           </div>
