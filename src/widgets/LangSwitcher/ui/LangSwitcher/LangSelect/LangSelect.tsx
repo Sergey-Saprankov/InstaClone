@@ -21,7 +21,7 @@ interface LangSelectProps {
 export const LangSelect = ({ options, value, onChange, className = '' }: LangSelectProps) => {
   const [isActive, setIsActive] = useState(false)
 
-  const { onKeyDownHandler, onMouseDown, onArrowDown } = useSelectKeyboardHandling({
+  const { onKeyDownHandler, onArrowDown } = useSelectKeyboardHandling({
     isActive,
     setIsActive,
   })
@@ -43,7 +43,6 @@ export const LangSelect = ({ options, value, onChange, className = '' }: LangSel
         <Listbox.Options
           onBlur={() => setIsActive(false)}
           onKeyDown={onKeyDownHandler}
-          onMouseDown={onMouseDown}
           className={classNames(cls.listBoxOptions, { [cls.isActive]: isActive }, [])}
         >
           {options?.map((option: string, index) => (
