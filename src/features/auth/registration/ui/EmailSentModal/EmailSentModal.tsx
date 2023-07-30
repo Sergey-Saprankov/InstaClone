@@ -27,16 +27,18 @@ export const EmailSentModal = ({ isOpen, title, setOn }: EmailSentModalType) => 
 
   return (
     <Portal>
-      <div className={cls.container}>
-        <ModalHeader title={title} handleButtonClick={handleButtonClick} />
-        <div className={cls.main}>
-          <div className={cls.description}>
-            We have sent a link to confirm your email to {email ?? 'your email'}
-          </div>
-          <div className={cls.btnContainer}>
-            <Button theme={ButtonTheme.PRIMARY} onClick={handleButtonClick} className={cls.okBtn}>
-              OK
-            </Button>
+      <div className={cls.wrapper}>
+        <div className={cls.container}>
+          <ModalHeader title={title} handleButtonClick={handleButtonClick} />
+          <div className={cls.main}>
+            <div className={cls.description}>
+              We have sent a link to confirm your email to {email ?? 'your email'}
+            </div>
+            <div className={cls.btnContainer}>
+              <Button theme={ButtonTheme.PRIMARY} onClick={handleButtonClick} className={cls.okBtn}>
+                OK
+              </Button>
+            </div>
           </div>
         </div>
       </div>

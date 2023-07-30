@@ -67,10 +67,10 @@ export const LogOutComponent: FC<LogOutComponentProps> = memo(({ className = '' 
         onClose={closeModal}
         onSubmit={onSubmit}
       >
-        <Text tag={'p'} font={TextFontTheme.INTER_REGULAR_XL}>
+        <Text tag={'p'} font={TextFontTheme.INTER_REGULAR_L}>
           {t.logOutModal.confirmation}
         </Text>
-        <Text tag={'span'} font={TextFontTheme.INTER_BOLD_M}>{`"${email}" ?`}</Text>
+        <Text tag={'span'} font={TextFontTheme.INTER_REGULAR_L}>{`"${email}" ?`}</Text>
       </Modal>
     </div>
   )

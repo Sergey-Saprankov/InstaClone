@@ -22,8 +22,8 @@
 
   color: white;
 
-  background-color: var(--dark-300);
-  border-radius: 2px;
+  background-color: var(--dark-400);
+  border-radius: 15px;
 
   .strip {
     position: absolute;
@@ -32,20 +32,21 @@
 
     width: 100%;
 
-    border-bottom: 1px solid var(--dark-100);
+    border-bottom: 1px solid #504f4f6a;
   }
 }
 
 .modalHeader {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
 
   margin-bottom: 42px;
 }
 
 .modalBody {
   margin-bottom: 30px;
+  padding: 0 20px;
 
   word-break: break-word;
 }
@@ -53,5 +54,9 @@
 .modalFooter {
   display: flex;
   gap: 24px;
-  justify-content: flex-end;
+  justify-content: center;
+}
+
+.btn {
+  border-radius: 20px;
 }

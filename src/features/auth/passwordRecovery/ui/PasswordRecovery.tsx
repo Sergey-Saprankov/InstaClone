@@ -70,12 +70,6 @@ export const PasswordRecovery = ({ setIsModalOpen }: RegistrationFormType) => {
 
       <div className={s.mb15}></div>
 
-      <NavLink className={s.alignSelfEnd} href={'#'} color={NavLinkColor.GREY}>
-        <Text tag={'span'} font={TextFontTheme.INTER_REGULAR_L}>
-          {t.passwordRecovery.forgotPassword}
-        </Text>
-      </NavLink>
-
       <div className={s.mb29}></div>
 
       <Button
@@ -83,7 +77,6 @@ export const PasswordRecovery = ({ setIsModalOpen }: RegistrationFormType) => {
         type={'submit'}
         theme={ButtonTheme.PRIMARY}
         size={ButtonSize.XXl}
-        onClick={() => console.log(222)}
       >
         <Text
           className={s.alignSelfCenter}
