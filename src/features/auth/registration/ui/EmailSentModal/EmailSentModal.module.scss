@@ -1,6 +1,13 @@
+.wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  height: 100%;
+}
+
 .container {
   width: 378px;
-  margin: 240px auto;
 
   background-color: var(--dark-300);
   border-radius: 15px;

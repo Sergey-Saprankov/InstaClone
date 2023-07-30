@@ -25,7 +25,7 @@ export const en: LocaleType = {
         create: 'Create',
         statistics: 'Statistics',
         favorites: 'Favorites',
-        logOut: 'Log Out',
+        logOut: 'Log out',
     },
 
     profile: {
@@ -91,7 +91,7 @@ export const en: LocaleType = {
     },
 
     logOutModal: {
-        logOut: 'LogOut',
+        logOut: 'Log out',
         confirmation: 'Are you really want to log out of your account',
     },
 

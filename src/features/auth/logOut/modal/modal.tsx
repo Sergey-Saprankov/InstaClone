@@ -34,7 +34,7 @@ export const Modal = ({
       <div className={cls.modal} onClick={onClose}>
         <div className={cls.modalContent} onClick={e => e.stopPropagation()}>
           <div className={cls.modalHeader}>
-            <Text tag={'span'} font={TextFontTheme.INTER_BOLD_XL} color={TextColorTheme.LIGHT}>
+            <Text tag={'span'} font={TextFontTheme.INTER_BOLD_L} color={TextColorTheme.LIGHT}>
               {title}
             </Text>
             <Button onClick={onClose} theme={ButtonTheme.Clear}>
@@ -44,12 +44,22 @@ export const Modal = ({
           <div className={cls.strip}></div>
           <div className={cls.modalBody}>{children}</div>
           <div className={cls.modalFooter}>
-            <Button theme={ButtonTheme.OUTLINE} onClick={onSubmit} size={ButtonSize.XS}>
+            <Button
+              className={cls.btn}
+              theme={ButtonTheme.OUTLINE}
+              onClick={onSubmit}
+              size={ButtonSize.XS}
+            >
               <Text tag={'span'} font={TextFontTheme.INTER_SEMI_BOLD_L}>
                 {t.common.yes}
               </Text>
             </Button>
-            <Button theme={ButtonTheme.PRIMARY} onClick={onClose} size={ButtonSize.XS}>
+            <Button
+              className={cls.btn}
+              theme={ButtonTheme.PRIMARY}
+              onClick={onClose}
+              size={ButtonSize.XS}
+            >
               <Text tag={'span'} font={TextFontTheme.INTER_SEMI_BOLD_L}>
                 {t.common.no}
               </Text>
