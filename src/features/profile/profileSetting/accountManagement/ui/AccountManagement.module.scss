@@ -1,0 +1,24 @@
+.accountManagementBlock {
+  position: relative;
+
+  display: flex;
+  flex-direction: column;
+
+  width: 726px;
+  padding-top: 22px;
+}
+
+.accountType {
+  margin-bottom: 42px;
+}
+
+.subscriptionCost {
+  margin-bottom: 24px;
+}
+
+.linksContainer {
+  display: flex;
+  gap: 54px;
+  align-items: center;
+  justify-content: flex-end;
+}

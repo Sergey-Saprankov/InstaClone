@@ -1,0 +1,104 @@
+.root {}
+
+.option {
+  cursor: pointer;
+
+  display: flex;
+  gap: 2px;
+  align-items: center;
+
+  width: fit-content;
+
+  outline: none;
+
+  &[data-headlessui-state='disabled'] {
+    cursor: initial;
+  }
+}
+
+.label {
+  font: var(--font-regular-l);
+
+
+  .option[data-headlessui-state='disabled'] & {
+    color: var(--light-900);
+  }
+}
+
+.icon {
+  position: relative;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  box-sizing: border-box;
+  width: 36px;
+  height: 36px;
+  padding: 9px;
+
+  border-radius: 50%;
+
+  transition: 0.3s background-color;
+
+  &::before {
+    content: '';
+
+    display: block;
+
+    width: 18px;
+    height: 18px;
+
+    border: 2px solid var(--light-100);
+    border-radius: 50%;
+
+    .option[data-headlessui-state='disabled'] & {
+      border-color: var(--light-500);
+    }
+  }
+
+  &::after {
+    content: '';
+
+    position: absolute;
+
+    border-radius: 50%;
+
+    transition: 100ms background-color;
+
+    [data-headlessui-state='checked active'] &,
+    [data-headlessui-state='checked'] & {
+      width: 9px;
+      height: 9px;
+
+      background-color: var(--light-100);
+    }
+  }
+
+  .option:focus-visible & {
+    background-color: var(--primary-100);
+  }
+
+  .option:hover & {
+    background-color: var(--light-900);
+  }
+
+  .option:active & {
+    background-color: var(--light-700);
+  }
+
+  .option[data-headlessui-state='disabled'] & {
+    background-color: var(--light-900);
+  }
+}
+
+.rootLabel {
+  margin-bottom: 6px;
+}
+
+.optionContainer {
+  padding: 12px 24px;
+
+  background-color: var(--dark-500);
+  border: 1px solid var(--dark-300);
+}
