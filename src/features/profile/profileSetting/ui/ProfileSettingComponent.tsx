@@ -1,6 +1,7 @@
 import { useCallback, useState } from 'react'
 
 import { useTranslation } from '../../../../shared/hooks/useTranslation'
+import { AccountManagement } from '../accountManagement/ui/AccountManagement'
 
 import cls from './ProfileSettingComponent.module.scss'
 
@@ -47,7 +48,7 @@ export const ProfileSettingComponent = () => {
       </TabPanel>
 
       <TabPanel value={'tab-3'} currentValue={currentTab}>
-        CONTENT-3
+        <AccountManagement />
       </TabPanel>
 
       <TabPanel value={'tab-4'} currentValue={currentTab}>

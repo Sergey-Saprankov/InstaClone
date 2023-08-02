@@ -1,0 +1,49 @@
+.paymentBlock {
+  display: flex;
+  column-gap: 54px;
+  align-items: center;
+  justify-content: flex-end;
+
+  margin-top: 24px;
+}
+
+.payment {
+  position: relative;
+
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 96px;
+  height: 64px;
+
+  background-color: var(--dark-500);
+  border: 1px solid var(--dark-300);
+  border-radius: 5px;
+
+  &:after {
+    content: "";
+
+    position: absolute;
+    top: -50px;
+    left: -75px;
+    transform: rotate(35deg);
+
+    width: 50px;
+    height: 155px;
+
+    opacity: .2;
+    background: #fff;
+
+    transition: all 550ms cubic-bezier(0.19, 1, 0.22, 1);
+  }
+
+  &:hover {
+    &:after {
+      left: 130%;
+
+      transition: all 0.8s cubic-bezier(0.19, 1, 0.22, 1);
+    }
+  }
+}

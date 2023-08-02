@@ -1,0 +1,52 @@
+.formGroup {
+  cursor: pointer;
+
+  display: flex;
+  align-items: center;
+}
+
+.realRadio {
+  position: absolute;
+  z-index: -1;
+
+  width: 0;
+  height: 0;
+
+  opacity: 0;
+}
+
+.customRadio {
+  position: relative;
+
+  display: inline-block;
+
+  width: 20px;
+  height: 20px;
+  margin-right: 14px;
+
+  border: 2px solid var(--light-100);
+  border-radius: 50%;
+
+  &::before {
+    content: '';
+
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0);
+
+    display: none;
+
+    width: 10px;
+    height: 10px;
+
+    background-color: var(--light-100);
+    border-radius: 50%;
+  }
+
+  .realRadio:checked + &::before {
+    transform: translate(-50%, -50%) scale(1);
+
+    display: inline-block
+  }
+}
