@@ -1,4 +1,4 @@
-import { clearToken, setToken } from 'features/auth/login'
+import { clearToken } from 'features/auth/login'
 import { baseAPI } from 'shared/api/baseAPI'
 
 export const Logout = baseAPI.injectEndpoints({
