@@ -1,3 +1,4 @@
+import { clearToken, setToken } from 'features/auth/login'
 import { baseAPI } from 'shared/api/baseAPI'
 
 export const Logout = baseAPI.injectEndpoints({
@@ -7,7 +8,14 @@ export const Logout = baseAPI.injectEndpoints({
         url: `/api/auth/logout`,
         method: 'POST',
       }),
-      // invalidatesTags: ['AuthMe'],
+      // invalidatesTags: ['User'],
+      async onQueryStarted(_, { dispatch, queryFulfilled }) {
+        try {
+          dispatch(clearToken())
+        } catch (err) {
+          console.error(err)
+        }
+      },
     }),
   }),
   overrideExisting: true,

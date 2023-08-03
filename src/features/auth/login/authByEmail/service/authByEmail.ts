@@ -11,7 +11,7 @@ export const authByEmail = baseAPI.injectEndpoints({
         method: 'Post',
         body: arg,
       }),
-      invalidatesTags: ['AuthMe'],
+      invalidatesTags: ['AuthMe', 'User'],
       async onQueryStarted(_, { dispatch, queryFulfilled }) {
         try {
           const { data } = await queryFulfilled
