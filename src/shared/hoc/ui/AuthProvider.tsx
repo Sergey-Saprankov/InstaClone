@@ -17,8 +17,7 @@ export const AuthProvider: FC<AuthProviderProps> = memo(({ children }) => {
   const { push, asPath } = useRouter()
   const authMeData = useAppSelector(getAuthMeData)?.email
 
-  const skipAuthMe =
-    Boolean(authMeData) || asPath.startsWith(PATH.AUTH) || asPath === PATH.ERROR_PAGE
+  const skipAuthMe = asPath.startsWith(PATH.AUTH) || asPath === PATH.ERROR_PAGE
   const { isLoading, error } = useAuthQuery(undefined, {
     skip: skipAuthMe,
   })
