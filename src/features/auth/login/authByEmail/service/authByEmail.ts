@@ -7,7 +7,7 @@ export const authByEmail = baseAPI.injectEndpoints({
   endpoints: build => ({
     login: build.mutation<LoginResponseType, LoginParamsType>({
       query: arg => ({
-        url: `/api/auth/login`,
+        url: `/auth/login`,
         method: 'Post',
         body: arg,
       }),

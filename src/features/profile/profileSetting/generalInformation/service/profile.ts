@@ -5,7 +5,7 @@ export const profile = baseAPI.injectEndpoints({
   endpoints: build => ({
     updateProfile: build.mutation<void, UpdateUserInfoSchema>({
       query: arg => ({
-        url: `/api/users/profile`,
+        url: `/users/profile`,
         method: 'PUT',
         body: arg,
       }),

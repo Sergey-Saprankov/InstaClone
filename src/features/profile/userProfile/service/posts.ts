@@ -5,7 +5,7 @@ const posts = baseAPI.injectEndpoints({
   endpoints: build => ({
     getPosts: build.query<PostsResponse, ArgGetPostsQuery>({
       query: arg => ({
-        url: `api/posts/${arg.userId}`,
+        url: `/posts/${arg.userId}`,
         retries: 2,
         params: {
           pageSize: 9,
