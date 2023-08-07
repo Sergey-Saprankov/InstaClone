@@ -8,7 +8,7 @@ const accountManagement = baseAPI.injectEndpoints({
   endpoints: build => ({
     getSubscriptionCost: build.query<GetSubscriptionCostResponse, void>({
       query: () => ({
-        url: '/api/v1/subscriptions/cost-of-subscriptions',
+        url: '/subscriptions/cost-of-subscriptions',
       }),
       async onQueryStarted(_, { dispatch, queryFulfilled }) {
         try {
@@ -22,13 +22,13 @@ const accountManagement = baseAPI.injectEndpoints({
 
     getCurrentSubscriptions: build.query<any, void>({
       query: () => ({
-        url: '/api/v1/subscriptions/current-subscriptions',
+        url: '/subscriptions/current-subscriptions',
       }),
     }),
 
     subscribe: build.mutation<{ url: string }, GetSubscriptionCostRequest>({
       query: arg => ({
-        url: `/api/v1/subscriptions`,
+        url: `/subscriptions`,
         method: 'POST',
         body: arg,
       }),
