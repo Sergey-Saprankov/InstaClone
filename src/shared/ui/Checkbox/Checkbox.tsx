@@ -2,7 +2,6 @@ import { ChangeEvent, FC, memo } from 'react'
 
 import Image from 'next/image'
 
-import check from '../../../../public/icon/checkbox-check-black.svg'
 import disabledCheckbox from '../../../../public/icon/checkbox-check-disabled.svg'
 
 import cls from './Checkbox.module.scss'
@@ -52,7 +51,9 @@ export const CheckBox: FC<CheckBoxProps> = memo(
           className={classNames(cls.CheckBox, mods, [className])}
         >
           <div className={cls.decoration}></div>
-          {isChecked && !disabled && <Image src={check} alt={'check'} width={14} height={14} />}
+          {isChecked && !disabled && (
+            <Image src={'/icon/checkbox-check-black.svg'} alt={'check'} width={14} height={14} />
+          )}
           {disabled && isChecked && (
             <Image src={disabledCheckbox} alt={'disabled'} width={14} height={14} />
           )}

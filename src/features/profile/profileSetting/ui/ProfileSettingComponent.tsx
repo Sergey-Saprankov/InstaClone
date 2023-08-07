@@ -1,5 +1,6 @@
-import { useCallback, useState } from 'react'
+import { useCallback, useEffect, useState } from 'react'
 
+import { AccountManagement } from '../accountManagement/ui/AccountManagement'
 import { GeneralInformation } from '../generalInformation/ui/GeneralInformation'
 import { UserPayments } from '../userPayments'
 
@@ -13,10 +14,23 @@ export type TabsType = 'tab-1' | 'tab-2' | 'tab-3' | 'tab-4'
 export const ProfileSettingComponent = () => {
   const [currentTab, setCurrentTab] = useState<TabsType>('tab-1')
 
+  useEffect(() => {
+    const serializedState = localStorage.getItem('currentTab')
+
+    if (serializedState) {
+      setCurrentTab(serializedState as TabsType)
+    }
+
+    return () => {
+      localStorage.removeItem('currentTab')
+    }
+  }, [])
+
   const { t } = useTranslation()
 
   const changeTabHandler = useCallback((value: TabsType) => {
     setCurrentTab(value)
+    localStorage.setItem('currentTab', value)
   }, [])
 
   return (
@@ -48,7 +62,7 @@ export const ProfileSettingComponent = () => {
       </TabPanel>
 
       <TabPanel value={'tab-3'} currentValue={currentTab}>
-        CONTENT-3
+        <AccountManagement />
       </TabPanel>
 
       <TabPanel value={'tab-4'} currentValue={currentTab}>

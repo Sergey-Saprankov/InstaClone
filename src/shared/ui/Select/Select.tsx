@@ -59,7 +59,7 @@ export const Select = () => {
           {selectedPerson.name}
           <Image
             className={classNames(cls.arrowIcon, { [cls.selected]: isActive }, [])}
-            src={arrowDown}
+            src={'/icon/arrow-down.svg'}
             alt={'arrow icon'}
           />
         </Listbox.Button>
