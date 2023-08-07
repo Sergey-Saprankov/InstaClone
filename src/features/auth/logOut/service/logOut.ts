@@ -5,7 +5,7 @@ export const Logout = baseAPI.injectEndpoints({
   endpoints: build => ({
     logOut: build.mutation<void, void>({
       query: () => ({
-        url: `/api/auth/logout`,
+        url: `/auth/logout`,
         method: 'POST',
       }),
       // invalidatesTags: ['User'],
