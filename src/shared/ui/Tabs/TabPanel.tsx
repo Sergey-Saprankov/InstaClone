@@ -8,6 +8,6 @@ type PropsType = Omit<TabPropsType, 'onClick'>
 
 export const TabPanel = memo(({ children, currentValue, value }: PropsType) => (
   <div className={classNames(cls.content, { [cls.activeContent]: currentValue === value }, [])}>
-    {children}
+    {currentValue === value && children}
   </div>
 ))

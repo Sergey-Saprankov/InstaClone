@@ -12,6 +12,7 @@ import { StateSchema } from './stateSchema'
 
 import { loginReducer } from 'features/auth/login'
 import { registrationReducer } from 'features/auth/registration/model/slice/registrationSlice'
+import { accountManagementReducer } from 'features/profile/profileSetting/accountManagement/model/slice/accountManagementSlice'
 import { uploadPhotoReducer } from 'features/profile/uploadPhoto'
 import { baseAPI } from 'shared/api/baseAPI'
 import { authMeReducer } from 'shared/hoc'
@@ -50,6 +51,7 @@ const rootReducer: ReducersMapObject<StateSchema> = {
   registration: registrationReducer,
   authMe: authMeReducer,
   uploadPhoto: uploadPhotoReducer,
+  accountManagement: accountManagementReducer,
 }
 
 export const store = configureStore({

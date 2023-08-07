@@ -72,7 +72,7 @@ export const UserProfileData = () => {
           className={cls.btn}
           theme={ButtonTheme.LIGHT}
           size={ButtonSize.L}
-          onClick={() => delProfile()}
+          // onClick={() => delProfile()}
         >
           {t.profileSettingPage.deleteProfile}
         </Button>
