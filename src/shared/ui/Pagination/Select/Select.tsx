@@ -1,9 +1,8 @@
 import { FC, KeyboardEvent, MouseEvent, useState } from 'react'
 
 import { Listbox } from '@headlessui/react'
-import Image from 'next/image'
 
-import arrowDown from '../../../../../public/icon/arrow-down.svg'
+import ArrowDown from '../../../../../public/icon/arrow-down.svg'
 
 import cls from './Select.module.scss'
 
@@ -64,11 +63,7 @@ export const Select: FC<SelectProps> = ({ pageSize, disabled = false, className 
           className={classNames(cls.listBoxButton, selectButtonMode, [])}
         >
           {selectedPageSize}
-          <Image
-            className={classNames(cls.arrowIcon, { [cls.selected]: isActive }, [])}
-            src={arrowDown}
-            alt={'arrow icon'}
-          />
+          <ArrowDown className={classNames(cls.arrowIcon, { [cls.selected]: isActive }, [])} />
         </Listbox.Button>
         <Listbox.Options
           onBlur={() => setIsActive(false)}
