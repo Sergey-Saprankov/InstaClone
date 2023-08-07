@@ -99,7 +99,7 @@ export const PasswordRecovery = ({ setIsModalOpen }: RegistrationFormType) => {
       <div className={s.recaptcha}>
         <ReCAPTCHA
           onChange={onChange}
-          sitekey={process.env.NEXT_PUBLIC_SITE_KEY as string}
+          sitekey={'6LeY2y0mAAAAANwI_paCWfoksCgBm1n2z9J0nwNQ'} //process.env.NEXT_PUBLIC_SITE_KEY as string
           theme={'dark'}
         />
       </div>
