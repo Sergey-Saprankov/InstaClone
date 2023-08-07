@@ -1,7 +1,6 @@
 import { FC, KeyboardEvent, MouseEvent, useState } from 'react'
 
 import { Listbox } from '@headlessui/react'
-import Image from 'next/image'
 
 import ArrowDown from '../../../../../public/icon/arrow-down.svg'
 

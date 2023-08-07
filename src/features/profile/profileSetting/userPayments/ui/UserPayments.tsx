@@ -58,7 +58,7 @@ const tableBody = [
 ]
 
 export const UserPayments = () => {
-  const { data, isFetching } = useGetPaymentsQuery()
+  const { data } = useGetPaymentsQuery()
   const onPageChanged = useCallback(() => {}, [])
 
   const body = data && data.length > 0 ? data : tableBody
