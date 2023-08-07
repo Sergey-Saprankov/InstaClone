@@ -4,12 +4,13 @@ import { useRouter } from 'next/router'
 
 import PayPal from '../../../../../../../public/icon/paypal.svg'
 import Stripe from '../../../../../../../public/icon/stripe.svg'
-import { useAppSelector } from '../../../../../../shared/hooks/useAppSelector'
-import { RadioButton } from '../../../../../../shared/ui/RadioButton/RadioButton'
 import { useGetSubscriptionCostQuery, useSubscribeMutation } from '../../service/accountManagement'
 import clsGeneral from '../AccountManagement.module.scss'
 
 import cls from './SubscriptionCosts.module.scss'
+
+import { useAppSelector } from 'shared/hooks/useAppSelector'
+import { RadioButton } from 'shared/ui/RadioButton/RadioButton'
 
 export const SubscriptionCosts = () => {
   const router = useRouter()

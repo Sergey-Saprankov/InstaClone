@@ -1,7 +1,8 @@
-import { baseAPI } from '../../../../../shared/api/baseAPI'
 import { setIsLoading } from '../model/slice/accountManagementSlice'
 
 import { GetSubscriptionCostRequest, GetSubscriptionCostResponse } from './types'
+
+import { baseAPI } from 'shared/api/baseAPI'
 
 const accountManagement = baseAPI.injectEndpoints({
   endpoints: build => ({

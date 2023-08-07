@@ -1,11 +1,12 @@
-import { useAppDispatch } from '../../../../../../shared/hooks/useAppDispatch'
-import { useAppSelector } from '../../../../../../shared/hooks/useAppSelector'
-import { RadioButton } from '../../../../../../shared/ui/RadioButton/RadioButton'
 import { getTypeAccount } from '../../model/selectors/getTypeAccount/getTypeAccount'
 import { setTypeAccount } from '../../model/slice/accountManagementSlice'
 import clsGeneral from '../AccountManagement.module.scss'
 
 import cls from './AccountType.module.scss'
+
+import { useAppDispatch } from 'shared/hooks/useAppDispatch'
+import { useAppSelector } from 'shared/hooks/useAppSelector'
+import { RadioButton } from 'shared/ui/RadioButton/RadioButton'
 
 export const AccountType = () => {
   const isLoading = useAppSelector(state => state.accountManagement.isLoading)
