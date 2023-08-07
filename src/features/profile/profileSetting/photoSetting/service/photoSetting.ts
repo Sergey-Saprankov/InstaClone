@@ -8,7 +8,7 @@ export const PhotoSetting = baseAPI.injectEndpoints({
   endpoints: build => ({
     sendAvatar: build.mutation<SettingPhotoResponseType | ErrorResponseType, any>({
       query: body => ({
-        url: `/api/users/profile/avatar`,
+        url: `/users/profile/avatar`,
         method: 'POST',
         body,
       }),
@@ -16,7 +16,7 @@ export const PhotoSetting = baseAPI.injectEndpoints({
     }),
     deleteAvatar: build.mutation<void | ErrorResponseType, void>({
       query: () => ({
-        url: `/api/users/profile/avatar`,
+        url: `/users/profile/avatar`,
         method: 'DELETE',
       }),
     }),
