@@ -1,0 +1,38 @@
+.UserPayments {
+  width: 100%;
+  max-width: 972px;
+  margin-top: 24px;
+}
+
+.table {
+  border-spacing: 0;
+  border-collapse: separate;
+
+  width: 100%;
+
+  border: 1px solid var(--dark-700);
+}
+
+.thead {
+  background-color: var(--dark-700);
+}
+
+.tr {
+  border-bottom: 1px solid var(--dark-700);
+}
+
+.th {
+  padding: 12px 0 12px 24px;
+
+  text-align: start;
+
+  border-bottom: 1px solid var(--dark-700);
+}
+
+.td {
+  padding: 12px 0 12px 24px;
+}
+
+.pagination {
+  margin-top: 36px;
+}

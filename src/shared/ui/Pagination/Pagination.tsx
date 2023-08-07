@@ -1,8 +1,6 @@
 import { FC, memo, useEffect, useState } from 'react'
 
-import Image from 'next/image'
-
-import arrowDown from '../../../../public/icon/arrow-down.svg'
+import ArrowDown from '../../../../public/icon/arrow-down.svg'
 
 import cls from './Pagination.module.scss'
 import { Select } from './Select/Select'
@@ -84,7 +82,7 @@ export const Pagination: FC<PaginationProps> = memo(props => {
           onClick={handlerPrevPage}
           disabled={disabled}
         >
-          <Image className={cls.arrowLeft} src={arrowDown} alt={'arrow icon'} />
+          <ArrowDown className={cls.arrowLeft} />
         </button>
 
         {arrOfCurrButtons.map((item, index) => {
@@ -108,7 +106,7 @@ export const Pagination: FC<PaginationProps> = memo(props => {
           onClick={handlerNextPage}
           disabled={disabled}
         >
-          <Image className={cls.arrowRight} src={arrowDown} alt={'arrow icon'} />
+          <ArrowDown className={cls.arrowLeft} />
         </button>
       </div>
 
