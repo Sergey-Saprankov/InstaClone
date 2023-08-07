@@ -6,7 +6,7 @@ export const createNewPassword = baseAPI.injectEndpoints({
   endpoints: build => ({
     createNewPassword: build.mutation<void, NewPasswordParamsType>({
       query: arg => ({
-        url: `/api/auth/new-password`,
+        url: `/api/v1/auth/new-password`,
         method: 'POST',
         body: arg,
       }),

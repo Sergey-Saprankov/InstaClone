@@ -1,4 +1,4 @@
-import { useCallback, useState } from 'react'
+import { useCallback, useEffect, useState } from 'react'
 
 import { useTranslation } from '../../../../shared/hooks/useTranslation'
 import { AccountManagement } from '../accountManagement/ui/AccountManagement'
@@ -13,10 +13,23 @@ export type TabsType = 'tab-1' | 'tab-2' | 'tab-3' | 'tab-4'
 export const ProfileSettingComponent = () => {
   const [currentTab, setCurrentTab] = useState<TabsType>('tab-1')
 
+  useEffect(() => {
+    const serializedState = localStorage.getItem('currentTab')
+
+    if (serializedState) {
+      setCurrentTab(serializedState as TabsType)
+    }
+
+    return () => {
+      localStorage.removeItem('currentTab')
+    }
+  }, [])
+
   const { t } = useTranslation()
 
   const changeTabHandler = useCallback((value: TabsType) => {
     setCurrentTab(value)
+    localStorage.setItem('currentTab', value)
   }, [])
 
   return (

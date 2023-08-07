@@ -5,7 +5,7 @@ export const registration = baseAPI.injectEndpoints({
   endpoints: build => ({
     register: build.mutation<void, RegisterParamsType>({
       query: arg => ({
-        url: `/api/auth/registration`,
+        url: `/api/v1/auth/registration`,
         method: 'Post',
         body: arg,
       }),

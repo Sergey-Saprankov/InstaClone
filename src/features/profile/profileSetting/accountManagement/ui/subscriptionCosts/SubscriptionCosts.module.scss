@@ -1,6 +1,6 @@
 .paymentBlock {
   display: flex;
-  column-gap: 54px;
+  column-gap: 40px;
   align-items: center;
   justify-content: flex-end;
 
@@ -45,5 +45,15 @@
 
       transition: all 0.8s cubic-bezier(0.19, 1, 0.22, 1);
     }
+  }
+
+  &:disabled {
+    cursor: default;
+
+    opacity: 0.5;
+  }
+
+  &:disabled:hover:after {
+    display: none;
   }
 }

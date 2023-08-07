@@ -5,7 +5,7 @@ export const passwordRecovery = baseAPI.injectEndpoints({
   endpoints: build => ({
     passwordRecovery: build.mutation<void, PasswordRecoveryParamsType>({
       query: arg => ({
-        url: `/api/auth/password-recovery`,
+        url: `/api/v1/auth/password-recovery`,
         method: 'POST',
         body: arg,
       }),

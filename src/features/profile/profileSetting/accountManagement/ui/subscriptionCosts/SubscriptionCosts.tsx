@@ -1,31 +1,39 @@
-import { loadStripe } from '@stripe/stripe-js'
+import { useState } from 'react'
+
+import { useRouter } from 'next/router'
 
 import PayPal from '../../../../../../../public/icon/paypal.svg'
 import Stripe from '../../../../../../../public/icon/stripe.svg'
-import { useAppDispatch } from '../../../../../../shared/hooks/useAppDispatch'
 import { useAppSelector } from '../../../../../../shared/hooks/useAppSelector'
 import { RadioButton } from '../../../../../../shared/ui/RadioButton/RadioButton'
-import { getSubscriptionType } from '../../model/selectors/getSubscriptionType/getSubscriptionType'
-import {
-  setAmountSubscription,
-  setSubscriptionType,
-} from '../../model/slice/accountManagementSlice'
-import { useGetSubscriptionCostQuery } from '../../service/accountManagement'
+import { useGetSubscriptionCostQuery, useSubscribeMutation } from '../../service/accountManagement'
 import clsGeneral from '../AccountManagement.module.scss'
 
 import cls from './SubscriptionCosts.module.scss'
 
 export const SubscriptionCosts = () => {
+  const router = useRouter()
+  const [subscriptionType, setSubscriptionType] = useState('MONTHLY')
+  const [amountSubscription, setAmountSubscription] = useState(10)
+  const [subscribe] = useSubscribeMutation()
   const { data, isFetching } = useGetSubscriptionCostQuery()
-  const subscriptionType = useAppSelector(getSubscriptionType)
-  const dispatch = useAppDispatch()
+  const isLoading = useAppSelector(state => state.accountManagement.isLoading)
 
   const changeSubscriptionTypeHandler = (subscriptionType: string, amount: number) => {
-    dispatch(setSubscriptionType(subscriptionType))
-    dispatch(setAmountSubscription(amount))
+    setSubscriptionType(subscriptionType)
+    setAmountSubscription(amount)
   }
-  const stripePaymentHandler = () => {
-    console.log('stripe')
+
+  const handlerStripePayment = () => {
+    const payload = {
+      typeSubscription: subscriptionType,
+      paymentType: 'STRIPE',
+      amount: amountSubscription,
+    }
+
+    subscribe(payload)
+      .unwrap()
+      .then(res => router.push(res.url))
   }
 
   if (isFetching) return null
@@ -39,6 +47,7 @@ export const SubscriptionCosts = () => {
 
           return (
             <RadioButton
+              disabled={isLoading}
               key={i}
               nameGroup={'subscriptionCosts'}
               value={el.typeDescription}
@@ -51,11 +60,10 @@ export const SubscriptionCosts = () => {
         })}
       </div>
       <div className={cls.paymentBlock}>
-        <button className={cls.payment}>
+        <button disabled={isLoading} className={cls.payment}>
           <PayPal />
         </button>
-        <p>or</p>
-        <button className={cls.payment} onClick={stripePaymentHandler}>
+        <button disabled={isLoading} className={cls.payment} onClick={handlerStripePayment}>
           <Stripe />
         </button>
       </div>

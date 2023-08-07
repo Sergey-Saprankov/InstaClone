@@ -9,14 +9,14 @@ const uploadPost = baseAPI.injectEndpoints({
   endpoints: build => ({
     upload: build.mutation<UploadPhotoResponse, any>({
       query: body => ({
-        url: `/api/posts/image`,
+        url: `/api/v1/posts/image`,
         method: 'POST',
         body,
       }),
     }),
     addPost: build.mutation<AddPostResponse, AddPostRequest>({
       query: (arg: AddPostRequest) => ({
-        url: `/api/posts`,
+        url: `/api/v1/posts`,
         method: 'POST',
         body: arg,
       }),

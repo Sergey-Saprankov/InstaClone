@@ -8,6 +8,7 @@ import clsGeneral from '../AccountManagement.module.scss'
 import cls from './AccountType.module.scss'
 
 export const AccountType = () => {
+  const isLoading = useAppSelector(state => state.accountManagement.isLoading)
   const typeAccount = useAppSelector(getTypeAccount)
   const dispatch = useAppDispatch()
 
@@ -24,6 +25,7 @@ export const AccountType = () => {
           value={'Personal'}
           checked={typeAccount === 'Personal'}
           onChange={onChangeTypeAccount}
+          disabled={isLoading}
         >
           Personal
         </RadioButton>
@@ -32,6 +34,7 @@ export const AccountType = () => {
           value={'Business'}
           checked={typeAccount === 'Business'}
           onChange={onChangeTypeAccount}
+          disabled={isLoading}
         >
           Business
         </RadioButton>
