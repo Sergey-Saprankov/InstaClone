@@ -7,11 +7,11 @@ export const authByEmail = baseAPI.injectEndpoints({
   endpoints: build => ({
     login: build.mutation<LoginResponseType, LoginParamsType>({
       query: arg => ({
-        url: `/api/v1/auth/login`,
+        url: `/auth/login`,
         method: 'Post',
         body: arg,
       }),
-      invalidatesTags: ['AuthMe'],
+      invalidatesTags: ['AuthMe', 'User'],
       async onQueryStarted(_, { dispatch, queryFulfilled }) {
         try {
           const { data } = await queryFulfilled

@@ -1,14 +1,27 @@
-import { PostsResponse } from 'features/profile/userProfile/service/types'
+import { PostsResponse, ArgGetPostsQuery } from 'features/profile/userProfile/service/types'
 import { baseAPI } from 'shared/api/baseAPI'
 
 const posts = baseAPI.injectEndpoints({
   endpoints: build => ({
-    getPosts: build.query<PostsResponse, number>({
-      query: (userId: number) => ({
-        url: `api/v1/posts/${userId}`,
+    getPosts: build.query<PostsResponse, ArgGetPostsQuery>({
+      query: arg => ({
+        url: `/posts/${arg.userId}`,
         retries: 2,
+        params: {
+          pageSize: 9,
+          pageNumber: arg.page,
+        },
       }),
       providesTags: ['Posts'],
+      serializeQueryArgs: ({ endpointName }) => {
+        return endpointName
+      },
+      merge: (currentCache, newItems) => {
+        currentCache.items.push(...newItems.items)
+      },
+      forceRefetch({ currentArg, previousArg }) {
+        return currentArg !== previousArg
+      },
     }),
   }),
   overrideExisting: true,

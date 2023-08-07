@@ -7,7 +7,7 @@ export const user = baseAPI.injectEndpoints({
     getUserInfo: build.query<ProfileParamsType, void>({
       query: () => {
         return {
-          url: '/api/v1/users/profile',
+          url: '/users/profile',
           retries: 2,
         }
       },

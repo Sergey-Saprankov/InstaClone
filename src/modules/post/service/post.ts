@@ -6,20 +6,20 @@ const post = baseAPI.injectEndpoints({
   endpoints: build => ({
     getPost: build.query<ResponsePost, number>({
       query: (postId: number) => ({
-        url: `/api/v1/posts/p/${postId}`,
+        url: `/posts/p/${postId}`,
       }),
       providesTags: ['Post'],
     }),
     deletePost: build.mutation<void, number>({
       query: (postId: number) => ({
-        url: `/api/v1/posts/${postId}`,
+        url: `/posts/${postId}`,
         method: 'DELETE',
       }),
       invalidatesTags: ['Posts'],
     }),
     updatePost: build.mutation<void, IUpdatePostRequest>({
       query: ({ postId, description }) => ({
-        url: `/api/v1/posts/${postId}`,
+        url: `/posts/${postId}`,
         method: 'PUT',
         body: { description },
       }),

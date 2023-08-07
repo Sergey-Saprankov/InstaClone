@@ -7,7 +7,7 @@ const authMeApi = baseAPI.injectEndpoints({
   endpoints: build => ({
     auth: build.query<AuthMeResponse, void>({
       query: () => ({
-        url: 'api/v1/auth/me',
+        url: '/auth/me',
       }),
       providesTags: ['AuthMe'],
       async onQueryStarted(_, { dispatch, queryFulfilled }) {

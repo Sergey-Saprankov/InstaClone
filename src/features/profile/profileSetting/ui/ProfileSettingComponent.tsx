@@ -1,11 +1,12 @@
 import { useCallback, useEffect, useState } from 'react'
 
-import { useTranslation } from '../../../../shared/hooks/useTranslation'
 import { AccountManagement } from '../accountManagement/ui/AccountManagement'
+import { GeneralInformation } from '../generalInformation/ui/GeneralInformation'
+import { UserPayments } from '../userPayments'
 
 import cls from './ProfileSettingComponent.module.scss'
 
-import { GeneralInformation } from 'features/profile/profileSetting/generalInformation/ui/GeneralInformation'
+import { useTranslation } from 'shared/hooks/useTranslation'
 import { Tab, Tabs, TabPanel } from 'shared/ui/Tabs'
 
 export type TabsType = 'tab-1' | 'tab-2' | 'tab-3' | 'tab-4'
@@ -65,7 +66,7 @@ export const ProfileSettingComponent = () => {
       </TabPanel>
 
       <TabPanel value={'tab-4'} currentValue={currentTab}>
-        CONTENT-4
+        <UserPayments />
       </TabPanel>
     </div>
   )

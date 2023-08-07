@@ -26,3 +26,8 @@ interface Image {
   fileSize: number
   uploadId: string
 }
+
+export interface ArgGetPostsQuery {
+  userId: number
+  page: number
+}
