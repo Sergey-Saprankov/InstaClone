@@ -62,5 +62,5 @@ export const baseAPI = createApi({
     }
   },
   endpoints: () => ({}),
-  tagTypes: ['AuthMe', 'User', 'Posts', 'Post'],
+  tagTypes: ['AuthMe', 'User', 'Posts', 'Post', 'Payments'],
 })
