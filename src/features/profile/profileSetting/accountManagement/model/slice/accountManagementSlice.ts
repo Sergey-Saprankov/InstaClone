@@ -5,6 +5,7 @@ const accountManagementSlice = createSlice({
   initialState: {
     isLoading: false,
     typeAccount: 'Personal',
+    autoRenewal: false,
   },
   reducers: {
     setTypeAccount: (state, action: PayloadAction<string>) => {

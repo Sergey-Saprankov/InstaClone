@@ -1,9 +1,9 @@
-.currentSubscriptionBlock{
+.currentSubscriptionBlock {
   margin-bottom: 42px;
 }
+
 .currentSubscription {
   display: flex;
-  flex-direction: row;
   row-gap: 30px;
   justify-content: start;
 
@@ -21,8 +21,4 @@
 
 .payment {
   padding-bottom: 20px;
-}
-
-.paymentData {
-  font: var(--font-semiBold-l);
 }
