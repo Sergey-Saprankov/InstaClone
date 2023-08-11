@@ -1,4 +1,4 @@
-import { ButtonHTMLAttributes, DetailedHTMLProps, FC, memo } from 'react'
+import { ComponentPropsWithoutRef, FC, memo } from 'react'
 
 import cls from './Button.module.scss'
 
@@ -20,11 +20,11 @@ export enum ButtonSize {
   XS = 'xs',
 }
 
-interface ButtonProps
-  extends DetailedHTMLProps<ButtonHTMLAttributes<HTMLButtonElement>, HTMLButtonElement> {
+interface ButtonProps extends ComponentPropsWithoutRef<'button'> {
   theme: ButtonTheme
   size?: ButtonSize
 }
+
 export const Button: FC<ButtonProps> = memo(
   ({
     theme = 'medium',
