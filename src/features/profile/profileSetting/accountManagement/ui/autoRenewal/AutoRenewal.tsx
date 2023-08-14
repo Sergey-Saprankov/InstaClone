@@ -13,7 +13,9 @@ export const AutoRenewal = () => {
   const onChangeCheckedAutoRenewal = () => {
     canceledAutoRenewal()
   }
-  const isCheck = autoRenewal?.hasAutoRenewal ? autoRenewal.hasAutoRenewal : false
+
+  if (!autoRenewal) return
+  const isCheck = autoRenewal.hasAutoRenewal ? autoRenewal.hasAutoRenewal : false
 
   return (
     <div className={cls.autoRenewalBlock}>

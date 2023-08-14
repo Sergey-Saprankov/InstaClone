@@ -1,3 +1,5 @@
+import { format } from 'date-fns'
+
 import clsGeneral from '../AccountManagement.module.scss'
 
 import { useGetCurrentSubscriptionsQuery } from 'features/profile/profileSetting/accountManagement/service/accountManagement'
@@ -7,22 +9,20 @@ import { Text, TextFontTheme } from 'shared/ui/Text/Text'
 export const CurrentSubscription = () => {
   const { data: currentSubscriptionData } = useGetCurrentSubscriptionsQuery()
   const time = '2023-08-09T10:06:49.429Z' //hardcore
-  const dateOfPayment = new Date(
-    currentSubscriptionData?.data[0] ? currentSubscriptionData?.data[0]?.dateOfPayment : time
-  ).toLocaleString('ru', {
-    day: '2-digit',
-    month: '2-digit',
-    year: 'numeric',
-  })
-  const endDateOfSubscription = new Date(
-    currentSubscriptionData?.data[0]
-      ? currentSubscriptionData?.data[0]?.endDateOfSubscription
-      : time
-  ).toLocaleString('ru', {
-    day: '2-digit',
-    month: '2-digit',
-    year: 'numeric',
-  })
+  const dateOfPayment = format(
+    new Date(
+      currentSubscriptionData?.data[0] ? currentSubscriptionData?.data[0]?.dateOfPayment : time
+    ),
+    'dd.MM.yyyy'
+  )
+  const endDateOfSubscription = format(
+    new Date(
+      currentSubscriptionData?.data[0]
+        ? currentSubscriptionData?.data[0]?.endDateOfSubscription
+        : time
+    ),
+    'dd.MM.yyyy'
+  )
 
   return (
     <div className={cls.currentSubscriptionBlock}>
