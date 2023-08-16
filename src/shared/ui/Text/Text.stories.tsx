@@ -19,5 +19,6 @@ export const TextH1: Story = {
     children: ' Text h1',
     color: TextColorTheme.PRIMARY,
     font: TextFontTheme.INTER_BOLD_L,
+    tag: 'span',
   },
 }
