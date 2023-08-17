@@ -8,7 +8,6 @@ type User = {
 }
 
 export const Page: React.FC = () => {
-  // eslint-disable-next-line import/no-named-as-default-member
   const [user, setUser] = useState<User>()
 
   return (
