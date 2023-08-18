@@ -1,0 +1,68 @@
+.itemContainer {
+  display: flex;
+  column-gap: 12px;
+
+  padding: 12px;
+}
+
+.item {
+  cursor: pointer;
+
+  position: relative;
+
+  width: 76px;
+  height: 82px;
+
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+
+.deleteIcon {
+  cursor: pointer;
+
+  position: absolute;
+  top: 2px;
+  right: 2px;
+
+  width: 14px;
+  height: 14px;
+  padding: 3px;
+
+  background-color: var(--dark-500);
+}
+
+.popoverPanel {
+  right: 0;
+}
+
+.popover {
+  position: relative;
+}
+
+.popoverPanel {
+  position: absolute;
+  z-index: 10;
+  bottom: 50px;
+
+  display: flex;
+  flex-direction: column;
+
+  min-width: 140px;
+
+  color: var(--light-100);
+
+  background-color: var(--dark-500);
+  border-radius: 7px;
+}
+
+.popoverButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 8px;
+
+  background-color: var(--dark-500);
+  border-radius: 50%;
+}

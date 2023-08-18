@@ -1,0 +1,16 @@
+.popup {
+  position: absolute;
+  right: 20px;
+  bottom: 20px;
+  left: 20px;
+
+  display: flex;
+  justify-content: space-between;
+
+  color: white;
+}
+
+.popupCol {
+  display: flex;
+  column-gap: 24px;
+}
