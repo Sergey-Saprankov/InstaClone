@@ -14,9 +14,8 @@ import {
   deleteAvatar,
   setCloseModal,
   setImage,
-  setImagesAvatar,
+  setImages,
 } from 'features/createPost/model/slice/uploadPhotoSlice'
-import clsG from 'features/createPost/ui/steps/steps.module.scss'
 import { useAppDispatch } from 'shared/hooks/useAppDispatch'
 import { useAppSelector } from 'shared/hooks/useAppSelector'
 import { classNames } from 'shared/lib/classNames/classNames'
@@ -35,7 +34,7 @@ export const PopoverGallery = () => {
       }
     }
 
-    dispatch(setImagesAvatar(imagesArrUrl))
+    dispatch(setImages(imagesArrUrl))
   }, [])
 
   const handlerCheckPhoto = (img: string) => {

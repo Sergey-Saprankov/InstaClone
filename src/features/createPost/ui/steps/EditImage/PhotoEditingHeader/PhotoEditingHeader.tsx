@@ -22,7 +22,7 @@ export const PhotoEditingHeader = ({ onPublishPost }: PropsType) => {
   const { t } = useTranslation()
 
   const onNextStepHandler = () => {
-    if (step < 2) {
+    if (step < STEP.PUBLICATION) {
       const nextStep = step + 1
 
       dispatch(setStep(nextStep))
@@ -30,7 +30,7 @@ export const PhotoEditingHeader = ({ onPublishPost }: PropsType) => {
   }
 
   const prevStepHandler = () => {
-    if (step) {
+    if (step > STEP.SELECT_IMAGE) {
       const nextStep = step - 1
 
       dispatch(setStep(nextStep))
@@ -49,7 +49,10 @@ export const PhotoEditingHeader = ({ onPublishPost }: PropsType) => {
         {step < STEP.PUBLICATION ? t.create.crop : t.create.publication}
       </Text>
 
-      <Button onClick={step < 2 ? onNextStepHandler : onPublishPost} theme={ButtonTheme.Clear}>
+      <Button
+        onClick={step < STEP.PUBLICATION ? onNextStepHandler : onPublishPost}
+        theme={ButtonTheme.Clear}
+      >
         <Text tag={'span'} font={TextFontTheme.INTER_REGULAR_L} color={TextColorTheme.PRIMARY}>
           {step < STEP.PUBLICATION ? t.create.next : t.create.publish}
         </Text>

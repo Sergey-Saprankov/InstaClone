@@ -1,28 +1,30 @@
 import { useCallback } from 'react'
 
+import ImageMedia from '../../../../../../public/icon/media.svg'
 import { useTranslation } from '../../../../../shared/hooks/useTranslation'
 
 import cls from './SelectImage.module.scss'
 
-import { setImage, setImagesAvatar } from 'features/createPost/model/slice/uploadPhotoSlice'
-import { Image } from 'features/createPost/ui/steps/SelectImage/Image/Image'
+import { setImage, setImages, setStep } from 'features/createPost/model/slice/uploadPhotoSlice'
+import { STEP } from 'features/createPost/model/types/const'
 import { useAppDispatch } from 'shared/hooks/useAppDispatch'
 import { InputTypeFile } from 'shared/ui/InputTypeFile/InputTypeFile'
 import { Text, TextColorTheme, TextFontTheme } from 'shared/ui/Text/Text'
 
 export const SelectImage = () => {
+  const { t } = useTranslation()
   const dispatch = useAppDispatch()
+
   const onChangePhoto = useCallback(
     (image: File) => {
       const imageUrl = URL.createObjectURL(image)
 
       dispatch(setImage(imageUrl))
-      dispatch(setImagesAvatar(imageUrl))
+      dispatch(setImages(imageUrl))
+      dispatch(setStep(STEP.CROP))
     },
     [dispatch]
   )
-
-  const { t } = useTranslation()
 
   return (
     <div className={cls.SelectPhoto}>
@@ -33,7 +35,7 @@ export const SelectImage = () => {
       </header>
       <div className={cls.selectContainer}>
         <div className={cls.description}>
-          <Image />
+          <ImageMedia />
           <Text tag={'p'} font={TextFontTheme.INTER_SEMI_BOLD_L} color={TextColorTheme.LIGHT}>
             {t.create.selectAPhotoInYourComputer}
           </Text>

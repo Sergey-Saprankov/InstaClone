@@ -5,7 +5,7 @@ import { UploadPhotoSchema } from '../types/uploadPhotoSchema'
 const uploadPhotoSlice = createSlice({
   name: 'uploadPhoto',
   initialState: {
-    step: 0,
+    step: 1,
     width: 500,
     height: 500,
     scale: 1,
@@ -18,6 +18,13 @@ const uploadPhotoSlice = createSlice({
     setImage: (state, action: PayloadAction<string>) => {
       state.image = action.payload
     },
+    setImages: (state, action: PayloadAction<string | string[]>) => {
+      if (typeof action.payload === 'string') {
+        state.imagesAvatar.push(action.payload)
+      } else {
+        state.imagesAvatar = [...state.imagesAvatar, ...action.payload]
+      }
+    },
     setCloseModal: (state, action: PayloadAction<boolean>) => {
       state.isOpen = action.payload
     },
@@ -26,13 +33,6 @@ const uploadPhotoSlice = createSlice({
     },
     setDescriptionPost: (state, action: PayloadAction<string>) => {
       state.description = action.payload
-    },
-    setImagesAvatar: (state, action: PayloadAction<string | string[]>) => {
-      if (typeof action.payload === 'string') {
-        state.imagesAvatar.push(action.payload)
-      } else {
-        state.imagesAvatar = [...state.imagesAvatar, ...action.payload]
-      }
     },
     setClearImagesAvatar: state => {
       state.imagesAvatar.length = 0
@@ -68,7 +68,7 @@ export const {
   setImage,
   setCloseModal,
   setStep,
-  setImagesAvatar,
+  setImages,
   setClearImagesAvatar,
   deleteAvatar,
   setDescriptionPost,

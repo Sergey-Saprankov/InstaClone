@@ -1,41 +1,36 @@
-import { FC, memo } from 'react'
-
-import cls from './CloseModal.module.scss'
+import cls from './DeleteImageModal.module.scss'
 
 import {
+  setCloseModal,
   setDescriptionPost,
   setImage,
   setStep,
 } from 'features/createPost/model/slice/uploadPhotoSlice'
+import { STEP } from 'features/createPost/model/types/const'
 import { useAppDispatch } from 'shared/hooks/useAppDispatch'
 import { useTranslation } from 'shared/hooks/useTranslation'
 import { classNames } from 'shared/lib/classNames/classNames'
 import { Button, ButtonTheme } from 'shared/ui/Button/Button'
 import { Text, TextColorTheme, TextFontTheme } from 'shared/ui/Text/Text'
 
-interface CloseModalProps {
-  isOpen: boolean
-  callBack: () => void
-}
-
-export const CloseModal: FC<CloseModalProps> = memo(({ isOpen, callBack }) => {
+export const DeleteImageModal = () => {
   const dispatch = useAppDispatch()
 
   const { t } = useTranslation()
 
-  const mods = {
-    [cls.open]: isOpen,
+  const onClose = () => {
+    dispatch(setCloseModal(false))
   }
 
   const onDeleteHandler = () => {
     dispatch(setImage(''))
-    dispatch(setStep(0))
+    dispatch(setStep(STEP.SELECT_IMAGE))
     dispatch(setDescriptionPost(''))
-    callBack()
+    dispatch(setCloseModal(false))
   }
 
   return (
-    <div className={classNames(cls.CloseModal, mods, [])}>
+    <div className={cls.CloseModal}>
       <div className={cls.content}>
         <header className={cls.header}>
           <Text tag={'h2'} font={TextFontTheme.INTER_REGULAR_XL} color={TextColorTheme.LIGHT}>
@@ -53,7 +48,7 @@ export const CloseModal: FC<CloseModalProps> = memo(({ isOpen, callBack }) => {
           </Button>
         </div>
         <div className={cls.buttonBlock}>
-          <Button onClick={callBack} theme={ButtonTheme.Clear}>
+          <Button onClick={onClose} theme={ButtonTheme.Clear}>
             <Text tag={'span'} font={TextFontTheme.INTER_REGULAR_L} color={TextColorTheme.LIGHT}>
               {t.create.cancel}
             </Text>
@@ -62,4 +57,4 @@ export const CloseModal: FC<CloseModalProps> = memo(({ isOpen, callBack }) => {
       </div>
     </div>
   )
-})
+}

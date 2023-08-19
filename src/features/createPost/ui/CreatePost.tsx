@@ -1,4 +1,4 @@
-import { FC, memo, useCallback, useRef, useState } from 'react'
+import { FC, memo, useCallback, useState } from 'react'
 
 import Plus from '../../../../public/icon/plus-square.svg'
 import { useTranslation } from '../../../shared/hooks/useTranslation'
@@ -30,21 +30,19 @@ interface ICreatePost {
 }
 
 export const CreatePost: FC<ICreatePost> = memo(({ className = '' }) => {
+  const { t } = useTranslation()
+  const dispatch = useAppDispatch()
   const step = useAppSelector(getStep)
   const image = useAppSelector(getImage)
-  const dispatch = useAppDispatch()
   const [isOpen, setIsOpen] = useState<boolean>(false)
-  const onClickHandler = () => {
-    setIsOpen(prev => !prev)
-  }
 
-  const { t } = useTranslation()
+  const onOpenModal = () => setIsOpen(prev => !prev)
 
   const onChangeModalOpened = useCallback(() => {
     if (step === STEP.PUBLICATION_COMPLETED) {
       setIsOpen(false)
       dispatch(setImage(''))
-      dispatch(setStep(0))
+      dispatch(setStep(STEP.SELECT_IMAGE))
       dispatch(setDescriptionPost(''))
 
       return
@@ -57,9 +55,13 @@ export const CreatePost: FC<ICreatePost> = memo(({ className = '' }) => {
     }
   }, [image, step])
 
+  const modsWidth = {
+    [cls.open]: step === STEP.FILTERS || step === STEP.PUBLICATION,
+  }
+
   return (
     <>
-      <Button onClick={onClickHandler} theme={ButtonTheme.Clear} className={cls.btn}>
+      <Button onClick={onOpenModal} theme={ButtonTheme.Clear} className={cls.btn}>
         <Plus fill={'currentColor'} />
         <Text tag={'span'} font={TextFontTheme.INTER_MEDIUM_L} className={className}>
           {t.sidebar.create}
@@ -68,10 +70,10 @@ export const CreatePost: FC<ICreatePost> = memo(({ className = '' }) => {
       {isOpen && (
         <Portal>
           <Modal isOpen={isOpen} callback={onChangeModalOpened}>
-            <div className={classNames(cls.content, { [cls.open]: step === 1 || step === 2 }, [])}>
-              {!image && <SelectImage />}
-              {image && step >= 0 && step <= 2 && <EditImage image={image} />}
-              {image && step === 3 && <PublicationCompleted />}
+            <div className={classNames(cls.content, modsWidth, [])}>
+              {step === STEP.SELECT_IMAGE && <SelectImage />}
+              {step > STEP.SELECT_IMAGE && step < STEP.PUBLICATION_COMPLETED && <EditImage />}
+              {step === STEP.PUBLICATION_COMPLETED && <PublicationCompleted />}
             </div>
           </Modal>
         </Portal>

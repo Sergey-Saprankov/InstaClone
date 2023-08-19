@@ -32,10 +32,6 @@
   background-color: var(--dark-500);
 }
 
-.popoverPanel {
-  right: 0;
-}
-
 .popover {
   position: relative;
 }
@@ -43,6 +39,7 @@
 .popoverPanel {
   position: absolute;
   z-index: 10;
+  right: 0;
   bottom: 50px;
 
   display: flex;
