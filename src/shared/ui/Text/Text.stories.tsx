@@ -12,7 +12,7 @@ const meta = {
 } satisfies Meta<typeof Text>
 
 export default meta
-type Story = StoryObj<typeof meta>
+type Story = StoryObj<typeof Text>
 
 export const TextH1: Story = {
   args: {
