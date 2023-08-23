@@ -25,6 +25,7 @@ export type ButtonProps<T extends ElementType = 'button'> = {
   children: ReactNode
   theme: ButtonTheme
   size?: ButtonSize
+  className?: string
 } & ComponentPropsWithoutRef<T>
 
 export const Button = <T extends ElementType = 'button'>(
