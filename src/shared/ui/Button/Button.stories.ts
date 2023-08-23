@@ -5,10 +5,7 @@ import { Button, ButtonSize, ButtonTheme } from 'shared/ui/Button/Button'
 const meta = {
   title: 'Components/Button',
   component: Button,
-  argTypes: {
-    size: [ButtonSize],
-    theme: [ButtonTheme],
-  },
+  tags: ['autodocs'],
 } satisfies Meta<typeof Button>
 
 export default meta
