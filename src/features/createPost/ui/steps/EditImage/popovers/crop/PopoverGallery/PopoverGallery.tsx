@@ -8,45 +8,49 @@ import SelectGalleryIcon from '../../../../../../../../../public/icon/select-gal
 import { InputTypeFilePlus } from './InputTypeFilePlus'
 import cls from './PopoverGallery.module.scss'
 
-import { getImage } from 'features/createPost/model/selectors/getImage/getImage'
-import { getImagesAvatar } from 'features/createPost/model/selectors/getImagesAvatar/getImagesAvatar'
+import { getImages } from 'features/createPost/model/selectors/getImages/getImages'
 import {
   deleteAvatar,
   setCloseModal,
-  setImage,
+  setCurrentImgIndex,
   setImages,
 } from 'features/createPost/model/slice/uploadPhotoSlice'
+import { Image } from 'features/createPost/model/types/uploadPhotoSchema'
 import { useAppDispatch } from 'shared/hooks/useAppDispatch'
 import { useAppSelector } from 'shared/hooks/useAppSelector'
 import { classNames } from 'shared/lib/classNames/classNames'
 
 export const PopoverGallery = () => {
-  const currentImage = useAppSelector(getImage)
-  const images: [any] = useAppSelector(getImagesAvatar)
+  const images = useAppSelector(getImages)
+  const currentImgIndex = useAppSelector(state => state.uploadPhoto.currentImgIndex)
+  const currentImage = images[currentImgIndex]
   const dispatch = useAppDispatch()
 
   const onChangePhoto = useCallback((images: FileList) => {
-    const imagesArrUrl = [] as string[]
+    const fileOrigin = images[0]
+    const imageUrlOrigin = URL.createObjectURL(fileOrigin)
 
-    for (const key in images) {
-      if (/[0-9]/.test(key)) {
-        imagesArrUrl.push(URL.createObjectURL(images[0]))
-      }
+    const payload: Image = {
+      imageUrlOrigin,
+      imageUrlUpdate: imageUrlOrigin,
+      filter: 'none',
+      scale: 1,
+      position: { x: 0, y: 0 },
     }
 
-    dispatch(setImages(imagesArrUrl))
+    dispatch(setImages(payload))
   }, [])
 
-  const handlerCheckPhoto = (img: string) => {
-    dispatch(setImage(img))
+  const handlerSetImage = (index: number) => {
+    dispatch(setCurrentImgIndex(index))
   }
 
-  const handlerDeletePhoto = (e: MouseEvent, img: string) => {
+  const handlerDeletePhoto = (e: MouseEvent, index: number) => {
     e.stopPropagation()
     if (images.length === 1) {
       dispatch(setCloseModal(true))
     } else {
-      dispatch(deleteAvatar(img))
+      dispatch(deleteAvatar(index))
     }
   }
 
@@ -54,16 +58,16 @@ export const PopoverGallery = () => {
     <Popover>
       <Popover.Panel className={classNames(cls.popoverPanel, {}, [cls.popoverPanel])}>
         <div className={cls.itemContainer}>
-          {images.map(el => (
+          {images.map((el, i) => (
             <div
-              onClick={() => handlerCheckPhoto(el)}
-              key={el}
-              style={{ backgroundImage: `url(${el})` }}
+              onClick={() => handlerSetImage(i)}
+              key={el.imageUrlOrigin}
+              style={{ backgroundImage: `url(${el.imageUrlOrigin})` }}
               className={cls.item}
             >
-              {currentImage === el && (
+              {currentImage?.imageUrlOrigin === el.imageUrlOrigin && (
                 <DeleteIcon
-                  onClick={(event: MouseEvent) => handlerDeletePhoto(event, el)}
+                  onClick={(event: MouseEvent) => handlerDeletePhoto(event, i)}
                   className={cls.deleteIcon}
                 />
               )}

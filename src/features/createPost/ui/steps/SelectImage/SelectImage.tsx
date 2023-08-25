@@ -5,8 +5,9 @@ import { useTranslation } from '../../../../../shared/hooks/useTranslation'
 
 import cls from './SelectImage.module.scss'
 
-import { setImage, setImages, setStep } from 'features/createPost/model/slice/uploadPhotoSlice'
+import { setImages, setStep } from 'features/createPost/model/slice/uploadPhotoSlice'
 import { STEP } from 'features/createPost/model/types/const'
+import { Image } from 'features/createPost/model/types/uploadPhotoSchema'
 import { useAppDispatch } from 'shared/hooks/useAppDispatch'
 import { InputTypeFile } from 'shared/ui/InputTypeFile/InputTypeFile'
 import { Text, TextColorTheme, TextFontTheme } from 'shared/ui/Text/Text'
@@ -18,9 +19,15 @@ export const SelectImage = () => {
   const onChangePhoto = useCallback(
     (image: File) => {
       const imageUrl = URL.createObjectURL(image)
+      const payload: Image = {
+        imageUrlOrigin: imageUrl,
+        imageUrlUpdate: imageUrl,
+        filter: 'none',
+        scale: 1,
+        position: { x: 0, y: 0 },
+      }
 
-      dispatch(setImage(imageUrl))
-      dispatch(setImages(imageUrl))
+      dispatch(setImages(payload))
       dispatch(setStep(STEP.CROP))
     },
     [dispatch]

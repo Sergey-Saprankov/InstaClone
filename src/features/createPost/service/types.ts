@@ -1,10 +1,10 @@
 export interface AddPostRequest {
   description: string
-  childrenMetadata: [
-    {
-      uploadId: string
-    }
-  ]
+  childrenMetadata: ChildrenData[]
+}
+
+export interface ChildrenData {
+  uploadId: string
 }
 
 export interface AddPostResponse {

@@ -2,7 +2,8 @@ import Image from 'next/image'
 
 import cls from './FilterItem.module.scss'
 
-import { getImage } from 'features/createPost/model/selectors/getImage/getImage'
+import { getCurrentImgIndex } from 'features/createPost/model/selectors/getCurrentImgIndex/getCurrentImgIndex'
+import { getImages } from 'features/createPost/model/selectors/getImages/getImages'
 import { setFilter } from 'features/createPost/model/slice/uploadPhotoSlice'
 import { useAppDispatch } from 'shared/hooks/useAppDispatch'
 import { useAppSelector } from 'shared/hooks/useAppSelector'
@@ -14,17 +15,20 @@ type PropsType = {
 }
 
 export const FilterItem = ({ filter, title }: PropsType) => {
-  const imageSrc = useAppSelector(getImage)
+  const images = useAppSelector(getImages)
+  const currentImgIndex = useAppSelector(getCurrentImgIndex)
+  const currentImage = images[currentImgIndex]
+
   const dispatch = useAppDispatch()
   const onFilterChange = () => {
-    dispatch(setFilter(filter))
+    dispatch(setFilter({ currentImgIndex, filter: filter }))
   }
 
   return (
     <div className={cls.container}>
       <div className={cls.block}>
         <Image
-          src={imageSrc}
+          src={currentImage.imageUrlOrigin}
           alt={'filter'}
           style={{ filter: filter }}
           width={1000}

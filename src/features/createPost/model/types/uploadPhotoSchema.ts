@@ -1,12 +1,18 @@
+export interface Image {
+  imageUrlOrigin: string
+  imageUrlUpdate: string
+  filter: string
+  scale: number
+  position: { x: number; y: number }
+}
+
 export interface UploadPhotoSchema {
-  image: string
   isOpen: boolean
   step: number
-  imagesAvatar: string[]
+  images: Image[]
   description: string
-  filter: string
   height: number
   width: number
-  scale: number
   crop: undefined | number
+  currentImgIndex: number
 }

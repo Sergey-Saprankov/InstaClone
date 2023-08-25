@@ -1,12 +1,6 @@
 import cls from './DeleteImageModal.module.scss'
 
-import {
-  setCloseModal,
-  setDescriptionPost,
-  setImage,
-  setStep,
-} from 'features/createPost/model/slice/uploadPhotoSlice'
-import { STEP } from 'features/createPost/model/types/const'
+import { setClearState, setCloseModal } from 'features/createPost/model/slice/uploadPhotoSlice'
 import { useAppDispatch } from 'shared/hooks/useAppDispatch'
 import { useTranslation } from 'shared/hooks/useTranslation'
 import { classNames } from 'shared/lib/classNames/classNames'
@@ -23,9 +17,7 @@ export const DeleteImageModal = () => {
   }
 
   const onDeleteHandler = () => {
-    dispatch(setImage(''))
-    dispatch(setStep(STEP.SELECT_IMAGE))
-    dispatch(setDescriptionPost(''))
+    dispatch(setClearState())
     dispatch(setCloseModal(false))
   }
 

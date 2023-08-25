@@ -30,7 +30,7 @@ export const PhotoEditingHeader = ({ onPublishPost }: PropsType) => {
   }
 
   const prevStepHandler = () => {
-    if (step > STEP.SELECT_IMAGE) {
+    if (step > STEP.CROP) {
       const nextStep = step - 1
 
       dispatch(setStep(nextStep))

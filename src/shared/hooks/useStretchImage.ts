@@ -2,11 +2,7 @@ import { RefObject, useEffect } from 'react'
 
 import { useAppDispatch } from './useAppDispatch'
 
-import {
-  setWidth,
-  setHeight,
-  setClearImagesAvatar,
-} from 'features/createPost/model/slice/uploadPhotoSlice'
+import { setWidth, setHeight } from 'features/createPost/model/slice/uploadPhotoSlice'
 
 export const useStretchImage = (parentRef: RefObject<HTMLDivElement>) => {
   const dispatch = useAppDispatch()
@@ -36,7 +32,6 @@ export const useStretchImage = (parentRef: RefObject<HTMLDivElement>) => {
 
     return () => {
       window.removeEventListener('resize', stretchAvatar)
-      dispatch(setClearImagesAvatar())
     }
   }, [])
 }

@@ -2,20 +2,16 @@ import { FC, memo, useCallback, useState } from 'react'
 
 import Plus from '../../../../public/icon/plus-square.svg'
 import { useTranslation } from '../../../shared/hooks/useTranslation'
+import { getCurrentImgIndex } from '../model/selectors/getCurrentImgIndex/getCurrentImgIndex'
+import { getImages } from '../model/selectors/getImages/getImages'
 
 import cls from './CreatePost.module.scss'
 import { EditImage } from './steps/EditImage/EditImage'
 import { PublicationCompleted } from './steps/PublicationCompleted/PublicationCompleted'
 import { SelectImage } from './steps/SelectImage/SelectImage'
 
-import { getImage } from 'features/createPost/model/selectors/getImage/getImage'
 import { getStep } from 'features/createPost/model/selectors/getStep/getStep'
-import {
-  setCloseModal,
-  setDescriptionPost,
-  setImage,
-  setStep,
-} from 'features/createPost/model/slice/uploadPhotoSlice'
+import { setClearState, setCloseModal } from 'features/createPost/model/slice/uploadPhotoSlice'
 import { STEP } from 'features/createPost/model/types/const'
 import { useAppDispatch } from 'shared/hooks/useAppDispatch'
 import { useAppSelector } from 'shared/hooks/useAppSelector'
@@ -32,8 +28,10 @@ interface ICreatePost {
 export const CreatePost: FC<ICreatePost> = memo(({ className = '' }) => {
   const { t } = useTranslation()
   const dispatch = useAppDispatch()
+  const images = useAppSelector(getImages)
+  const currentImgIndex = useAppSelector(getCurrentImgIndex)
+  const currentImage = images[currentImgIndex]
   const step = useAppSelector(getStep)
-  const image = useAppSelector(getImage)
   const [isOpen, setIsOpen] = useState<boolean>(false)
 
   const onOpenModal = () => setIsOpen(prev => !prev)
@@ -41,19 +39,17 @@ export const CreatePost: FC<ICreatePost> = memo(({ className = '' }) => {
   const onChangeModalOpened = useCallback(() => {
     if (step === STEP.PUBLICATION_COMPLETED) {
       setIsOpen(false)
-      dispatch(setImage(''))
-      dispatch(setStep(STEP.SELECT_IMAGE))
-      dispatch(setDescriptionPost(''))
+      dispatch(setClearState())
 
       return
     }
 
-    if (image) {
+    if (currentImage?.imageUrlOrigin) {
       dispatch(setCloseModal(true))
     } else {
       setIsOpen(prev => !prev)
     }
-  }, [image, step])
+  }, [currentImage, step])
 
   const modsWidth = {
     [cls.open]: step === STEP.FILTERS || step === STEP.PUBLICATION,
