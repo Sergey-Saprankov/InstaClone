@@ -1,5 +1,6 @@
 import React from 'react'
 
+import { useGoogleLogin } from '@react-oauth/google'
 import { useRouter } from 'next/router'
 
 import Github from '../../../../../public/icon/github-svgrepo-com.svg'
@@ -9,6 +10,7 @@ import formCls from '../../logOut/ui/LogOutComponent.module.scss'
 import cls from './LoginForm.module.scss'
 
 import { useLoginMutation } from 'features/auth/login/authByEmail/service/authByEmail'
+import { useLoginGoogleMutation } from 'features/auth/login/authByGoogle/service/authByGoogle'
 import { PATH } from 'shared/const/path'
 import { useLoginForm } from 'shared/hooks/useLoginForm'
 import { useTranslation } from 'shared/hooks/useTranslation'
@@ -22,7 +24,12 @@ export const LoginForm = () => {
   const router = useRouter()
   const [login, { isLoading, isSuccess }] = useLoginMutation()
   const { control, handleSubmit } = useLoginForm()
+  const [loginGoogle, { isSuccess: isGoogleSuccess }] = useLoginGoogleMutation()
+  const googleLogin = useGoogleLogin({
+    onSuccess: codeResponse => loginGoogle(codeResponse),
 
+    flow: 'auth-code',
+  })
   const { t } = useTranslation()
 
   const onSubmit = handleSubmit(data => {
@@ -31,7 +38,7 @@ export const LoginForm = () => {
 
   if (isLoading) return <Loader />
 
-  if (isSuccess) {
+  if (isSuccess || isGoogleSuccess) {
     router.push(PATH.HOME)
 
     return <></>
@@ -49,7 +56,11 @@ export const LoginForm = () => {
       </Text>
 
       <div className={formCls.iconContainer}>
-        <Button className={formCls.transform} theme={ButtonTheme.Clear}>
+        <Button
+          className={formCls.transform}
+          theme={ButtonTheme.Clear}
+          onClick={() => googleLogin()}
+        >
           <Google width={36} height={36} />
         </Button>
         <Button className={formCls.transform} theme={ButtonTheme.Clear}>

@@ -1,4 +1,4 @@
-.userProfileData{
+.userProfileData {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -6,7 +6,8 @@
   width: 494px;
   height: 528px;
 }
-.item{
+
+.item {
   padding-top: 10px;
   padding-bottom: 10px;
 
@@ -26,9 +27,10 @@
 
 .btn {
   color: var(--light-100);
-  text-transform: uppercase;
 
   background-color: var(--danger-500);
+
+  //text-transform: uppercase;
 }
 
 .buttonContainer {

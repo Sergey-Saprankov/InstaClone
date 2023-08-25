@@ -13,7 +13,7 @@ export const profile = baseAPI.injectEndpoints({
     }),
     delProfile: build.mutation<void, void>({
       query: arg => ({
-        url: `/api/users/profile`,
+        url: `/users/profile`,
         method: 'DELETE',
         body: arg,
       }),
