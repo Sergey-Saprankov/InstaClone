@@ -8,7 +8,7 @@ import { useTranslation } from '../../../shared/hooks/useTranslation'
 
 import s from './UserNavigation.module.scss'
 
-import { UploadPhoto } from 'features/profile/uploadPhoto'
+import { CreatePost } from 'features/createPost'
 import { PATH } from 'shared/const/path'
 import { classNames } from 'shared/lib/classNames/classNames'
 import { NavLink, NavLinkColor } from 'shared/ui/NavLink/Navlink'
@@ -48,7 +48,7 @@ export const UserNavigation: FC<UserNavigationProps> = memo(({ className = '' })
         </li>
       ))}
       <li>
-        <UploadPhoto className={className} />
+        <CreatePost className={className} />
       </li>
     </ul>
   )

@@ -2,7 +2,8 @@ import { FC, memo, useCallback, useState, KeyboardEvent, useEffect } from 'react
 
 import Image from 'next/image'
 
-import Arrow from '../../../../public/icon/arrow.svg'
+import { SlideCounter } from '../../../shared/ui/SlideCounter/SlideCounter'
+import { Slider } from '../../../shared/ui/Slider/Slider'
 import { useGetPostQuery } from '../service/post'
 
 import cls from './Post.module.scss'
@@ -10,14 +11,13 @@ import { PostBody } from './PostBody/PostBody'
 import { PostFooter } from './PostFooter/PostFooter'
 import { PostHeader } from './PostHeader/PostHeader'
 
-import { classNames } from 'shared/lib/classNames/classNames'
 import { LoaderContent } from 'shared/ui/LoaderContent/LoaderContent'
 import { Modal } from 'shared/ui/Modal/Modal'
 
 interface PostProps {
   currentId: number
   callBack: (value: number | null) => void
-  src: string
+  src: string[]
   alt: string
   onChangeStep: (value: number) => void
   step: number
@@ -29,6 +29,7 @@ export const Post: FC<PostProps> = memo(
   ({ currentId, callBack, src, alt, onChangeStep, step, endIndex, currentIndex }) => {
     const { data: postData, isFetching } = useGetPostQuery(currentId, { skip: !currentId })
     const [isOpen, setIsOpen] = useState(Boolean(currentId))
+    const [currentImgIndex, setCurrentImgIndex] = useState<number>(0)
     const description = postData?.description || ''
 
     const onChangeOpen = useCallback(() => {
@@ -45,6 +46,14 @@ export const Post: FC<PostProps> = memo(
       onChangeStep(++step)
     }
 
+    const onChangePrevImageHandler = () => {
+      setCurrentImgIndex(prev => prev - 1)
+    }
+
+    const onChangeNextImageHandler = () => {
+      setCurrentImgIndex(prev => prev + 1)
+    }
+
     useEffect(() => {
       const handleKeyPress = (e: KeyboardEvent) => {
         if (e.key === 'Escape') {
@@ -52,18 +61,6 @@ export const Post: FC<PostProps> = memo(
           callBack(null)
           onChangeStep(0)
         }
-
-        // if (e.key === 'ArrowLeft') {
-        //   if (currentIndex > 0) {
-        //     onChangeStep(--step)
-        //   }
-        // }
-        //
-        // if (e.key === 'ArrowRight') {
-        //   if (currentIndex < endIndex) {
-        //     onChangeStep(++step)
-        //   }
-        // }
       }
 
       //@ts-ignore
@@ -78,32 +75,33 @@ export const Post: FC<PostProps> = memo(
     return (
       <Modal callback={onChangeOpen} isOpen={isOpen}>
         <div className={cls.Post}>
-          {currentIndex > 0 && (
-            <div
-              onClick={onChangePrevPostHandler}
-              className={classNames(cls.decor, {}, [cls.arrowLeftPosition])}
-            >
-              <Arrow width={12} height={16} className={classNames(cls.arrow, {}, [cls.rotate])} />
-            </div>
-          )}
-
-          {currentIndex < endIndex && (
-            <div
-              onClick={onChangeNextPostHandler}
-              className={classNames(cls.decor, {}, [cls.arrowRightPosition])}
-            >
-              <Arrow width={12} height={16} className={classNames(cls.arrow, {}, [])} />
-            </div>
-          )}
+          <Slider
+            currentIndex={currentIndex}
+            endIndex={endIndex}
+            onChangePrev={onChangePrevPostHandler}
+            onChangeNext={onChangeNextPostHandler}
+          />
           <div className={cls.imageContainer}>
+            <Slider
+              variant={'small'}
+              currentIndex={currentImgIndex}
+              endIndex={src.length - 1}
+              onChangePrev={onChangePrevImageHandler}
+              onChangeNext={onChangeNextImageHandler}
+              width={24}
+              height={24}
+              widthIcon={12}
+              heightIcon={12}
+            />
             <Image
               sizes="(max-width: 309px) 100vw, 50vw"
               priority={true}
-              src={src}
+              src={src[currentImgIndex]}
               alt={alt}
               fill
               quality={100}
             />
+            <SlideCounter length={src.length} currentIndex={currentImgIndex} />
           </div>
           <div className={cls.postContainer}>
             {isFetching ? (
@@ -117,7 +115,7 @@ export const Post: FC<PostProps> = memo(
                   currentId={currentId}
                   onChangeOpenPost={onChangeOpen}
                 />
-                <PostBody currentId={currentId} description={description} />
+                <PostBody description={description} />
                 <PostFooter />
               </>
             )}

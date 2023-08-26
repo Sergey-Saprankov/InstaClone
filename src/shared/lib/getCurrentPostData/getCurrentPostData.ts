@@ -1,13 +1,23 @@
 import { IPost } from 'features/profile/userProfile'
 
-export const getCurrentPostData = (items: IPost[], index: number, step: number) => {
+interface IGetCurrentPostData {
+  id: number
+  src: string[]
+  alt: string
+  lastPostIndex: number
+  currentIndex: number
+}
+export const getCurrentPostData = (
+  items: IPost[],
+  index: number,
+  step: number
+): IGetCurrentPostData | null => {
   if (index < 0) return null
   let currentIndex = index + step
   const id = items[currentIndex].id
   const images = [...items[currentIndex].images]
 
-  images.sort((a, b) => a.width - b.width)
-  const src = images[1].url || ''
+  const src = images.filter(el => el.width === 1440).map(el => el.url)
   const alt = items[currentIndex].description || 'post image'
   const lastPostIndex = items.length - 1
 
