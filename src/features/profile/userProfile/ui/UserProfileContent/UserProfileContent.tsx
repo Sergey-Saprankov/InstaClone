@@ -37,7 +37,7 @@ export const UserProfileContent: FC<IUserProfileContentProps> = memo(
     const onChangeStep = useCallback((value: number) => {
       setStep(value)
     }, [])
-
+    
     return (
       <>
         <div className={cls.UserProfileContent}>
