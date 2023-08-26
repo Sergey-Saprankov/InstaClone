@@ -13,22 +13,9 @@ const posts = baseAPI.injectEndpoints({
         },
       }),
       providesTags: ['Posts'],
-      // serializeQueryArgs: ({ endpointName }) => {
-      //   return endpointName
-      // },
-      // merge: (currentCache, newItems) => {
-      //   currentCache.items.push(...newItems.items)
-      // },
-      // forceRefetch({ currentArg, previousArg }) {
-      //   return currentArg !== previousArg
-      // },
     }),
   }),
   overrideExisting: true,
 })
 
-export const {
-  useGetPostsQuery,
-  util: { getRunningQueriesThunk },
-} = posts
-export const { getPosts } = posts.endpoints
+export const { useGetPostsQuery } = posts

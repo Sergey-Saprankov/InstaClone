@@ -11,7 +11,7 @@ import { Button, ButtonTheme } from 'shared/ui/Button/Button'
 interface IPostHeader {
   currentId: number
   onChangeOpenPost: () => void
-  src: string
+  src: string[]
   alt: string
   descriptionPost: string
 }

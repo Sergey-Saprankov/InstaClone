@@ -19,6 +19,8 @@
 
   width: 40vw;
   height: 100%;
+
+  transition: all .100ms ease-in-out;
 }
 
 .postContainer {
@@ -43,42 +45,4 @@
   height: 107px;
 
   border-bottom: 1px solid var(--dark-100);
-}
-
-.decor {
-  cursor: pointer;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  width: 32px;
-  height: 32px;
-
-  background-color: var(--light-100);
-  border-radius: 50%;
-
-  transition: all .2s ease-in-out;
-
-  &:hover {
-    opacity: .6;
-  }
-}
-
-.arrow {
-  fill: var(--dark-900);
-}
-
-.rotate {
-  transform: rotate(180deg);
-}
-
-.arrowLeftPosition {
-  position: absolute;
-  left: -12vw;
-}
-
-.arrowRightPosition {
-  position: absolute;
-  right: -12vw;
 }

@@ -6,11 +6,10 @@ import { NotComments } from './NotComments/NotComment'
 import cls from './PostBody.module.scss'
 
 interface IPostBody {
-  currentId: number
   description: string
 }
 
-export const PostBody: FC<IPostBody> = ({ description, currentId }) => {
+export const PostBody: FC<IPostBody> = ({ description }) => {
   return (
     <div className={cls.postBody}>
       {description.length ? (
