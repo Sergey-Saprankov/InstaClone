@@ -2,6 +2,8 @@ import { FC, memo } from 'react'
 
 import Image from 'next/image'
 
+import { CarouselIcon } from '../CarouselIcon/CarouselIcon'
+
 import cls from './Card.module.scss'
 
 import { classNames } from 'shared/lib/classNames/classNames'
@@ -12,9 +14,10 @@ interface CardProps {
   src: string
   alt: string
   callBack: (value: number) => void
+  withIcon: boolean
 }
 
-export const Card: FC<CardProps> = memo(({ className = '', id, src, alt, callBack }) => {
+export const Card: FC<CardProps> = memo(({ className = '', id, src, alt, callBack, withIcon }) => {
   const onClickHandler = () => {
     callBack(id)
   }
@@ -30,6 +33,7 @@ export const Card: FC<CardProps> = memo(({ className = '', id, src, alt, callBac
         quality={100}
         className={cls.cardItem}
       />
+      {withIcon && <CarouselIcon />}
     </div>
   )
 })
