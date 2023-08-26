@@ -1,0 +1,50 @@
+.decor {
+  cursor: pointer;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background-color: var(--light-700);
+  border-radius: 50%;
+
+  transition: all .2s ease-in-out;
+
+  &:hover {
+    opacity: .6;
+  }
+}
+
+.arrow {
+  fill: var(--dark-900);
+}
+
+.rotate {
+  transform: rotate(180deg);
+}
+
+.arrowLeftPosition {
+  position: absolute;
+  left: -12vw;
+}
+
+.arrowRightPosition {
+  position: absolute;
+  right: -12vw;
+}
+
+.arrowLeftPositionSmall {
+  position: absolute;
+  z-index: 20;
+  top: 50%;
+  left: 2vw;
+  transform: translateY(-50%);
+}
+
+.arrowRightPositionSmall {
+  position: absolute;
+  z-index: 20;
+  top: 50%;
+  right: 2vw;
+  transform: translateY(-50%);
+}
