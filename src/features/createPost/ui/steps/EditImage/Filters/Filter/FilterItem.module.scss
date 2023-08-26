@@ -1,0 +1,26 @@
+.container {
+  cursor: pointer;
+
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  align-items: center;
+
+  transition: all 0.2s ease-in-out;
+
+  &:hover {
+    opacity: 0.8;
+  }
+}
+
+.block {
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  max-width: 5vw;
+  max-height: 10vh;
+
+  background-color: var(--dark-100);
+}

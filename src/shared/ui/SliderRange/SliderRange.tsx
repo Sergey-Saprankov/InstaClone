@@ -20,7 +20,7 @@ export const SliderRange = ({ scale, onScale }: PropsType) => {
         className={cls.SliderRoot}
         min={1}
         max={2}
-        step={0.1}
+        step={0.05}
       >
         <Slider.Track className={cls.SliderTrack}>
           <Slider.Range className={cls.SliderRange} />

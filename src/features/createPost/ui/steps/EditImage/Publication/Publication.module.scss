@@ -1,0 +1,19 @@
+.Publication {
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.mb20 {
+  margin-bottom: 20px;
+}
+
+.textArea {
+  height: 120px;
+}
+
+.count {
+  align-self: flex-end;
+
+  margin-top: -4px;
+}
