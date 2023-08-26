@@ -29,5 +29,5 @@ interface Image {
 
 export interface ArgGetPostsQuery {
   userId: number
-  page: number
+  // page: number
 }
