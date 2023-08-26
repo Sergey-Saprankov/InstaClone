@@ -13,12 +13,12 @@ import { Card } from 'shared/ui/Card/Card'
 
 interface IUserProfileContentProps {
   data?: PostsResponse
-  changePostsPage: (nextPage: number) => void
+  // changePostsPage: (nextPage: number) => void
   isFetchingPosts: boolean
 }
 
 export const UserProfileContent: FC<IUserProfileContentProps> = memo(
-  ({ data, changePostsPage, isFetchingPosts }) => {
+  ({ data, isFetchingPosts }) => {
     const [currentId, setCurrentId] = useState<null | number>(null)
     const [step, setStep] = useState<number>(0)
 
@@ -41,15 +41,15 @@ export const UserProfileContent: FC<IUserProfileContentProps> = memo(
       setStep(value)
     }, [])
 
-    useEffect(() => {
-      changePostsPage(triggeredPage)
-    }, [triggeredPage])
+    // useEffect(() => {
+    //   changePostsPage(1)
+    // }, [triggeredPage])
 
-    useEffect(() => {
-      if (inView) {
-        setTriggeredPage(prevState => prevState + 1)
-      }
-    }, [inView])
+    // useEffect(() => {
+    //   if (inView) {
+    //     setTriggeredPage(prevState => prevState + 1)
+    //   }
+    // }, [inView])
 
     return (
       <>
