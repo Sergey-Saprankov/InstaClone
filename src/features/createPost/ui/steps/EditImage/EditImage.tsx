@@ -100,7 +100,6 @@ export const EditImage = () => {
     const payload = { currentImgIndex, imagesUtlUpdate: imageUrl }
 
     dispatch(setImageUrlUpdate(payload))
-    console.log(imageUrl)
   }
 
   const handlerMissClick = (e: MouseEvent<HTMLDivElement>) => {
