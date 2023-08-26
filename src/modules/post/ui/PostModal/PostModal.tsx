@@ -1,4 +1,4 @@
-import { MouseEvent, FC, memo, useState, useCallback } from 'react'
+import { FC, memo, useState, useCallback } from 'react'
 
 import { ChangePostMenu } from './ChangePostMenu/ChangePostMenu'
 import { DeletePost } from './DeletePost/DeletePost'
@@ -6,16 +6,13 @@ import { EditPost } from './EditPost/EditPost'
 import cls from './PostModal.module.scss'
 
 import { useDeletePostMutation } from 'modules/post/service/post'
-import { classNames } from 'shared/lib/classNames/classNames'
-import { Button, ButtonTheme } from 'shared/ui/Button/Button'
 import { LoaderContent } from 'shared/ui/LoaderContent/LoaderContent'
-import { Text, TextFontTheme } from 'shared/ui/Text/Text'
 
 interface IPostModal {
   callBack: () => void
   currentId: number
   onChangeOpenPost: () => void
-  src: string
+  src: string[]
   alt: string
   descriptionPost: string
 }
@@ -37,10 +34,6 @@ export const PostModal: FC<IPostModal> = memo(
     const onDeletePost = useCallback(() => {
       deletePost(currentId)
     }, [currentId])
-
-    const onClickContentHandler = (e: MouseEvent<HTMLUListElement>) => {
-      e.stopPropagation()
-    }
 
     if (deletePostLoading) return <LoaderContent isText className={cls.position} />
     if (isSuccess) {
