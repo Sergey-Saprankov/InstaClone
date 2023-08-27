@@ -4,6 +4,8 @@ import cls from './AccountManagement.module.scss'
 import { AccountType } from './accountType/AccountType'
 import { SubscriptionCosts } from './subscriptionCosts/SubscriptionCosts'
 
+import { AutoRenewal } from 'features/profile/profileSetting/accountManagement/ui/autoRenewal/AutoRenewal'
+import { CurrentSubscription } from 'features/profile/profileSetting/accountManagement/ui/currentSubscription/CurrentSubscription'
 import { useAppSelector } from 'shared/hooks/useAppSelector'
 
 export const AccountManagement = () => {
@@ -11,6 +13,8 @@ export const AccountManagement = () => {
 
   return (
     <div className={cls.accountManagementBlock}>
+      <CurrentSubscription />
+      <AutoRenewal />
       <AccountType />
       {typeAccount === 'Business' && <SubscriptionCosts />}
     </div>
