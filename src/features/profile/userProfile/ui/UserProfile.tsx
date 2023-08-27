@@ -2,12 +2,12 @@ import React, { useEffect, useState } from 'react'
 
 import { LoaderContent } from '../../../../shared/ui/LoaderContent/LoaderContent'
 import { SomethingWentWrong } from '../../../../shared/ui/SomethingWentWrong/SomethingWentWrong'
-import { useGetPostsQuery } from '../service/posts'
 
 import cls from './UserProfile.module.scss'
 import { UserProfileContent } from './UserProfileContent/UserProfileContent'
 import { UserProfileHeader } from './UserProfileHeader/UserProfileHeader'
 
+import { useGetPostsQuery } from 'modules/post/service/post'
 import { useGetUserInfoQuery } from 'modules/user/service/user'
 import { getUserId } from 'shared/hoc'
 import { useAppSelector } from 'shared/hooks/useAppSelector'
