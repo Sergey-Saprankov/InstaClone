@@ -28,7 +28,7 @@ export const UserProfileContent: FC<IUserProfileContentProps> = memo(
 
     const currentPostData = getCurrentPostData(items, index, step)
 
-    const { ref, inView } = useInView()
+    const { ref } = useInView()
 
     const getCurrentPostId = useCallback((id: number | null) => {
       setCurrentId(id)
