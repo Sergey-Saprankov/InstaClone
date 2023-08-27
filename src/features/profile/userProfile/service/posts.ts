@@ -9,26 +9,13 @@ const posts = baseAPI.injectEndpoints({
         retries: 2,
         params: {
           pageSize: 9,
-          pageNumber: arg.page,
+          pageNumber: 1,
         },
       }),
       providesTags: ['Posts'],
-      serializeQueryArgs: ({ endpointName }) => {
-        return endpointName
-      },
-      merge: (currentCache, newItems) => {
-        currentCache.items.push(...newItems.items)
-      },
-      forceRefetch({ currentArg, previousArg }) {
-        return currentArg !== previousArg
-      },
     }),
   }),
   overrideExisting: true,
 })
 
-export const {
-  useGetPostsQuery,
-  util: { getRunningQueriesThunk },
-} = posts
-export const { getPosts } = posts.endpoints
+export const { useGetPostsQuery } = posts

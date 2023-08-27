@@ -1,4 +1,4 @@
-import React, { FC, memo, useCallback, useEffect, useState } from 'react'
+import React, { FC, memo, useCallback, useState } from 'react'
 
 import { useInView } from 'react-intersection-observer'
 
@@ -13,16 +13,13 @@ import { Card } from 'shared/ui/Card/Card'
 
 interface IUserProfileContentProps {
   data?: PostsResponse
-  changePostsPage: (nextPage: number) => void
   isFetchingPosts: boolean
 }
 
 export const UserProfileContent: FC<IUserProfileContentProps> = memo(
-  ({ data, changePostsPage, isFetchingPosts }) => {
+  ({ data, isFetchingPosts }) => {
     const [currentId, setCurrentId] = useState<null | number>(null)
     const [step, setStep] = useState<number>(0)
-
-    const [triggeredPage, setTriggeredPage] = useState(1)
 
     if (!data) return null
 
@@ -40,29 +37,18 @@ export const UserProfileContent: FC<IUserProfileContentProps> = memo(
     const onChangeStep = useCallback((value: number) => {
       setStep(value)
     }, [])
-
-    useEffect(() => {
-      changePostsPage(triggeredPage)
-    }, [triggeredPage])
-
-    useEffect(() => {
-      if (inView) {
-        setTriggeredPage(prevState => prevState + 1)
-      }
-    }, [inView])
-
+    
     return (
       <>
         <div className={cls.UserProfileContent}>
           {data &&
             data.items.map(({ id, images, description }) => {
-              const mutableArray = [...images]
-
-              mutableArray.sort((a, b) => a.width - b.width)
-              const src = mutableArray[1].url
+              const filteredImage = images.filter(el => el.width === 1440)
+              const src = filteredImage[0].url
 
               return (
                 <Card
+                  withIcon={filteredImage.length > 1}
                   id={id}
                   key={id}
                   callBack={getCurrentPostId}
