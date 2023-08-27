@@ -1,0 +1,23 @@
+.currentSubscriptionBlock {
+  margin-bottom: 42px;
+}
+
+.currentSubscription {
+  display: flex;
+  row-gap: 30px;
+
+  padding: 12px 24px;
+
+  background-color: var(--dark-500);
+  border: 1px solid var(--dark-300);
+  border-radius: 3px;
+}
+
+.titleCS {
+  padding-right: 22px;
+
+}
+
+.payment {
+  padding-bottom: 20px;
+}

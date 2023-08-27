@@ -12,3 +12,14 @@ export type GetSubscriptionCostRequest = {
   paymentType: string
   amount: number
 }
+export type GetCurrentSubscriptionsResponse = {
+  data: CurrentSubscriptionsData[]
+  hasAutoRenewal: boolean
+}
+export type CurrentSubscriptionsData = {
+  userId: number
+  subscriptionId: string
+  dateOfPayment: string
+  endDateOfSubscription: string
+  autoRenewal: true
+}
