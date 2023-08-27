@@ -1,4 +1,4 @@
-import { format } from 'date-fns'
+import { format, parseISO } from 'date-fns'
 
 import clsGeneral from '../AccountManagement.module.scss'
 
@@ -8,19 +8,15 @@ import { Text, TextFontTheme } from 'shared/ui/Text/Text'
 
 export const CurrentSubscription = () => {
   const { data: currentSubscriptionData } = useGetCurrentSubscriptionsQuery()
-  const time = '2023-08-09T10:06:49.429Z' //hardcore
+  const time = '2023-08-09T10:06:49.429Z' // hardcore
+
   const dateOfPayment = format(
-    new Date(
-      currentSubscriptionData?.data[0] ? currentSubscriptionData?.data[0]?.dateOfPayment : time
-    ),
+    parseISO(currentSubscriptionData?.data[0]?.dateOfPayment || time),
     'dd.MM.yyyy'
   )
+
   const endDateOfSubscription = format(
-    new Date(
-      currentSubscriptionData?.data[0]
-        ? currentSubscriptionData?.data[0]?.endDateOfSubscription
-        : time
-    ),
+    parseISO(currentSubscriptionData?.data[0]?.endDateOfSubscription || time),
     'dd.MM.yyyy'
   )
 

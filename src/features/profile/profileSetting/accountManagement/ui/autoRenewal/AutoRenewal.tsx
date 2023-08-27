@@ -14,7 +14,7 @@ export const AutoRenewal = () => {
     canceledAutoRenewal()
   }
 
-  if (!autoRenewal) return
+  if (!autoRenewal) return <></>
   const isCheck = autoRenewal.hasAutoRenewal ? autoRenewal.hasAutoRenewal : false
 
   return (
