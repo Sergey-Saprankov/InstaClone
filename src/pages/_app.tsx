@@ -3,6 +3,7 @@ import React, { ReactElement, ReactNode } from 'react'
 
 import 'styles/nprogress.scss'
 import 'styles/dataPickerGlobal.scss'
+import { GoogleOAuthProvider } from '@react-oauth/google'
 import { NextPage } from 'next'
 import { AppProps } from 'next/app'
 import { Provider } from 'react-redux'
@@ -25,7 +26,9 @@ export default function App({ Component, pageProps }: AppPropsWithLayout) {
 
   return (
     <Provider store={store}>
-      <AuthProvider>{getLayout(<Component {...pageProps} />)}</AuthProvider>
+      <GoogleOAuthProvider clientId="617342613759-f3kbvgm8l310fn40vh6qna2pv8u2uccr.apps.googleusercontent.com">
+        <AuthProvider>{getLayout(<Component {...pageProps} />)}</AuthProvider>
+      </GoogleOAuthProvider>
     </Provider>
   )
 }
