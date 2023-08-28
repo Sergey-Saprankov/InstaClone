@@ -14,7 +14,7 @@ import { useAppSelector } from 'shared/hooks/useAppSelector'
 
 export const UserProfile = () => {
   const [isLoading, setIsLoading] = useState(true)
-  const [page, setPage] = useState(1)
+  // const [page, setPage] = useState(1)
 
   const userId = useAppSelector(getUserId)
   const {
@@ -26,7 +26,6 @@ export const UserProfile = () => {
 
   const useGetPostsQueryArg = {
     userId,
-    page,
   }
 
   const {
@@ -39,9 +38,9 @@ export const UserProfile = () => {
     skip: !userId,
   })
 
-  const changePostsPage = (nextPage: number) => {
-    setPage(nextPage)
-  }
+  // const changePostsPage = (nextPage: number) => {
+  //   setPage(nextPage)
+  // }
 
   useEffect(() => {
     if (!isLoadingUser && !isLoadingPosts) setIsLoading(false)
@@ -57,7 +56,7 @@ export const UserProfile = () => {
             <UserProfileHeader data={profileData} />
             <UserProfileContent
               data={postsData}
-              changePostsPage={changePostsPage}
+              // changePostsPage={changePostsPage}
               isFetchingPosts={isFetchingPosts}
             />
           </>
