@@ -19,3 +19,11 @@ type Message = {
   message: string
   field: string
 }
+
+export interface IUserPostRequest {
+  pageSize?: number
+  pageNumber?: number
+  sort?: string
+  idLastUploadedPost?: number
+  sortDirection?: 'desc' | 'asc'
+}

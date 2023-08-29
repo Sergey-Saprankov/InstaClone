@@ -1,15 +1,26 @@
+import { IUserPostRequest } from '../../profileSetting/photoSetting/service/types'
+
 import { PostsResponse, ArgGetPostsQuery } from 'features/profile/userProfile/service/types'
 import { baseAPI } from 'shared/api/baseAPI'
 
 const posts = baseAPI.injectEndpoints({
   endpoints: build => ({
-    getPosts: build.query<PostsResponse, ArgGetPostsQuery>({
-      query: arg => ({
-        url: `/posts/${arg.userId}`,
+    getPosts: build.query<PostsResponse, IUserPostRequest>({
+      query: ({
+        idLastUploadedPost,
+        sort,
+        sortDirection,
+        pageNumber,
+        pageSize,
+      }: IUserPostRequest) => ({
+        url: `/posts/user`,
         retries: 2,
         params: {
-          pageSize: 9,
-          pageNumber: 1,
+          pageNumber,
+          pageSize,
+          idLastUploadedPost,
+          sort,
+          sortDirection,
         },
       }),
       providesTags: ['Posts'],

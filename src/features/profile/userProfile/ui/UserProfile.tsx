@@ -25,7 +25,8 @@ export const UserProfile = () => {
   } = useGetUserInfoQuery()
 
   const useGetPostsQueryArg = {
-    userId,
+    pageNumber: 1,
+    pageSize: 9,
   }
 
   const {
