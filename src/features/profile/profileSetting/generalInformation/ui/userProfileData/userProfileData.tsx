@@ -1,6 +1,5 @@
 import { Controller } from 'react-hook-form'
 
-import { useTranslation } from '../../../../../../shared/hooks/useTranslation'
 import { useDelProfileMutation, useUpdateProfileMutation } from '../../service/profile'
 
 import cls from './userProfileData.module.scss'
@@ -8,6 +7,7 @@ import cls from './userProfileData.module.scss'
 import { useGetUserInfoQuery } from 'modules/user/service/user'
 import { useProfileDataForm } from 'shared/hooks/useProfileDataForm'
 import { useSetValuesFromProfileData } from 'shared/hooks/useSetValuesFromProfileData'
+import { useTranslation } from 'shared/hooks/useTranslation'
 import { Button, ButtonSize, ButtonTheme } from 'shared/ui/Button/Button'
 import { ControlledInputNew } from 'shared/ui/ControlledInput/ControlledInput'
 import { ControlledTextArea } from 'shared/ui/ControlledTextArea/ControlledTextArea'
@@ -71,8 +71,8 @@ export const UserProfileData = () => {
         <Button
           className={cls.btn}
           theme={ButtonTheme.LIGHT}
-          size={ButtonSize.L}
-          // onClick={() => delProfile()}
+          size={ButtonSize.XS}
+          onClick={() => delProfile()}
         >
           {t.profileSettingPage.deleteProfile}
         </Button>
