@@ -1,6 +1,6 @@
 import { IUserPostRequest } from '../../profileSetting/photoSetting/service/types'
 
-import { PostsResponse, ArgGetPostsQuery } from 'features/profile/userProfile/service/types'
+import { PostsResponse } from 'features/profile/userProfile/service/types'
 import { baseAPI } from 'shared/api/baseAPI'
 
 const posts = baseAPI.injectEndpoints({
