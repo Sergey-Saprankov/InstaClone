@@ -3,8 +3,6 @@ import { KeyboardEvent, MouseEvent, useState } from 'react'
 import { Listbox } from '@headlessui/react'
 import Image from 'next/image'
 
-import arrowDown from '../../../../public/icon/arrow-down.svg'
-
 import cls from './Select.module.scss'
 
 import { classNames } from 'shared/lib/classNames/classNames'
@@ -22,7 +20,7 @@ const people = [
 //   onChange: (value: string) => void
 // }
 
-export const Select = () => {
+export const SelectOld = () => {
   const [selectedPerson, setSelectedPerson] = useState(people[0])
   const [isActive, setIsActive] = useState(false)
 
