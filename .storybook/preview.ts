@@ -1,5 +1,7 @@
 import type { Preview } from '@storybook/react'
 import '../src/styles/globals.scss'
+import '../src/styles/dataPickerGlobal.scss'
+import '../src/styles/nprogress.scss'
 
 const preview: Preview = {
   parameters: {

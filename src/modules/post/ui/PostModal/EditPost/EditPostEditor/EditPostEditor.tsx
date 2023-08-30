@@ -1,4 +1,4 @@
-import { FC, memo, useTransition } from 'react'
+import { FC, memo } from 'react'
 
 import cls from './EditPostEditor.module.scss'
 

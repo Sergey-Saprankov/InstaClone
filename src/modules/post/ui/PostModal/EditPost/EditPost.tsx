@@ -2,15 +2,14 @@ import { FC, memo, useCallback, useState, MouseEvent } from 'react'
 
 import Image from 'next/image'
 
-import { SlideCounter } from '../../../../../shared/ui/SlideCounter/SlideCounter'
-import { Slider } from '../../../../../shared/ui/Slider/Slider'
-
 import cls from './EditPost.module.scss'
 import { EditPostEditor } from './EditPostEditor/EditPostEditor'
 import { EditPostHeader } from './EditPostHeader/EditPostHeader'
 
 import { useUpdatePostMutation } from 'modules/post/service/post'
 import { LoaderContent } from 'shared/ui/LoaderContent/LoaderContent'
+import { SlideCounter } from 'shared/ui/SlideCounter/SlideCounter'
+import { Slider } from 'shared/ui/Slider/Slider'
 
 interface IEditPostProps {
   src: string[]
