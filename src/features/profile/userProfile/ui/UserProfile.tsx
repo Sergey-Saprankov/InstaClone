@@ -25,7 +25,7 @@ export const UserProfile = () => {
   } = useGetUserInfoQuery()
 
   const useGetPostsQueryArg = {
-    pageNumber: 1,
+    // pageNumber: 1,
     pageSize: 9,
   }
 
@@ -38,6 +38,10 @@ export const UserProfile = () => {
   } = useGetPostsQuery(useGetPostsQueryArg, {
     skip: !userId,
   })
+
+  const { lastUploadedPostId } = useAppSelector(state => state.userProfile)
+
+  console.log(lastUploadedPostId)
 
   // const changePostsPage = (nextPage: number) => {
   //   setPage(nextPage)

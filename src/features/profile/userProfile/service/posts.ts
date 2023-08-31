@@ -30,3 +30,5 @@ const posts = baseAPI.injectEndpoints({
 })
 
 export const { useGetPostsQuery } = posts
+
+export const postsApiEndpoints = posts.endpoints

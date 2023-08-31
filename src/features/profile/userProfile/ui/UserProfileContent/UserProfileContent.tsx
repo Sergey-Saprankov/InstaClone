@@ -44,7 +44,7 @@ export const UserProfileContent: FC<IUserProfileContentProps> = memo(
           {data &&
             data.items.map(({ id, images, description }) => {
               const filteredImage = images.filter(el => el.width === 1440)
-              const src = filteredImage[0].url
+              const src = filteredImage[0]?.url
 
               return (
                 <Card
