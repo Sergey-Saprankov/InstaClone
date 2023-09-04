@@ -22,12 +22,6 @@ export const ControlledCheckbox = <TFieldValues extends FieldValues>({
     fieldState: { error },
   } = useController({ name, control })
 
-  const mods = {
-    [cls.isDisabled]: disabled,
-    [cls.isChecked]: value,
-    [cls.disableChecked]: value && disabled,
-  }
-
   return (
     <label className={cls.label}>
       <input

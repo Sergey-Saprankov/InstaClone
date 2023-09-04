@@ -1,7 +1,5 @@
 import { forwardRef, DetailedHTMLProps, InputHTMLAttributes } from 'react'
 
-import { classNames } from '../../lib/classNames/classNames'
-
 import cls from './Checkbox.module.scss'
 
 export interface ICheckbox
