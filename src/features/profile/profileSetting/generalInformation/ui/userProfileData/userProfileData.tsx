@@ -9,7 +9,7 @@ import { useProfileDataForm } from 'shared/hooks/useProfileDataForm'
 import { useSetValuesFromProfileData } from 'shared/hooks/useSetValuesFromProfileData'
 import { useTranslation } from 'shared/hooks/useTranslation'
 import { Button, ButtonSize, ButtonTheme } from 'shared/ui/Button/Button'
-import { ControlledInputNew } from 'shared/ui/ControlledInput/ControlledInput'
+import { ControlledInput } from 'shared/ui/ControlledInput/ControlledInput'
 import { ControlledTextArea } from 'shared/ui/ControlledTextArea/ControlledTextArea'
 import { CustomDatePicker } from 'shared/ui/DatePicker/DatePicker'
 import { LoaderContent } from 'shared/ui/LoaderContent/LoaderContent'
@@ -32,17 +32,17 @@ export const UserProfileData = () => {
     <form className={cls.form} onSubmit={onSubmit}>
       <div className={cls.form}>
         {(isLoadingGetProfile || isLoadingUpdateProfile) && <LoaderContent />}
-        <ControlledInputNew
+        <ControlledInput
           control={control}
           name={'userName'}
           title={t.profileSettingPage.userName}
         />
-        <ControlledInputNew
+        <ControlledInput
           control={control}
           name={'firstName'}
           title={t.profileSettingPage.firstName}
         />
-        <ControlledInputNew
+        <ControlledInput
           control={control}
           name={'lastName'}
           title={t.profileSettingPage.lastName}
@@ -59,7 +59,7 @@ export const UserProfileData = () => {
             />
           )}
         />
-        <ControlledInputNew control={control} name={'city'} title={t.profileSettingPage.city} />
+        <ControlledInput control={control} name={'city'} title={t.profileSettingPage.city} />
         <ControlledTextArea
           control={control}
           name={'aboutMe'}

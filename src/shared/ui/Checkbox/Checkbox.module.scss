@@ -1,92 +1,78 @@
-.CheckBox {
+@mixin input($width, $height, $borderRadius) {
   cursor: pointer;
 
   position: relative;
 
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  width: $width;
+  height: $height;
 
-  background: none;
+  background: var(--dark-900);
   border: 2px solid var(--light-500);
-  border-radius: 4px;
+  border-radius: $borderRadius;
 
-  transition: all .4s ease-in-out;
+  transition: 0.1s;
 
-  &:hover {
-    .decoration {
-      background-color: var(--dark-300);
-    }
+  appearance: none;
 
-    &:active {
-      .decoration {
-        background-color: var(--dark-100);
-      }
-    }
+  &:focus-visible {
+    outline: 1px solid var(--primary-300);
   }
-  
-}
 
-.decoration {
-  position: absolute;
-  z-index: -10;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  &:disabled {
+    opacity: 0.5;
 
-  width: 36px;
-  height: 36px;
-
-  background: none;
-  border-radius: 50%;
-
-  transition: all .3s ease-in-out;
-}
-
-.container {
-  display: flex;
-  gap: 11px;
-  align-items: center;
-
-  &:focus {
-    border: none;
-    outline: none;
-    .decoration {
-      z-index: -10;
-
-      background-color: var(--dark-500);
-    }
+    transition: 0.3s;
   }
 }
-
-
-.isChecked {
-  background-color: var(--light-100);
-  border: none;
-}
-
-.isDisabled {
-  cursor: inherit;
-
-  border: 2px solid var(--light-900);
-  .decoration {
-    display: none;
-  }
-}
-
-.disableChecked {
-  background-color: var(--dark-100);
-  border: none;
-}
-
-.input {
-  display: none;
-}
-
 
 .label {
   cursor: pointer;
 
-  color: var(--light-100);
+  display: inline-flex;
+  gap: 10px;
+  align-items: center;
+
+  width: max-content;
+
+  font: var(--font-regular-m);
+  color: var(--white);
 }
 
+.input_default {
+
+  @include input(20px, 20px, 3px);
+
+  position: relative;
+
+  &:checked {
+    background: var(--white);
+    border: none;
+  }
+
+  &:checked::after {
+    content: '';
+
+    position: absolute;
+    top: 43%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(-48deg);
+
+    display: block;
+
+    width: 16px;
+    height: 8px;
+
+    border: 2px solid var(--dark-900);
+    border-top: none;
+    border-right: none;
+  }
+}
+
+
+
+.disabled {
+  pointer-events: none;
+  cursor: default;
+
+  opacity: 0.5;
+}
