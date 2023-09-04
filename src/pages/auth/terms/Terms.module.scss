@@ -1,0 +1,41 @@
+.wrapper {
+  position: relative;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+
+  width: 80vw;
+  margin: 0 auto;
+  padding: 80px 0;
+
+  color: var(--light-900)
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+
+  color: inherit;
+}
+
+.title {
+  text-align: center;
+}
+
+.btn {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+
+  display: flex;
+  gap: 10px;
+  align-items: center;
+
+  &:hover {
+    transform: translateX(-2px);
+  }
+}
