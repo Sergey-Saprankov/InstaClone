@@ -11,7 +11,7 @@ const posts = baseAPI.injectEndpoints({
         sort,
         sortDirection,
         pageNumber,
-        pageSize,
+        pageSize = 9,
       }: IUserPostRequest) => ({
         url: `/posts/user`,
         retries: 2,
@@ -23,6 +23,15 @@ const posts = baseAPI.injectEndpoints({
           sortDirection,
         },
       }),
+      serializeQueryArgs: ({ endpointName }) => {
+        return endpointName
+      },
+      merge: (currentCache, newItems) => {
+        currentCache.items.push(...newItems.items)
+      },
+      forceRefetch({ currentArg, previousArg }) {
+        return currentArg !== previousArg
+      },
       providesTags: ['Posts'],
     }),
   }),

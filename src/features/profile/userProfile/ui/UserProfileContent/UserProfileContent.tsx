@@ -1,7 +1,10 @@
-import React, { FC, memo, useCallback, useState } from 'react'
+import React, { FC, memo, useCallback, useState, useEffect } from 'react'
 
 import { useInView } from 'react-intersection-observer'
 
+import { useAppDispatch } from '../../../../../shared/hooks/useAppDispatch'
+import { useAppSelector } from '../../../../../shared/hooks/useAppSelector'
+import { setIdLastUploadedPost } from '../../model/slice/userProfileSlice'
 import { PostsResponse } from '../../service/types'
 
 import { PostsLoader } from './PostsLoader'
@@ -20,6 +23,14 @@ export const UserProfileContent: FC<IUserProfileContentProps> = memo(
   ({ data, isFetchingPosts }) => {
     const [currentId, setCurrentId] = useState<null | number>(null)
     const [step, setStep] = useState<number>(0)
+    const dispatch = useAppDispatch()
+    const { idLastUploadedPost } = useAppSelector(state => state.userProfile)
+    // const { data: postsData } = useGetPostsQuery(
+    //   { idLastUploadedPost: idLastUploadedPost ?? undefined },
+    //   {
+    //     skip: true,
+    //   }
+    // )
 
     if (!data) return null
 
@@ -28,7 +39,7 @@ export const UserProfileContent: FC<IUserProfileContentProps> = memo(
 
     const currentPostData = getCurrentPostData(items, index, step)
 
-    const { ref } = useInView()
+    const { ref, inView } = useInView()
 
     const getCurrentPostId = useCallback((id: number | null) => {
       setCurrentId(id)
@@ -37,6 +48,12 @@ export const UserProfileContent: FC<IUserProfileContentProps> = memo(
     const onChangeStep = useCallback((value: number) => {
       setStep(value)
     }, [])
+
+    useEffect(() => {
+      if (inView) {
+        dispatch(setIdLastUploadedPost(data.items[data.items.length - 1].id))
+      }
+    }, [inView])
 
     return (
       <>
