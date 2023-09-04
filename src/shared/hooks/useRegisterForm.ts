@@ -37,7 +37,7 @@ export const useRegisterForm = () => {
       email: '',
       password: '',
       confirmPassword: '',
-      agree: true,
+      agree: false,
     },
     resolver: yupResolver(registerSchema) as Resolver<FormData>,
   })
