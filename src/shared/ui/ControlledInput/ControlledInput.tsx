@@ -15,7 +15,7 @@ export type ControlledInputProps<TFieldValues extends FieldValues> = {
   control: Control<TFieldValues>
 } & Omit<ComponentPropsWithoutRef<'input'>, 'onChange' | 'value' | 'id' | 'onValueChange'>
 
-export const ControlledInputNew = <TFieldValues extends FieldValues>({
+export const ControlledInput = <TFieldValues extends FieldValues>({
   title,
   type = 'text',
   className,
@@ -52,7 +52,7 @@ export const ControlledInputNew = <TFieldValues extends FieldValues>({
         <Text
           tag={'span'}
           color={TextColorTheme.ERROR}
-          font={TextFontTheme.INTER_REGULAR_L}
+          font={TextFontTheme.INTER_REGULAR_M}
           className={cls.errorText}
         >
           {error?.message}

@@ -10,4 +10,6 @@ export enum PATH {
   PROFILE = '/profile',
   ERROR_PAGE = '/error-page',
   POST = '/post',
+  TERMS = '/auth/terms',
+  PRIVACY = '/auth/privacy',
 }
