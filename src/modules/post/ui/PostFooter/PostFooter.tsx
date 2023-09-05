@@ -2,10 +2,11 @@ import Comment from '../../../../../public/icon/comment.svg'
 import Emoji from '../../../../../public/icon/emoji.svg'
 import Like from '../../../../../public/icon/like.svg'
 import Save from '../../../../../public/icon/save.svg'
-import { Button, ButtonTheme } from '../../../../shared/ui/Button/Button'
-import { TextArea, TextAreaTheme } from '../../../../shared/ui/TextArea/TextArea'
 
 import cls from './PostFooter.module.scss'
+
+import { Button, ButtonTheme } from 'shared/ui/Button/Button'
+import { TextArea, TextAreaTheme } from 'shared/ui/TextArea/TextArea'
 
 export const PostFooter = () => {
   return (
