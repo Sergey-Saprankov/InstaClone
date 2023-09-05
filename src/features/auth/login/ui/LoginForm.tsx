@@ -15,7 +15,7 @@ import { PATH } from 'shared/const/path'
 import { useLoginForm } from 'shared/hooks/useLoginForm'
 import { useTranslation } from 'shared/hooks/useTranslation'
 import { Button, ButtonSize, ButtonTheme } from 'shared/ui/Button/Button'
-import { ControlledInputNew } from 'shared/ui/ControlledInput/ControlledInput'
+import { ControlledInput } from 'shared/ui/ControlledInput/ControlledInput'
 import { Loader } from 'shared/ui/Loader/Loader'
 import { NavLink, NavLinkColor } from 'shared/ui/NavLink/Navlink'
 import { Text, TextColorTheme, TextFontTheme } from 'shared/ui/Text/Text'
@@ -68,7 +68,7 @@ export const LoginForm = () => {
         </Button>
       </div>
 
-      <ControlledInputNew
+      <ControlledInput
         control={control}
         name={'email'}
         type={'email'}
@@ -76,7 +76,7 @@ export const LoginForm = () => {
         title={t.login.email}
       />
       <div className={cls.mb24}></div>
-      <ControlledInputNew
+      <ControlledInput
         control={control}
         name={'password'}
         type={'password'}
