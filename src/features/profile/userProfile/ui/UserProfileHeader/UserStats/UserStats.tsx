@@ -1,8 +1,8 @@
 import { LocaleProfileType } from '../../../../../../../public/locales/ru'
-import { useTranslation } from '../../../../../../shared/hooks/useTranslation'
 
 import cls from './UserStats.module.scss'
 
+import { useTranslation } from 'shared/hooks/useTranslation'
 import { Text, TextColorTheme, TextFontTheme } from 'shared/ui/Text/Text'
 
 type StatsType = {

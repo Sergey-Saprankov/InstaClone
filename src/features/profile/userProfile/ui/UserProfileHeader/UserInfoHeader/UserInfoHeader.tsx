@@ -3,12 +3,12 @@ import React from 'react'
 import { useRouter } from 'next/router'
 
 import Star from '../../../../../../../public/icon/Star.svg'
-import { useTranslation } from '../../../../../../shared/hooks/useTranslation'
 
 import cls from './UserInfoHeader.module.scss'
 
 import { useGetUserInfoQuery } from 'modules/user/service/user'
 import { PATH } from 'shared/const/path'
+import { useTranslation } from 'shared/hooks/useTranslation'
 import { Button, ButtonSize, ButtonTheme } from 'shared/ui/Button/Button'
 import { Text, TextColorTheme, TextFontTheme } from 'shared/ui/Text/Text'
 

@@ -4,13 +4,12 @@ import Image from 'next/image'
 
 import Photo from '../../../../../../../public/icon/photo.svg'
 import defaultPhoto from '../../../../../../../public/test/defaulAva.jpg'
-import { useTranslation } from '../../../../../../shared/hooks/useTranslation'
-import { LangSwitcher } from '../../../../../../widgets/LangSwitcher'
 
 import cls from './profilePhotoBlock.module.scss'
 
 import { SettingPhotoModal } from 'features/profile/profileSetting/photoSetting/ui/SettingPhotoModal/SettingPhotoModal'
 import { useGetUserInfoQuery } from 'modules/user/service/user'
+import { useTranslation } from 'shared/hooks/useTranslation'
 import { Button, ButtonSize, ButtonTheme } from 'shared/ui/Button/Button'
 
 export const ProfilePhotoBlock = () => {

@@ -2,15 +2,15 @@ import { memo } from 'react'
 
 import { useRouter } from 'next/router'
 
-import { useTranslation } from '../../../../shared/hooks/useTranslation'
 import { useCreateNewPasswordMutation } from '../service/createNewPassword'
 
 import s from './CreateNewPassword.module.scss'
 
 import { PATH } from 'shared/const/path'
 import { useRecoveryForm } from 'shared/hooks/useRecoveryForm'
+import { useTranslation } from 'shared/hooks/useTranslation'
 import { Button, ButtonSize, ButtonTheme } from 'shared/ui/Button/Button'
-import { ControlledInputNew } from 'shared/ui/ControlledInput/ControlledInput'
+import { ControlledInput } from 'shared/ui/ControlledInput/ControlledInput'
 import { Loader } from 'shared/ui/Loader/Loader'
 import { Text, TextColorTheme, TextFontTheme } from 'shared/ui/Text/Text'
 
@@ -50,7 +50,7 @@ export const CreateNewPasswordForm = memo(() => {
         {t.passwordRecovery.createPassword}
       </Text>
 
-      <ControlledInputNew
+      <ControlledInput
         control={control}
         name={'password'}
         type={'password'}
@@ -60,7 +60,7 @@ export const CreateNewPasswordForm = memo(() => {
 
       <div className={s.mb22}></div>
 
-      <ControlledInputNew
+      <ControlledInput
         control={control}
         type={'password'}
         name={'confirmPassword'}

@@ -4,7 +4,7 @@ import {
 } from 'features/profile/profileSetting/accountManagement/service/accountManagement'
 import cls from 'features/profile/profileSetting/accountManagement/ui/autoRenewal/AutoRenewal.module.scss'
 import { useAppSelector } from 'shared/hooks/useAppSelector'
-import { CheckBox } from 'shared/ui/Checkbox/Checkbox'
+import { Checkbox } from 'shared/ui/Checkbox/Checkbox'
 
 export const AutoRenewal = () => {
   const isLoading = useAppSelector(state => state.accountManagement.isLoading)
@@ -20,12 +20,8 @@ export const AutoRenewal = () => {
   return (
     <div className={cls.autoRenewalBlock}>
       <div className={cls.checkBoxBlock}>
-        <CheckBox
-          isChecked={isCheck}
-          onChangeChecked={onChangeCheckedAutoRenewal}
-          disabled={isLoading}
-        />
-        Auto-Renewal
+        <Checkbox checked={isCheck} onChange={onChangeCheckedAutoRenewal} disabled={isLoading} />
+        <span>Auto-Renewal</span>
       </div>
     </div>
   )

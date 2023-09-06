@@ -1,7 +1,6 @@
 import React from 'react'
 
 import ConfirmPageImage from '../../../../../../public/icon/bro.svg'
-import { Button, ButtonSize, ButtonTheme } from '../../../../../shared/ui/Button/Button'
 
 import cls from 'features/auth/registration-confirmation/ui/Confirmation/Confirmation.module.scss'
 import { PATH } from 'shared/const/path'

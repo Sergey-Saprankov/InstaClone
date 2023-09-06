@@ -3,11 +3,11 @@ import React, { useRef, useState } from 'react'
 import AvatarEditor from 'react-avatar-editor'
 
 import Photo from '../../../../../../../public/icon/photo.svg'
-import { useTranslation } from '../../../../../../shared/hooks/useTranslation'
 
 import cls from './SettingPhotoModal.module.scss'
 
 import { useSendAvatarMutation } from 'features/profile/profileSetting/photoSetting/service/photoSetting'
+import { useTranslation } from 'shared/hooks/useTranslation'
 import { classNames } from 'shared/lib/classNames/classNames'
 import { Button, ButtonTheme } from 'shared/ui/Button/Button'
 import { InputTypeFile } from 'shared/ui/InputTypeFile/InputTypeFile'

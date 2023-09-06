@@ -2,16 +2,15 @@ import React, { useState } from 'react'
 
 import ReCAPTCHA from 'react-google-recaptcha'
 
-import { useTranslation } from '../../../../shared/hooks/useTranslation'
-
 import { usePasswordRecoveryMutation } from 'features/auth/passwordRecovery/service/passwordRecoveryApi'
 import s from 'features/auth/passwordRecovery/ui/PasswordRecovery.module.scss'
 import { setEmail } from 'features/auth/registration/model/slice/registrationSlice'
 import { PATH } from 'shared/const/path'
 import { useAppDispatch } from 'shared/hooks/useAppDispatch'
 import { useForgotForm } from 'shared/hooks/useForgotPassword'
+import { useTranslation } from 'shared/hooks/useTranslation'
 import { Button, ButtonSize, ButtonTheme } from 'shared/ui/Button/Button'
-import { ControlledInputNew } from 'shared/ui/ControlledInput/ControlledInput'
+import { ControlledInput } from 'shared/ui/ControlledInput/ControlledInput'
 import { Loader } from 'shared/ui/Loader/Loader'
 import { NavLink, NavLinkColor } from 'shared/ui/NavLink/Navlink'
 import { Text, TextColorTheme, TextFontTheme } from 'shared/ui/Text/Text'
@@ -60,7 +59,7 @@ export const PasswordRecovery = ({ setIsModalOpen }: RegistrationFormType) => {
         {t.passwordRecovery.forgotPassword}
       </Text>
 
-      <ControlledInputNew
+      <ControlledInput
         control={control}
         name={'email'}
         type={'email'}
