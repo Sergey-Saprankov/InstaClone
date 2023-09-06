@@ -26,7 +26,6 @@ const posts = baseAPI.injectEndpoints({
         return endpointName
       },
       merge: (currentCache, newItems) => {
-        console.log(newItems)
         currentCache.items.push(...newItems.items)
       },
       forceRefetch({ currentArg, previousArg }) {
@@ -41,3 +40,5 @@ const posts = baseAPI.injectEndpoints({
 export const { useGetPostsQuery } = posts
 
 export const postsApiEndpoints = posts.endpoints
+
+export const postsApi = posts
