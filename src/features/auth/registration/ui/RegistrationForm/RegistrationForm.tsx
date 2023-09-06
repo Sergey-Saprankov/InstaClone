@@ -1,16 +1,22 @@
+import React from 'react'
+
+import { useGoogleLogin } from '@react-oauth/google'
+import { useRouter } from 'next/router'
+
 import Github from '../../../../../../public/icon/github-svgrepo-com.svg'
 import Google from '../../../../../../public/icon/google-svgrepo-com.svg'
-import { useTranslation } from '../../../../../shared/hooks/useTranslation'
-import { ControlledCheckbox } from '../../../../../shared/ui/ControlledCheckbox/ControlledCheckbox'
 import formCls from '../../../logOut/ui/LogOutComponent.module.scss'
 
+import { useLoginGoogleMutation } from 'features/auth/login/authByGoogle/service/authByGoogle'
 import { setEmail } from 'features/auth/registration/model/slice/registrationSlice'
 import { useRegisterMutation } from 'features/auth/registration/service/registration'
 import cls from 'features/auth/registration/ui/RegistrationForm/RegistrationForm.module.scss'
 import { PATH } from 'shared/const/path'
 import { useAppDispatch } from 'shared/hooks/useAppDispatch'
 import { useRegisterForm } from 'shared/hooks/useRegisterForm'
+import { useTranslation } from 'shared/hooks/useTranslation'
 import { Button, ButtonSize, ButtonTheme } from 'shared/ui/Button/Button'
+import { ControlledCheckbox } from 'shared/ui/ControlledCheckbox/ControlledCheckbox'
 import { ControlledInput } from 'shared/ui/ControlledInput/ControlledInput'
 import { Loader } from 'shared/ui/Loader/Loader'
 import { NavLink, NavLinkColor } from 'shared/ui/NavLink/Navlink'
@@ -27,7 +33,13 @@ export const RegistrationForm = ({ setIsModalOpen }: RegistrationFormType) => {
     handleSubmit,
     formState: { isValid },
   } = useRegisterForm()
-
+  const router = useRouter()
+  const [loginGoogle, { isSuccess: isGoogleSuccess }] = useLoginGoogleMutation()
+  const googleLogin = useGoogleLogin({
+    onSuccess: codeResponse => loginGoogle(codeResponse),
+    redirect_uri: 'http://localhost:3000',
+    flow: 'auth-code',
+  })
   const dispatch = useAppDispatch()
 
   const { t } = useTranslation()
@@ -45,6 +57,11 @@ export const RegistrationForm = ({ setIsModalOpen }: RegistrationFormType) => {
     registration(payload)
   })
 
+  if (isGoogleSuccess) {
+    router.push(PATH.HOME)
+
+    return <></>
+  }
   if (isLoading) return <Loader />
   if (isSuccess) setIsModalOpen(true)
 
@@ -60,7 +77,11 @@ export const RegistrationForm = ({ setIsModalOpen }: RegistrationFormType) => {
       </Text>
 
       <div className={formCls.iconContainer}>
-        <Button className={formCls.transform} theme={ButtonTheme.Clear}>
+        <Button
+          className={formCls.transform}
+          theme={ButtonTheme.Clear}
+          onClick={() => googleLogin()}
+        >
           <Google width={36} height={36} />
         </Button>
         <Button className={formCls.transform} theme={ButtonTheme.Clear}>

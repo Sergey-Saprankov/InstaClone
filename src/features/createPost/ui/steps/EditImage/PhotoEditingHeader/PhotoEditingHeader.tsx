@@ -1,5 +1,4 @@
 import ArrowBack from '../../../../../../../public/icon/arrow-back.svg'
-import { useTranslation } from '../../../../../../shared/hooks/useTranslation'
 import cls from '../EditImage.module.scss'
 
 import { getStep } from 'features/createPost/model/selectors/getStep/getStep'
@@ -7,6 +6,7 @@ import { setCloseModal, setStep } from 'features/createPost/model/slice/uploadPh
 import { STEP } from 'features/createPost/model/types/const'
 import { useAppDispatch } from 'shared/hooks/useAppDispatch'
 import { useAppSelector } from 'shared/hooks/useAppSelector'
+import { useTranslation } from 'shared/hooks/useTranslation'
 import { classNames } from 'shared/lib/classNames/classNames'
 import { Button, ButtonTheme } from 'shared/ui/Button/Button'
 import { Text, TextColorTheme, TextFontTheme } from 'shared/ui/Text/Text'

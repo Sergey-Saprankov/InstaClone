@@ -2,13 +2,13 @@ import { memo } from 'react'
 
 import { useRouter } from 'next/router'
 
-import { useTranslation } from '../../../../shared/hooks/useTranslation'
 import { useCreateNewPasswordMutation } from '../service/createNewPassword'
 
 import s from './CreateNewPassword.module.scss'
 
 import { PATH } from 'shared/const/path'
 import { useRecoveryForm } from 'shared/hooks/useRecoveryForm'
+import { useTranslation } from 'shared/hooks/useTranslation'
 import { Button, ButtonSize, ButtonTheme } from 'shared/ui/Button/Button'
 import { ControlledInput } from 'shared/ui/ControlledInput/ControlledInput'
 import { Loader } from 'shared/ui/Loader/Loader'

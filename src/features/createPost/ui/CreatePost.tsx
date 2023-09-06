@@ -1,7 +1,6 @@
 import { FC, memo, useCallback, useState } from 'react'
 
 import Plus from '../../../../public/icon/plus-square.svg'
-import { useTranslation } from '../../../shared/hooks/useTranslation'
 import { getCurrentImgIndex } from '../model/selectors/getCurrentImgIndex/getCurrentImgIndex'
 import { getImages } from '../model/selectors/getImages/getImages'
 
@@ -15,6 +14,7 @@ import { setClearState, setCloseModal } from 'features/createPost/model/slice/up
 import { STEP } from 'features/createPost/model/types/const'
 import { useAppDispatch } from 'shared/hooks/useAppDispatch'
 import { useAppSelector } from 'shared/hooks/useAppSelector'
+import { useTranslation } from 'shared/hooks/useTranslation'
 import { classNames } from 'shared/lib/classNames/classNames'
 import { Button, ButtonTheme } from 'shared/ui/Button/Button'
 import { Modal } from 'shared/ui/Modal/Modal'

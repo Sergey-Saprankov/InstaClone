@@ -2,8 +2,6 @@ import { FC, memo, useCallback, useState, KeyboardEvent, useEffect } from 'react
 
 import Image from 'next/image'
 
-import { SlideCounter } from '../../../shared/ui/SlideCounter/SlideCounter'
-import { Slider } from '../../../shared/ui/Slider/Slider'
 import { useGetPostQuery } from '../service/post'
 
 import cls from './Post.module.scss'
@@ -13,6 +11,8 @@ import { PostHeader } from './PostHeader/PostHeader'
 
 import { LoaderContent } from 'shared/ui/LoaderContent/LoaderContent'
 import { Modal } from 'shared/ui/Modal/Modal'
+import { SlideCounter } from 'shared/ui/SlideCounter/SlideCounter'
+import { Slider } from 'shared/ui/Slider/Slider'
 
 interface PostProps {
   currentId: number

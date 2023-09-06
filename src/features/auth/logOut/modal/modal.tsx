@@ -1,10 +1,10 @@
 import { PropsWithChildren } from 'react'
 
 import Close from '../../../../../public/icon/close.svg'
-import { useTranslation } from '../../../../shared/hooks/useTranslation'
 
 import cls from './modal.module.scss'
 
+import { useTranslation } from 'shared/hooks/useTranslation'
 import { Button, ButtonSize, ButtonTheme } from 'shared/ui/Button/Button'
 import { Portal } from 'shared/ui/Portal/Portal'
 import { Text, TextColorTheme, TextFontTheme } from 'shared/ui/Text/Text'
