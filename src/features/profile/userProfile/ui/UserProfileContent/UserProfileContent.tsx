@@ -51,7 +51,7 @@ export const UserProfileContent: FC<IUserProfileContentProps> = memo(
 
     useEffect(() => {
       if (inView) {
-        dispatch(setIdLastUploadedPost(data.items[data.items.length - 1].id))
+        dispatch(setIdLastUploadedPost(data.items[data.items.length - 1]?.id))
       }
     }, [inView])
 

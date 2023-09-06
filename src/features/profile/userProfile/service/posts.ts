@@ -13,12 +13,11 @@ const posts = baseAPI.injectEndpoints({
         pageNumber,
         pageSize = 9,
       }: IUserPostRequest) => ({
-        url: `/posts/user`,
+        url: `/posts/user/${idLastUploadedPost}`,
         retries: 2,
         params: {
           pageNumber,
           pageSize,
-          idLastUploadedPost,
           sort,
           sortDirection,
         },
@@ -27,6 +26,7 @@ const posts = baseAPI.injectEndpoints({
         return endpointName
       },
       merge: (currentCache, newItems) => {
+        console.log(newItems)
         currentCache.items.push(...newItems.items)
       },
       forceRefetch({ currentArg, previousArg }) {
