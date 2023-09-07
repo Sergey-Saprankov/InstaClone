@@ -3,8 +3,9 @@ import type { Meta, StoryObj } from '@storybook/react'
 import { Button, ButtonSize, ButtonTheme } from 'shared/ui/Button/Button'
 
 const meta = {
-  title: 'Components/Button',
+  title: 'Components/ok/Button',
   component: Button,
+  decorators: [story => <div style={{ padding: '3rem' }}>{story()}</div>],
   tags: ['autodocs'],
 } satisfies Meta<typeof Button>
 
@@ -18,6 +19,12 @@ export const Primary: Story = {
     size: ButtonSize.XXl,
     theme: ButtonTheme.PRIMARY,
     // fullWidth: true,
+  },
+  parameters: {
+    design: {
+      type: 'figma',
+      url: 'https://www.figma.com/file/M7753HAzy0tm9rQWyRBrnI/Inctagram?type=design&node-id=303-3570&mode=design&t=YfNBlyurujtK4coF-0',
+    },
   },
 }
 export const Light: Story = {

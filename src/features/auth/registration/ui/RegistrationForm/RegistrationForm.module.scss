@@ -1,10 +1,14 @@
-@import 'features/auth/logOut/ui/LogOutComponent.module';
 
 .form {
+  display: flex;
+  flex-direction: column;
 
-  @extend .parentForm;
-
+  width: 400px;
   padding: 29px 23px 18px 25px;
+
+  background-color: var(--dark-500);
+  border: 1px solid var(--dark-300);
+  border-radius: 15px;
 }
 
 .mb36 {

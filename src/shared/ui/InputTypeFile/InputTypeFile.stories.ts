@@ -3,7 +3,7 @@ import type { Meta, StoryObj } from '@storybook/react'
 import { InputTypeFile } from 'shared/ui/InputTypeFile/InputTypeFile'
 
 const meta = {
-  title: 'Components/InputTypeFile',
+  title: 'Components/ok/InputTypeFile',
   component: InputTypeFile,
   tags: ['autodocs'],
 } satisfies Meta<typeof InputTypeFile>

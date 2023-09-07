@@ -7,7 +7,7 @@ import {
 } from '../../../../../InstaCloneMy/src/shared/ui/Text/Text'
 
 const meta = {
-  title: 'Components/Text',
+  title: 'Components/ok/Text',
   component: Text,
   tags: ['autodocs'],
   argTypes: {

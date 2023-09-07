@@ -13,6 +13,15 @@ const preview: Preview = {
       },
     },
   },
+  parameters: {
+    backgrounds: {
+      default: 'black',
+      values: [
+        { name: 'black', value: 'black' },
+        { name: 'facebook', value: '#3b5998' },
+      ],
+    },
+  },
 }
-
+// addDecorator(withProvider)
 export default preview

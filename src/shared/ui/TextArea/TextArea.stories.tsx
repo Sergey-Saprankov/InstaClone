@@ -3,7 +3,7 @@ import type { Meta, StoryObj } from '@storybook/react'
 import { TextArea } from 'shared/ui/TextArea/TextArea'
 
 const meta = {
-  title: 'Components/TextArea',
+  title: 'Components/ok/TextArea',
   component: TextArea,
   tags: ['autodocs'],
 } satisfies Meta<typeof TextArea>

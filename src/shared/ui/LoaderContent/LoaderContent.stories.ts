@@ -3,7 +3,7 @@ import type { Meta, StoryObj } from '@storybook/react'
 import { LoaderContent } from 'shared/ui/LoaderContent/LoaderContent'
 
 const meta = {
-  title: 'Components/LoaderContent',
+  title: 'Components/ok/LoaderContent',
   component: LoaderContent,
   tags: ['autodocs'],
 } satisfies Meta<typeof LoaderContent>
