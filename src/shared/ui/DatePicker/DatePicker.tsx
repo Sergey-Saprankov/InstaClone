@@ -66,7 +66,7 @@ export const CustomDatePicker: FC<CustomDatePickerProps> = ({
 
   return (
     <div ref={ref} className={cls.wrapper}>
-      <div className={cls.container} onClick={() => setIsOpen(prev => !prev)}>
+      <div className={cls.container}>
         <label className={cls.label}>
           {title}
           <DatePicker
@@ -85,6 +85,7 @@ export const CustomDatePicker: FC<CustomDatePickerProps> = ({
             endDate={endDate}
             onChange={onChangeHandler}
             calendarClassName={cls.calendar}
+            onInputClick={() => setIsOpen(prev => !prev)}
           />
         </label>
       </div>
