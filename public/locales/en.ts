@@ -48,7 +48,8 @@ export const en: LocaleType = {
         cancelPublication: 'Cancel publication ?',
         changesWillNotBeSaved: 'If you exit, the changes will not be saved',
         delete: 'Delete',
-        cancel: 'Cancel'
+        cancel: 'Cancel',
+        file: 'Max 10MB, PNG or JPEG only'
     },
 
     login: {
