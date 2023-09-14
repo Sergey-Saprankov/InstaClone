@@ -6,7 +6,15 @@ const meta = {
   title: 'Components/ControlledInput',
   component: ControlledInput,
   tags: ['autodocs'],
-  // argTypes: { control: HTMLInputElement },
+  // argTypes: {
+  //   type: {
+  //     options: ['text', 'email', 'password', 'file', 'checkbox'],
+  //     control: {
+  //       type: 'select',
+  //     },
+  //   },
+  // },
+  // argTypes: { control: { email: 'qwqwqwqwqwq@gmai.com', password: 'qweqweqwe@@@@qaewrqwre' } },
 } satisfies Meta<typeof ControlledInput>
 
 export default meta
