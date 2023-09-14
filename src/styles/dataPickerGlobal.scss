@@ -11,7 +11,7 @@
 
 .react-datepicker {
   width: 300px;
-  height: 348px;
+  height: max-content;
   padding: 22px 16px;
 
   background-color: var(--dark-500) !important;
@@ -148,6 +148,21 @@
   border-bottom-right-radius: 50% !important;
 }
 
+.react-datepicker__header__dropdown {
+  margin-top: 10px;
+}
 
 
+.react-datepicker__month-dropdown-container--select {
+  font: var(--font-regular-l) !important;
+  color: var(--light-100) !important;
+}
 
+.react-datepicker__year-select {
+  font: var(--font-regular-l) !important;
+  color: var(--light-100) !important;
+}
+
+.react-datepicker-ignore-onclickoutside {
+
+}

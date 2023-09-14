@@ -103,6 +103,10 @@ export const CustomDatePicker: FC<CustomDatePickerProps> = ({
             endDate={endDate}
             onChange={onChangeHandler}
             inline
+            peekNextMonth
+            showMonthDropdown
+            showYearDropdown
+            dropdownMode="select"
           />
         </div>
       )}
