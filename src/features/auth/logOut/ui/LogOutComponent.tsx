@@ -3,7 +3,6 @@ import { FC, memo, useState } from 'react'
 import { useRouter } from 'next/router'
 
 import Logout from '../../../../../public/icon/log-out.svg'
-import { useTranslation } from '../../../../shared/hooks/useTranslation'
 
 import cls from './LogOutComponent.module.scss'
 
@@ -12,6 +11,7 @@ import { useLogOutMutation } from 'features/auth/logOut/service/logOut'
 import { PATH } from 'shared/const/path'
 import { getAuthMeData } from 'shared/hoc/model/selectors/getAuthMeData/getAuthMeData'
 import { useAppSelector } from 'shared/hooks/useAppSelector'
+import { useTranslation } from 'shared/hooks/useTranslation'
 import { classNames } from 'shared/lib/classNames/classNames'
 import { Button, ButtonTheme } from 'shared/ui/Button/Button'
 import { Loader } from 'shared/ui/Loader/Loader'

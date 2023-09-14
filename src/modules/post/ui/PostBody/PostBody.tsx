@@ -1,9 +1,9 @@
 import { FC } from 'react'
 
-import { UserAvatarSmall } from '../../../user'
-
 import { NotComments } from './NotComments/NotComment'
 import cls from './PostBody.module.scss'
+
+import { UserAvatarSmall } from 'modules/user'
 
 interface IPostBody {
   description: string

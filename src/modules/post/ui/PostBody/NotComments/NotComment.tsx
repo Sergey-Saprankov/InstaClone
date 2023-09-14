@@ -1,6 +1,6 @@
-import { Text, TextFontTheme } from '../../../../../shared/ui/Text/Text'
-
 import cls from './NotComment.module.scss'
+
+import { Text, TextFontTheme } from 'shared/ui/Text/Text'
 
 export const NotComments = () => {
   return (

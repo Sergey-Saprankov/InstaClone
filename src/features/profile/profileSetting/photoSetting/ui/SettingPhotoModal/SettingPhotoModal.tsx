@@ -3,17 +3,18 @@ import React, { useRef, useState } from 'react'
 import AvatarEditor from 'react-avatar-editor'
 
 import Photo from '../../../../../../../public/icon/photo.svg'
-import { useTranslation } from '../../../../../../shared/hooks/useTranslation'
 
 import cls from './SettingPhotoModal.module.scss'
 
 import { useSendAvatarMutation } from 'features/profile/profileSetting/photoSetting/service/photoSetting'
+import { useTranslation } from 'shared/hooks/useTranslation'
 import { classNames } from 'shared/lib/classNames/classNames'
 import { Button, ButtonTheme } from 'shared/ui/Button/Button'
 import { InputTypeFile } from 'shared/ui/InputTypeFile/InputTypeFile'
 import { LoaderContent } from 'shared/ui/LoaderContent/LoaderContent'
 import { ModalHeader } from 'shared/ui/ModalHeader/ModalHeader'
 import { Portal } from 'shared/ui/Portal/Portal'
+import { Text, TextColorTheme, TextFontTheme } from 'shared/ui/Text/Text'
 
 export type SettingPhotoModalType = {
   isModalOpen: boolean
@@ -98,6 +99,16 @@ export const SettingPhotoModal = ({ isModalOpen, setIsModalOpen }: SettingPhotoM
               <Photo className={cls.photo} />
             )}
           </div>
+
+          <Text
+            className={cls.mt10}
+            tag={'p'}
+            color={TextColorTheme.LIGHT}
+            font={TextFontTheme.INTER_REGULAR_M}
+          >
+            {t.create.file}
+          </Text>
+
           <div
             className={classNames(cls.btnContainer, {
               [cls.selectPhoto]: selectedImage === null,

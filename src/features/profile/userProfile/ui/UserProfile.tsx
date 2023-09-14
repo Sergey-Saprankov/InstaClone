@@ -1,7 +1,5 @@
 import React, { useEffect, useState } from 'react'
 
-import { LoaderContent } from '../../../../shared/ui/LoaderContent/LoaderContent'
-import { SomethingWentWrong } from '../../../../shared/ui/SomethingWentWrong/SomethingWentWrong'
 import { useGetPostsQuery } from '../service/posts'
 
 import cls from './UserProfile.module.scss'
@@ -11,10 +9,14 @@ import { UserProfileHeader } from './UserProfileHeader/UserProfileHeader'
 import { useGetUserInfoQuery } from 'modules/user/service/user'
 import { getUserId } from 'shared/hoc'
 import { useAppSelector } from 'shared/hooks/useAppSelector'
+import { LoaderContent } from 'shared/ui/LoaderContent/LoaderContent'
+import { SomethingWentWrong } from 'shared/ui/SomethingWentWrong/SomethingWentWrong'
 
 export const UserProfile = () => {
   const [isLoading, setIsLoading] = useState(true)
   // const [page, setPage] = useState(1)
+
+  const { idLastUploadedPost } = useAppSelector(state => state.userProfile)
 
   const userId = useAppSelector(getUserId)
   const {
@@ -24,20 +26,18 @@ export const UserProfile = () => {
     isError: isErrorUser,
   } = useGetUserInfoQuery()
 
-  const useGetPostsQueryArg = {
-    pageNumber: 1,
-    pageSize: 9,
-  }
-
   const {
     data: postsData,
     isSuccess: isSuccessPost,
     isLoading: isLoadingPosts,
     isFetching: isFetchingPosts,
     isError: isErrorPosts,
-  } = useGetPostsQuery(useGetPostsQueryArg, {
-    skip: !userId,
-  })
+  } = useGetPostsQuery(
+    { idLastUploadedPost: idLastUploadedPost ?? undefined },
+    {
+      skip: !userId,
+    }
+  )
 
   // const changePostsPage = (nextPage: number) => {
   //   setPage(nextPage)
@@ -55,11 +55,7 @@ export const UserProfile = () => {
         {isSuccessPost && isSuccessUser && (
           <>
             <UserProfileHeader data={profileData} />
-            <UserProfileContent
-              data={postsData}
-              // changePostsPage={changePostsPage}
-              isFetchingPosts={isFetchingPosts}
-            />
+            <UserProfileContent data={postsData} isFetchingPosts={isFetchingPosts} />
           </>
         )}
       </div>

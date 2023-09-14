@@ -1,3 +1,5 @@
+import { UserProfileSchema } from '../features/profile/userProfile/model/types/userProfileSchema'
+
 import { LoginSchema } from 'features/auth/login'
 import { RegistrationSchema } from 'features/auth/registration/model/types/RegistrationSchema'
 import { UploadPhotoSchema } from 'features/createPost/model/types/uploadPhotoSchema'
@@ -12,4 +14,5 @@ export interface StateSchema {
   authMe: AuthMeSchema
   uploadPhoto: UploadPhotoSchema
   accountManagement: AccountManagementSchema
+  userProfile: UserProfileSchema
 }
