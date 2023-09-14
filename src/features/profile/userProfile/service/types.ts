@@ -2,7 +2,7 @@ export interface PostsResponse {
   totalCount: number
   pagesCount: number
   page: number
-  pageSize: number
+  pageSize?: number
   items: IPost[]
 }
 

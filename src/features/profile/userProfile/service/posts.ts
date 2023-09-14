@@ -11,18 +11,26 @@ const posts = baseAPI.injectEndpoints({
         sort,
         sortDirection,
         pageNumber,
-        pageSize,
+        pageSize = 9,
       }: IUserPostRequest) => ({
-        url: `/posts/user`,
+        url: `/posts/user/${idLastUploadedPost}`,
         retries: 2,
         params: {
           pageNumber,
           pageSize,
-          idLastUploadedPost,
           sort,
           sortDirection,
         },
       }),
+      serializeQueryArgs: ({ endpointName }) => {
+        return endpointName
+      },
+      merge: (currentCache, newItems) => {
+        currentCache.items.push(...newItems.items)
+      },
+      forceRefetch({ currentArg, previousArg }) {
+        return currentArg !== previousArg
+      },
       providesTags: ['Posts'],
     }),
   }),
@@ -30,3 +38,7 @@ const posts = baseAPI.injectEndpoints({
 })
 
 export const { useGetPostsQuery } = posts
+
+export const postsApiEndpoints = posts.endpoints
+
+export const postsApi = posts

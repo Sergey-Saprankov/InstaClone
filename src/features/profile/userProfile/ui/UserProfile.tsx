@@ -16,6 +16,8 @@ export const UserProfile = () => {
   const [isLoading, setIsLoading] = useState(true)
   // const [page, setPage] = useState(1)
 
+  const { idLastUploadedPost } = useAppSelector(state => state.userProfile)
+
   const userId = useAppSelector(getUserId)
   const {
     data: profileData,
@@ -24,20 +26,18 @@ export const UserProfile = () => {
     isError: isErrorUser,
   } = useGetUserInfoQuery()
 
-  const useGetPostsQueryArg = {
-    pageNumber: 1,
-    pageSize: 9,
-  }
-
   const {
     data: postsData,
     isSuccess: isSuccessPost,
     isLoading: isLoadingPosts,
     isFetching: isFetchingPosts,
     isError: isErrorPosts,
-  } = useGetPostsQuery(useGetPostsQueryArg, {
-    skip: !userId,
-  })
+  } = useGetPostsQuery(
+    { idLastUploadedPost: idLastUploadedPost ?? undefined },
+    {
+      skip: !userId,
+    }
+  )
 
   // const changePostsPage = (nextPage: number) => {
   //   setPage(nextPage)
@@ -55,11 +55,7 @@ export const UserProfile = () => {
         {isSuccessPost && isSuccessUser && (
           <>
             <UserProfileHeader data={profileData} />
-            <UserProfileContent
-              data={postsData}
-              // changePostsPage={changePostsPage}
-              isFetchingPosts={isFetchingPosts}
-            />
+            <UserProfileContent data={postsData} isFetchingPosts={isFetchingPosts} />
           </>
         )}
       </div>
