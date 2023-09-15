@@ -163,6 +163,8 @@
   color: var(--light-100) !important;
 }
 
-.react-datepicker-ignore-onclickoutside {
-
+.react-datepicker__month-select,
+.react-datepicker__year-select
+{
+  background-color: var(--dark-500);
 }
