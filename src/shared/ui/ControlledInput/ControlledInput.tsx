@@ -62,9 +62,9 @@ export const ControlledInput = <TFieldValues extends FieldValues>({
   )
 }
 
-type InputType = ComponentPropsWithoutRef<'input'>['type']
+export type InputType = ComponentPropsWithoutRef<'input'>['type']
 
-function getFinalInputType(
+export function getFinalInputType(
   type: InputType,
   isPassword: boolean,
   isPasswordVisible: boolean

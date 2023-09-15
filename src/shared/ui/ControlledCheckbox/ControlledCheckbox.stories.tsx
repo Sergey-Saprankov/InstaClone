@@ -1,24 +1,22 @@
 import type { Meta, StoryObj } from '@storybook/react'
 
+import { useRegisterForm } from 'shared/hooks/useRegisterForm'
 import { ControlledCheckbox } from 'shared/ui/ControlledCheckbox/ControlledCheckbox'
 
 const meta = {
-  title: 'Components/ControlledCheckbox',
+  title: 'Components/ok/ControlledCheckbox',
   component: ControlledCheckbox,
   tags: ['autodocs'],
-
-  // argTypes: { control: { email: 'qwqwqwqwqwq@gmai.com', password: 'qweqweqwe@@@@qaewrqwre' } },
+  argTypes: { onClick: { action: 'clicked' } },
 } satisfies Meta<typeof ControlledCheckbox>
 
 export default meta
 type Story = StoryObj<typeof ControlledCheckbox>
 
-export const ControlledCheckbox1: Story = {
-  render: ControlledCheckbox,
-  // args: {
-  //   defaultValue: 'John Doe',
-  // },
-  // argTypes: {
-  //   control: { disable: true },
-  // },
+export const Controlled: Story = {
+  render: args => {
+    const { control } = useRegisterForm()
+
+    return <ControlledCheckbox control={control} name={'agree'} />
+  },
 }
