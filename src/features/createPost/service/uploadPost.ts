@@ -3,6 +3,7 @@ import {
   AddPostResponse,
   UploadPhotoResponse,
 } from 'features/createPost/service/types'
+import { postsApi } from 'features/profile/userProfile'
 import { baseAPI } from 'shared/api/baseAPI'
 
 const uploadPost = baseAPI.injectEndpoints({
@@ -20,7 +21,23 @@ const uploadPost = baseAPI.injectEndpoints({
         method: 'POST',
         body: arg,
       }),
-      invalidatesTags: ['Posts'],
+      async onQueryStarted(arg, { dispatch, queryFulfilled }) {
+        try {
+          const { data: updatedPost } = await queryFulfilled
+
+          dispatch(
+            postsApi.util.updateQueryData(
+              'getPosts',
+              { idLastUploadedPost: updatedPost.id },
+              draft => {
+                draft.items = [updatedPost, ...draft.items]
+              }
+            )
+          )
+        } catch {
+          console.log('error')
+        }
+      },
     }),
   }),
   overrideExisting: true,
