@@ -2,6 +2,7 @@ import { postsApi } from '../../../features/profile/userProfile'
 
 import { IUpdatePostRequest, ResponsePost } from './types'
 
+import { postsApi } from 'features/profile/userProfile'
 import { baseAPI } from 'shared/api/baseAPI'
 
 const post = baseAPI.injectEndpoints({
@@ -31,7 +32,6 @@ const post = baseAPI.injectEndpoints({
           patchResult.undo()
         }
       },
-      invalidatesTags: ['Posts'],
     }),
     updatePost: build.mutation<void, IUpdatePostRequest>({
       query: ({ postId, description }) => ({
