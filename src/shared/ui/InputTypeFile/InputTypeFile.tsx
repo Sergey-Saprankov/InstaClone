@@ -19,8 +19,10 @@ export const InputTypeFile = ({ setSelectedImage, label }: InputTypeFileProps) =
   const uploadHandler = (e: ChangeEvent<HTMLInputElement>) => {
     if (e.target.files && e.target.files.length) {
       const file = e.target.files[0]
+      const maxSize = 10000000
 
-      setSelectedImage(file)
+      if (file.size <= maxSize && (file.type === 'image/jpeg' || file.type === 'image/png'))
+        setSelectedImage(file)
     }
   }
 

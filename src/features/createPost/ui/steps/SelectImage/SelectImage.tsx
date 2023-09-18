@@ -1,4 +1,4 @@
-import { useCallback } from 'react'
+import React, { useCallback } from 'react'
 
 import ImageMedia from '../../../../../../public/icon/media.svg'
 import { useTranslation } from '../../../../../shared/hooks/useTranslation'
@@ -45,6 +45,14 @@ export const SelectImage = () => {
           <ImageMedia />
           <Text tag={'p'} font={TextFontTheme.INTER_SEMI_BOLD_L} color={TextColorTheme.LIGHT}>
             {t.create.selectAPhotoInYourComputer}
+          </Text>
+          <Text
+            className={cls.mt10}
+            tag={'p'}
+            color={TextColorTheme.LIGHT}
+            font={TextFontTheme.INTER_REGULAR_M}
+          >
+            {t.create.file}
           </Text>
         </div>
 

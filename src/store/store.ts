@@ -8,6 +8,8 @@ import {
 import { setupListeners } from '@reduxjs/toolkit/query'
 import { toast } from 'react-toastify'
 
+import { userProfileReducer } from '../features/profile/userProfile/model/slice/userProfileSlice'
+
 import { StateSchema } from './stateSchema'
 
 import { loginReducer } from 'features/auth/login'
@@ -52,6 +54,7 @@ const rootReducer: ReducersMapObject<StateSchema> = {
   authMe: authMeReducer,
   uploadPhoto: uploadPhotoReducer,
   accountManagement: accountManagementReducer,
+  userProfile: userProfileReducer,
 }
 
 export const store = configureStore({

@@ -45,7 +45,8 @@ export const ru = {
         cancelPublication: 'Отменить публикацию ?',
         changesWillNotBeSaved: 'Если вы выйдете, изменения не будут сохранены.',
         delete: 'Удалить',
-        cancel: 'Отмена'
+        cancel: 'Отмена',
+        file: 'Максимум 10 МБ, только PNG или JPEG'
     },
 
     login: {

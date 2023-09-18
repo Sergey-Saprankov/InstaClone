@@ -1,5 +1,8 @@
+import { postsApi } from '../../../features/profile/userProfile'
+
 import { IUpdatePostRequest, ResponsePost } from './types'
 
+import { postsApi } from 'features/profile/userProfile'
 import { baseAPI } from 'shared/api/baseAPI'
 
 const post = baseAPI.injectEndpoints({
@@ -15,7 +18,20 @@ const post = baseAPI.injectEndpoints({
         url: `/posts/${postId}`,
         method: 'DELETE',
       }),
-      invalidatesTags: ['Posts'],
+
+      async onQueryStarted(postId, { dispatch, queryFulfilled }) {
+        const patchResult = dispatch(
+          postsApi.util.updateQueryData('getPosts', { idLastUploadedPost: postId }, draft => {
+            draft.items = draft.items.filter(post => post.id !== postId)
+          })
+        )
+
+        try {
+          await queryFulfilled
+        } catch {
+          patchResult.undo()
+        }
+      },
     }),
     updatePost: build.mutation<void, IUpdatePostRequest>({
       query: ({ postId, description }) => ({
