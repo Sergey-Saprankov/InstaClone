@@ -7,7 +7,6 @@ const meta = {
   title: 'Components/ok/ControlledCheckbox',
   component: ControlledCheckbox,
   tags: ['autodocs'],
-  argTypes: { onClick: { action: 'clicked' } },
 } satisfies Meta<typeof ControlledCheckbox>
 
 export default meta

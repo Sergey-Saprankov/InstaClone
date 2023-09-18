@@ -11,6 +11,4 @@ const meta = {
 export default meta
 type Story = StoryObj<typeof LoaderLogo>
 
-export const InputTypeFile1: Story = {
-  args: {},
-}
+export const InputTypeFile1: Story = {}

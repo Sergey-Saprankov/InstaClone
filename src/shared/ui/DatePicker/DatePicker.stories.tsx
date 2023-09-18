@@ -1,3 +1,5 @@
+import React, { CSSProperties } from 'react'
+
 import type { Meta, StoryObj } from '@storybook/react'
 
 import { CustomDatePicker } from 'shared/ui/DatePicker/DatePicker'
@@ -12,5 +14,15 @@ export default meta
 type Story = StoryObj<typeof CustomDatePicker>
 
 export const DatePicker1: Story = {
-  args: {},
+  render: args => {
+    const height: CSSProperties = {
+      height: '40vh',
+    }
+
+    return (
+      <div style={height}>
+        <CustomDatePicker />
+      </div>
+    )
+  },
 }

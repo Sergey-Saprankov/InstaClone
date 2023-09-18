@@ -4,7 +4,7 @@ import { useRegisterForm } from 'shared/hooks/useRegisterForm'
 import { ControlledInput } from 'shared/ui/ControlledInput/ControlledInput'
 
 const meta = {
-  title: 'Components/ControlledInput',
+  title: 'Components/ok/ControlledInput',
   component: ControlledInput,
   tags: ['autodocs'],
   argTypes: {
@@ -26,6 +26,7 @@ export const ControlledInputNew1: Story = {
 
     return (
       <div>
+        <ControlledInput control={control} name={'email'} />
         <ControlledInput control={control} name={'password'} />
         <ControlledInput control={control} name={'confirmPassword'} />
       </div>

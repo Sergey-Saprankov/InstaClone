@@ -15,7 +15,9 @@
     "lint-fix": "eslint --fix",
     "stylelint-fix": "stylelint \"**/*.{css,scss}\" --fix",
     "storybook": "storybook dev -p 6006",
-    "build-storybook": "storybook build"
+    "build-storybook": "storybook build",
+    "storybook-docs": "storybook dev --docs",
+    "build-storybook-docs": "storybook build --docs"
   },
   "lint-staged": {
     "**/*.{css,scss}": [
@@ -38,6 +40,7 @@
     "@radix-ui/react-slider": "^1.1.2",
     "@react-oauth/google": "^0.11.1",
     "@reduxjs/toolkit": "^1.9.5",
+    "@storybook/addon-actions": "^7.4.2",
     "@storybook/icons": "^1.1.6",
     "@types/node": "20.2.5",
     "@types/react-datepicker": "^4.11.2",
