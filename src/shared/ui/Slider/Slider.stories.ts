@@ -3,7 +3,7 @@ import type { Meta, StoryObj } from '@storybook/react'
 import { Slider } from 'shared/ui/Slider/Slider'
 
 const meta = {
-  title: 'Components/Slider',
+  title: 'Components/ok/Slider',
   component: Slider,
   tags: ['autodocs'],
 } satisfies Meta<typeof Slider>
@@ -11,6 +11,6 @@ const meta = {
 export default meta
 type Story = StoryObj<typeof Slider>
 
-export const InputTypeFile1: Story = {
-  args: {},
+export const SliderStory: Story = {
+  args: { currentIndex: 5, endIndex: 10, variant: 'small' },
 }

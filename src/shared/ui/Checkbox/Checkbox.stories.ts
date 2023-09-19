@@ -6,12 +6,18 @@ const meta = {
   title: 'Components/ok/Checkbox',
   component: Checkbox,
   tags: ['autodocs'],
+  parameters: {
+    design: {
+      type: 'figma',
+      url: 'https://www.figma.com/file/M7753HAzy0tm9rQWyRBrnI/Inctagram?type=design&node-id=5783-12902&mode=design&t=yyw98nZI3wYnazbx-4',
+    },
+  },
 } satisfies Meta<typeof Checkbox>
 
 export default meta
 type Story = StoryObj<typeof Checkbox>
 
-export const CheckBoxIsChecked: Story = {
+export const CheckBoxStory: Story = {
   args: {
     checked: true,
     disabled: true,

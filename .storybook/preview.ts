@@ -5,8 +5,12 @@ import '../src/styles/nprogress.scss'
 
 const preview: Preview = {
   parameters: {
+    docs: {
+      inlineStories: false,
+    },
     actions: { argTypesRegex: '^on[A-Z].*' },
     controls: {
+      expanded: true,
       matchers: {
         color: /(background|color)$/i,
         date: /Date$/,
@@ -22,5 +26,4 @@ const preview: Preview = {
     },
   },
 }
-// addDecorator(withProvider)
 export default preview

@@ -3,11 +3,11 @@ import React from 'react'
 import { useRouter } from 'next/router'
 
 import Arrow from '../../../../public/icon/arrow-back.svg'
-import { useTranslation } from '../../../shared/hooks/useTranslation'
 
 import cls from './Terms.module.scss'
 
 import { PATH } from 'shared/const/path'
+import { useTranslation } from 'shared/hooks/useTranslation'
 import { Button, ButtonTheme } from 'shared/ui/Button/Button'
 import { Text, TextColorTheme, TextFontTheme } from 'shared/ui/Text/Text'
 

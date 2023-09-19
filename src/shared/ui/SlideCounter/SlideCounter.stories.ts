@@ -3,7 +3,7 @@ import type { Meta, StoryObj } from '@storybook/react'
 import { SlideCounter } from 'shared/ui/SlideCounter/SlideCounter'
 
 const meta = {
-  title: 'Components/SlideCounter',
+  title: 'Components/ok/SlideCounter',
   component: SlideCounter,
   tags: ['autodocs'],
 } satisfies Meta<typeof SlideCounter>
@@ -11,6 +11,6 @@ const meta = {
 export default meta
 type Story = StoryObj<typeof SlideCounter>
 
-export const InputTypeFile1: Story = {
-  args: {},
+export const SlideCounterStory: Story = {
+  args: { length: 20, currentIndex: 3 },
 }

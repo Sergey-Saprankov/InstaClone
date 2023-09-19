@@ -11,6 +11,6 @@ const meta = {
 export default meta
 type Story = StoryObj<typeof RadioButton>
 
-export const InputTypeFile1: Story = {
+export const RadioButtonStory: Story = {
   args: {},
 }
