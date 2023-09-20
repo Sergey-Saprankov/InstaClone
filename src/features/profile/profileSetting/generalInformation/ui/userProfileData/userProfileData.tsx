@@ -56,11 +56,13 @@ export const UserProfileData = () => {
               title={t.profileSettingPage.dateOfBirthday}
               start={field.value}
               onChange={date => field.onChange(date as string)}
+              disabled={profileData && profileData.dateOfBirth}
             />
           )}
         />
         <ControlledInput control={control} name={'city'} title={t.profileSettingPage.city} />
         <ControlledTextArea
+          className={cls.bg}
           control={control}
           name={'aboutMe'}
           title={t.profileSettingPage.aboutMe}
