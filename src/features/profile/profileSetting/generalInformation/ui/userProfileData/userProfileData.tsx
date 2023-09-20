@@ -65,7 +65,6 @@ export const UserProfileData = () => {
               onChange={date => field.onChange(date as string)}
               onChangeValidUserAge={onChangeValidUserAge}
               isDateValid={isValid}
-              disabled={profileData && profileData.dateOfBirth}
             />
           )}
         />

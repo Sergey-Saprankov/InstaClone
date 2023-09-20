@@ -30,7 +30,6 @@ interface CustomDatePickerProps {
   theme?: CustomDatePickerThemes
   className?: string
   title?: string
-  disabled: boolean
   onChangeValidUserAge: (isValid: boolean) => void
   isDateValid: boolean
 }
@@ -43,7 +42,6 @@ export const CustomDatePicker: FC<CustomDatePickerProps> = ({
   theme = 'single',
   title,
   className = '',
-  disabled,
   onChangeValidUserAge,
   isDateValid,
 }) => {
@@ -92,7 +90,7 @@ export const CustomDatePicker: FC<CustomDatePickerProps> = ({
 
   return (
     <div ref={ref} className={cls.wrapper}>
-      <div className={classNames(cls.container, { [cls.disabled]: disabled }, [])}>
+      <div className={classNames(cls.container, {}, [])}>
         <label className={cls.label}>
           {title}
           <DatePicker
@@ -116,7 +114,6 @@ export const CustomDatePicker: FC<CustomDatePickerProps> = ({
             locale={ruLocale}
             minDate={minDate}
             maxDate={maxDate}
-            disabled={disabled}
           />
           {!isOpen && isDateValid && (
             <Text
@@ -158,7 +155,6 @@ export const CustomDatePicker: FC<CustomDatePickerProps> = ({
             dropdownMode="select"
             minDate={minDate}
             maxDate={maxDate}
-            disabled={disabled}
           />
         </div>
       )}
