@@ -99,6 +99,8 @@ export const CustomDatePicker: FC<CustomDatePickerProps> = ({
             onChange={onChangeHandler}
             calendarClassName={cls.calendar}
             onInputClick={() => setIsOpen(prev => !prev)}
+            dateFormat={'dd.MM.yyyy'}
+            locale="ru-RU"
             minDate={minDate}
             maxDate={maxDate}
             disabled={disabled}
