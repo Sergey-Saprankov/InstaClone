@@ -51,7 +51,7 @@ export const CustomDatePicker: FC<CustomDatePickerProps> = ({
   const [isOpen, setIsOpen] = useState<boolean>(false)
   const ref = useRef<HTMLDivElement>(null)
 
-  const startDate = start && isValid(new Date(start)) ? parseISO(start) : null
+  let startDate = start && isValid(new Date(start)) ? parseISO(start) : null
 
   const endDate = end && isValid(new Date(end)) ? parseISO(end) : null
 

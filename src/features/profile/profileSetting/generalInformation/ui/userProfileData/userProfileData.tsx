@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 
 import { Controller } from 'react-hook-form'
 
@@ -28,8 +28,7 @@ export const UserProfileData = () => {
   const { t } = useTranslation()
 
   const onSubmit = handleSubmit(data => {
-    isValid ? delete data.dateOfBirth : data.dateOfBirth
-    profile(data).then(() => setIsValid(false))
+    profile(data)
   })
 
   const onChangeValidUserAge = (isDateValid: boolean) => {
@@ -88,7 +87,7 @@ export const UserProfileData = () => {
         >
           {t.profileSettingPage.deleteProfile}
         </Button>
-        <Button type={'submit'} theme={ButtonTheme.PRIMARY} size={ButtonSize.XS}>
+        <Button disabled={isValid} type={'submit'} theme={ButtonTheme.PRIMARY} size={ButtonSize.XS}>
           {t.profileSettingPage.saveChanges}
         </Button>
       </div>
