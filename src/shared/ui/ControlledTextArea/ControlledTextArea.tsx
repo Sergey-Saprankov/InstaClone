@@ -35,7 +35,7 @@ export const ControlledTextArea = <TFieldValues extends FieldValues>({
         <Text
           tag={'span'}
           color={TextColorTheme.ERROR}
-          font={TextFontTheme.INTER_REGULAR_L}
+          font={TextFontTheme.INTER_REGULAR_M}
           className={cls.errorText}
         >
           {error?.message}
