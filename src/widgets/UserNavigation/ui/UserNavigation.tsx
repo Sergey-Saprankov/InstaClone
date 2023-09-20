@@ -4,12 +4,12 @@ import Home from '../../../../public/icon/home.svg'
 import Message from '../../../../public/icon/message.svg'
 import Person from '../../../../public/icon/person.svg'
 import { LocaleSidebarType } from '../../../../public/locales/ru'
-import { useTranslation } from '../../../shared/hooks/useTranslation'
 
 import s from './UserNavigation.module.scss'
 
 import { CreatePost } from 'features/createPost'
 import { PATH } from 'shared/const/path'
+import { useTranslation } from 'shared/hooks/useTranslation'
 import { classNames } from 'shared/lib/classNames/classNames'
 import { NavLink, NavLinkColor } from 'shared/ui/NavLink/Navlink'
 import { Text, TextFontTheme } from 'shared/ui/Text/Text'

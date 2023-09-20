@@ -1,7 +1,5 @@
 import { useCallback } from 'react'
 
-import { useTranslation } from '../../../../../../shared/hooks/useTranslation'
-
 import cls from './Publication.module.scss'
 
 import { getDescription } from 'features/createPost/model/selectors/getDescription/getDescription'
@@ -9,6 +7,7 @@ import { setDescriptionPost } from 'features/createPost/model/slice/uploadPhotoS
 import { UserAvatarSmall } from 'modules/user'
 import { useAppDispatch } from 'shared/hooks/useAppDispatch'
 import { useAppSelector } from 'shared/hooks/useAppSelector'
+import { useTranslation } from 'shared/hooks/useTranslation'
 import { Text, TextColorTheme, TextFontTheme } from 'shared/ui/Text/Text'
 import { TextArea } from 'shared/ui/TextArea/TextArea'
 
