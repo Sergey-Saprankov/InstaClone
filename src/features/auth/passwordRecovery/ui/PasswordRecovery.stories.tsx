@@ -8,7 +8,7 @@ import { PasswordRecovery } from 'features/auth/passwordRecovery/ui/PasswordReco
 import { store } from 'store/store'
 
 const meta = {
-  title: 'Auth/PasswordRecovery',
+  title: 'Auth/Password Recovery',
   component: PasswordRecovery,
   decorators: [
     Story => (
@@ -30,7 +30,7 @@ export default meta
 type Story = StoryObj<typeof PasswordRecovery>
 
 export const PasswordRecoveryStory: Story = {
-  render: args => {
+  render: () => {
     const actionString = 'action'
 
     return (

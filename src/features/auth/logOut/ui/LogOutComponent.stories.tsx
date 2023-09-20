@@ -7,7 +7,7 @@ import { LogOutComponent } from 'features/auth/logOut/ui/LogOutComponent'
 import { store } from 'store/store'
 
 const meta = {
-  title: 'Auth/LogOutComponent',
+  title: 'Auth/Log Out Component',
   component: LogOutComponent,
   decorators: [
     Story => (
@@ -23,7 +23,5 @@ export default meta
 type Story = StoryObj<typeof LogOutComponent>
 
 export const LogOutComponentStory: Story = {
-  render: args => {
-    return <LogOutComponent />
-  },
+  args: {},
 }

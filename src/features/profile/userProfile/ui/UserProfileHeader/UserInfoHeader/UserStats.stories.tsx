@@ -3,12 +3,12 @@ import React from 'react'
 import type { Meta, StoryObj } from '@storybook/react'
 import { Provider } from 'react-redux'
 
-import { UserProfile } from 'features/profile/userProfile/ui/UserProfile'
+import { UserInfoHeader } from 'features/profile/userProfile/ui/UserProfileHeader/UserInfoHeader/UserInfoHeader'
 import { store } from 'store/store'
 
 const meta = {
-  title: 'Profile/User Profile',
-  component: UserProfile,
+  title: 'Profile/User Profile/User Info Header',
+  component: UserInfoHeader,
   decorators: [
     Story => (
       <Provider store={store}>
@@ -17,13 +17,13 @@ const meta = {
     ),
   ],
   tags: ['autodocs'],
-} satisfies Meta<typeof UserProfile>
+} satisfies Meta<typeof UserInfoHeader>
 
 export default meta
-type Story = StoryObj<typeof UserProfile>
+type Story = StoryObj<typeof UserInfoHeader>
 
-export const UserProfileStory: Story = {
+export const UserInfoHeaderStory: Story = {
   render: () => {
-    return <UserProfile />
+    return <UserInfoHeader />
   },
 }

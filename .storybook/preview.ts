@@ -4,6 +4,19 @@ import '../src/styles/dataPickerGlobal.scss'
 import '../src/styles/nprogress.scss'
 
 const preview: Preview = {
+  globalTypes: {
+    locale: {
+      description: 'Internationalization locale',
+      defaultValue: 'en',
+      toolbar: {
+        icon: 'globe',
+        items: [
+          { value: 'en', right: '🇺🇸', title: 'English' },
+          { value: 'ru', right: 'ru', title: 'Russian' },
+        ],
+      },
+    },
+  },
   parameters: {
     docs: {
       inlineStories: false,

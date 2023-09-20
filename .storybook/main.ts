@@ -8,6 +8,7 @@ const config: StorybookConfig = {
     '@storybook/addon-onboarding',
     '@storybook/addon-interactions',
     '@storybook/addon-designs',
+    '@storybook/addon-actions',
   ],
   previewHead: head => `
     ${head}
