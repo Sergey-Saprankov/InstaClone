@@ -3,6 +3,8 @@ import { FC, useEffect, useRef, useState } from 'react'
 import DatePicker from 'react-datepicker'
 
 import 'react-datepicker/dist/react-datepicker.css'
+import { Text, TextColorTheme, TextFontTheme } from '../Text/Text'
+
 import cls from './DatePicker.module.scss'
 
 import { classNames } from 'shared/lib/classNames/classNames'
@@ -23,6 +25,7 @@ interface CustomDatePickerProps {
   theme?: CustomDatePickerThemes
   className?: string
   title?: string
+  disabled: boolean
 }
 
 export const CustomDatePicker: FC<CustomDatePickerProps> = ({
@@ -33,6 +36,7 @@ export const CustomDatePicker: FC<CustomDatePickerProps> = ({
   theme = 'single',
   title,
   className = '',
+  disabled,
 }) => {
   const [isOpen, setIsOpen] = useState<boolean>(false)
   const ref = useRef<HTMLDivElement>(null)
@@ -40,6 +44,16 @@ export const CustomDatePicker: FC<CustomDatePickerProps> = ({
   const startDate = start && isValid(new Date(start)) ? parseISO(start) : null
 
   const endDate = end && isValid(new Date(end)) ? parseISO(end) : null
+
+  const currentYear = new Date().getFullYear()
+  const currentMonth = new Date().getMonth()
+  const currentDay = new Date().getDate()
+
+  const minUserAge = 13
+  const maxUserAge = 150
+
+  const maxDate = new Date(currentYear - minUserAge, currentMonth, currentDay)
+  const minDate = new Date(currentYear - maxUserAge, currentMonth, currentDay)
 
   const handleClickOutside = (event: MouseEvent) => {
     if (ref.current && !ref.current.contains(event.target as Node)) {
@@ -66,7 +80,7 @@ export const CustomDatePicker: FC<CustomDatePickerProps> = ({
 
   return (
     <div ref={ref} className={cls.wrapper}>
-      <div className={cls.container}>
+      <div className={classNames(cls.container, { [cls.disabled]: disabled }, [])}>
         <label className={cls.label}>
           {title}
           <DatePicker
@@ -86,6 +100,9 @@ export const CustomDatePicker: FC<CustomDatePickerProps> = ({
             onChange={onChangeHandler}
             calendarClassName={cls.calendar}
             onInputClick={() => setIsOpen(prev => !prev)}
+            minDate={minDate}
+            maxDate={maxDate}
+            disabled={disabled}
           />
         </label>
       </div>
@@ -107,6 +124,9 @@ export const CustomDatePicker: FC<CustomDatePickerProps> = ({
             showMonthDropdown
             showYearDropdown
             dropdownMode="select"
+            minDate={minDate}
+            maxDate={maxDate}
+            disabled={disabled}
           />
         </div>
       )}

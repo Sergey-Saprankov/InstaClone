@@ -1,7 +1,7 @@
 .wrapper {
   position: relative;
 
-  width: min-content;
+  width: 100% !important;
 
   .absolute {
     position: absolute;
@@ -62,22 +62,24 @@
 .container {
   display: flex;
 
-  width: min-content;
+  width: 100%;
 }
 
 .single {
   overflow: hidden;
 
-  width: 158px !important;
+  width: 100% !important;
 }
 
 .singleOpen {
-  width: 330px !important;
+  width: 100% !important;
 }
 
 .label {
   display: flex;
   flex-direction: column;
+
+  width: 100%;
 
   color: var(--light-900);
 }
@@ -89,4 +91,8 @@
     border: none;
     outline: none;
   }
+}
+
+.disabled {
+  opacity: .6;
 }
