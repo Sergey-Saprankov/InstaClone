@@ -3,7 +3,6 @@ import { FC, useEffect, useRef, useState } from 'react'
 import DatePicker from 'react-datepicker'
 
 import 'react-datepicker/dist/react-datepicker.css'
-import { Text, TextColorTheme, TextFontTheme } from '../Text/Text'
 
 import cls from './DatePicker.module.scss'
 
