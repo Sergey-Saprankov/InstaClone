@@ -93,6 +93,16 @@
   }
 }
 
+.errorText {
+  position: absolute;
+  top: 60px;
+}
+
 .disabled {
   opacity: .6;
+}
+
+.text_decoration  {
+  color: var(--danger-800);
+  text-decoration: underline;
 }

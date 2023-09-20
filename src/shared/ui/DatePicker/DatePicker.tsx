@@ -1,8 +1,14 @@
-import { FC, useEffect, useRef, useState } from 'react'
+import React, { FC, useEffect, useRef, useState } from 'react'
 
+import ruLocale from 'date-fns/locale/ru'
 import DatePicker from 'react-datepicker'
 
 import 'react-datepicker/dist/react-datepicker.css'
+
+import { PATH } from '../../const/path'
+import { useTranslation } from '../../hooks/useTranslation'
+import { NavLink, NavLinkColor } from '../NavLink/Navlink'
+import { Text, TextColorTheme, TextFontTheme } from '../Text/Text'
 
 import cls from './DatePicker.module.scss'
 
@@ -25,6 +31,8 @@ interface CustomDatePickerProps {
   className?: string
   title?: string
   disabled: boolean
+  onChangeValidUserAge: (isValid: boolean) => void
+  isDateValid: boolean
 }
 
 export const CustomDatePicker: FC<CustomDatePickerProps> = ({
@@ -36,7 +44,10 @@ export const CustomDatePicker: FC<CustomDatePickerProps> = ({
   title,
   className = '',
   disabled,
+  onChangeValidUserAge,
+  isDateValid,
 }) => {
+  const { t } = useTranslation()
   const [isOpen, setIsOpen] = useState<boolean>(false)
   const ref = useRef<HTMLDivElement>(null)
 
@@ -51,7 +62,8 @@ export const CustomDatePicker: FC<CustomDatePickerProps> = ({
   const minUserAge = 13
   const maxUserAge = 150
 
-  const maxDate = new Date(currentYear - minUserAge, currentMonth, currentDay)
+  const minAgeDate = new Date(currentYear - minUserAge, currentMonth, currentDay)
+  const maxDate = new Date(currentYear, currentMonth, currentDay)
   const minDate = new Date(currentYear - maxUserAge, currentMonth, currentDay)
 
   const handleClickOutside = (event: MouseEvent) => {
@@ -74,6 +86,7 @@ export const CustomDatePicker: FC<CustomDatePickerProps> = ({
       onChangeDates?.(dates.map(date => (date ? formatISO(date) : null)))
     } else {
       onChange?.(formatISO(dates))
+      onChangeValidUserAge(dates.getTime() >= minAgeDate.getTime())
     }
   }
 
@@ -100,11 +113,29 @@ export const CustomDatePicker: FC<CustomDatePickerProps> = ({
             calendarClassName={cls.calendar}
             onInputClick={() => setIsOpen(prev => !prev)}
             dateFormat={'dd.MM.yyyy'}
-            locale="ru-RU"
+            locale={ruLocale}
             minDate={minDate}
             maxDate={maxDate}
             disabled={disabled}
           />
+          {!isOpen && isDateValid && (
+            <Text
+              tag={'span'}
+              color={TextColorTheme.ERROR}
+              font={TextFontTheme.INTER_REGULAR_M}
+              className={cls.errorText}
+            >
+              {'A user under 13 cannot create a profile'}
+              &nbsp;
+              <NavLink
+                className={cls.text_decoration}
+                href={PATH.PRIVACY}
+                color={NavLinkColor.SECONDARY}
+              >
+                {t.register.policy}
+              </NavLink>
+            </Text>
+          )}
         </label>
       </div>
 

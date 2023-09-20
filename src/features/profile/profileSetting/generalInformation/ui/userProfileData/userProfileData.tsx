@@ -1,3 +1,5 @@
+import { useState } from 'react'
+
 import { Controller } from 'react-hook-form'
 
 import { useDelProfileMutation, useUpdateProfileMutation } from '../../service/profile'
@@ -19,14 +21,20 @@ export const UserProfileData = () => {
   const { data: profileData, isLoading: isLoadingGetProfile } = useGetUserInfoQuery()
   const [profile, { isLoading: isLoadingUpdateProfile }] = useUpdateProfileMutation()
   const [delProfile] = useDelProfileMutation()
+  const [isValid, setIsValid] = useState(false)
 
   useSetValuesFromProfileData(setValue, profileData)
 
   const { t } = useTranslation()
 
   const onSubmit = handleSubmit(data => {
-    profile(data)
+    isValid ? delete data.dateOfBirth : data.dateOfBirth
+    profile(data).then(() => setIsValid(false))
   })
+
+  const onChangeValidUserAge = (isDateValid: boolean) => {
+    setIsValid(isDateValid)
+  }
 
   return (
     <form className={cls.form} onSubmit={onSubmit}>
@@ -56,6 +64,8 @@ export const UserProfileData = () => {
               title={t.profileSettingPage.dateOfBirthday}
               start={field.value}
               onChange={date => field.onChange(date as string)}
+              onChangeValidUserAge={onChangeValidUserAge}
+              isDateValid={isValid}
               disabled={profileData && profileData.dateOfBirth}
             />
           )}

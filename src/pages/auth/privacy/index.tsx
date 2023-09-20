@@ -16,11 +16,7 @@ const PrivacyPolicy = () => {
 
   return (
     <div className={cls.wrapper}>
-      <Button
-        onClick={() => router.push(PATH.REGISTRATION)}
-        className={cls.btn}
-        theme={ButtonTheme.Clear}
-      >
+      <Button onClick={() => router.back()} className={cls.btn} theme={ButtonTheme.Clear}>
         <Arrow />
         <Text color={TextColorTheme.LIGHT} font={TextFontTheme.INTER_BOLD_M} tag={'span'}>
           {t.privacyPolicy.backToSignIn}

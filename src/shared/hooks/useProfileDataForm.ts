@@ -21,7 +21,7 @@ const userProfileDataFormSchema = yup.object().shape({
     .min(1)
     .max(50)
     .matches(/^[A-Za-zА-Яа-я]+$/),
-  dateOfBirth: yup.string().required(),
+  dateOfBirth: yup.string(),
   city: yup.string().required(),
   aboutMe: yup
     .string()
