@@ -6,7 +6,7 @@ const userProfileDataFormSchema = yup.object().shape({
   userName: yup.string().required().min(6).max(30),
   firstName: yup.string().required(),
   lastName: yup.string().required(),
-  dateOfBirth: yup.string(),
+  dateOfBirth: yup.string().required(),
   city: yup.string().required(),
   aboutMe: yup.string().required(),
 })
