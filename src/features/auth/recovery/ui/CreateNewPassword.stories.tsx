@@ -7,7 +7,7 @@ import { CreateNewPasswordForm } from 'features/auth/recovery/ui/CreateNewPasswo
 import { store } from 'store/store'
 
 const meta = {
-  title: 'Auth/CreateNewPasswordForm',
+  title: 'Auth/Create New Password Form',
   component: CreateNewPasswordForm,
   decorators: [
     Story => (
