@@ -86,7 +86,7 @@ export const CustomDatePicker: FC<CustomDatePickerProps> = ({
       onChangeDates?.(dates.map(date => (date ? formatISO(date) : null)))
     } else {
       onChange?.(formatISO(dates))
-      onChangeValidUserAge(dates.getTime() >= minAgeDate.getTime()) // проверяем возраст юзера
+      onChangeValidUserAge(dates.getTime() >= minAgeDate.getTime())
     }
   }
 
