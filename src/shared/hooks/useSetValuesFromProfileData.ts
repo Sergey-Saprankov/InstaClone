@@ -7,7 +7,7 @@ type ProfileParamsType = {
   userName: string
   firstName: string
   lastName: string
-  dateOfBirth: string
+  dateOfBirth?: string
   city: string
   aboutMe: string
 }

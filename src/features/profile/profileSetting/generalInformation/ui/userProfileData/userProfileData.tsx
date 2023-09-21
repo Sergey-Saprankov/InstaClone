@@ -1,3 +1,5 @@
+import { useEffect, useState } from 'react'
+
 import { Controller } from 'react-hook-form'
 
 import { useDelProfileMutation, useUpdateProfileMutation } from '../../service/profile'
@@ -19,6 +21,7 @@ export const UserProfileData = () => {
   const { data: profileData, isLoading: isLoadingGetProfile } = useGetUserInfoQuery()
   const [profile, { isLoading: isLoadingUpdateProfile }] = useUpdateProfileMutation()
   const [delProfile] = useDelProfileMutation()
+  const [isValid, setIsValid] = useState(false)
 
   useSetValuesFromProfileData(setValue, profileData)
 
@@ -27,6 +30,10 @@ export const UserProfileData = () => {
   const onSubmit = handleSubmit(data => {
     profile(data)
   })
+
+  const onChangeValidUserAge = (isDateValid: boolean) => {
+    setIsValid(isDateValid)
+  }
 
   return (
     <form className={cls.form} onSubmit={onSubmit}>
@@ -56,11 +63,14 @@ export const UserProfileData = () => {
               title={t.profileSettingPage.dateOfBirthday}
               start={field.value}
               onChange={date => field.onChange(date as string)}
+              onChangeValidUserAge={onChangeValidUserAge}
+              isDateValid={isValid} //test branch
             />
           )}
         />
         <ControlledInput control={control} name={'city'} title={t.profileSettingPage.city} />
         <ControlledTextArea
+          className={cls.bg}
           control={control}
           name={'aboutMe'}
           title={t.profileSettingPage.aboutMe}
@@ -76,7 +86,7 @@ export const UserProfileData = () => {
         >
           {t.profileSettingPage.deleteProfile}
         </Button>
-        <Button type={'submit'} theme={ButtonTheme.PRIMARY} size={ButtonSize.XS}>
+        <Button disabled={isValid} type={'submit'} theme={ButtonTheme.PRIMARY} size={ButtonSize.XS}>
           {t.profileSettingPage.saveChanges}
         </Button>
       </div>

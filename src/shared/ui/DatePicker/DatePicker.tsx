@@ -1,8 +1,15 @@
 import React, { FC, useEffect, useRef, useState } from 'react'
 
+import ruLocale from 'date-fns/locale/ru'
 import DatePicker from 'react-datepicker'
 
 import 'react-datepicker/dist/react-datepicker.css'
+
+import { PATH } from '../../const/path'
+import { useTranslation } from '../../hooks/useTranslation'
+import { NavLink, NavLinkColor } from '../NavLink/Navlink'
+import { Text, TextColorTheme, TextFontTheme } from '../Text/Text'
+
 import cls from './DatePicker.module.scss'
 
 import { classNames } from 'shared/lib/classNames/classNames'
@@ -23,6 +30,8 @@ interface CustomDatePickerProps {
   theme?: CustomDatePickerThemes
   className?: string
   title?: string
+  onChangeValidUserAge: (isValid: boolean) => void
+  isDateValid: boolean
 }
 
 export const CustomDatePicker: FC<CustomDatePickerProps> = ({
@@ -33,13 +42,27 @@ export const CustomDatePicker: FC<CustomDatePickerProps> = ({
   theme = 'single',
   title,
   className = '',
+  onChangeValidUserAge,
+  isDateValid,
 }) => {
+  const { t } = useTranslation()
   const [isOpen, setIsOpen] = useState<boolean>(false)
   const ref = useRef<HTMLDivElement>(null)
 
-  const startDate = start && isValid(new Date(start)) ? parseISO(start) : null
+  let startDate = start && isValid(new Date(start)) ? parseISO(start) : null
 
   const endDate = end && isValid(new Date(end)) ? parseISO(end) : null
+
+  const currentYear = new Date().getFullYear()
+  const currentMonth = new Date().getMonth()
+  const currentDay = new Date().getDate()
+
+  const minUserAge = 13
+  const maxUserAge = 150
+
+  const minAgeDate = new Date(currentYear - minUserAge, currentMonth, currentDay)
+  const maxDate = new Date(currentYear, currentMonth, currentDay)
+  const minDate = new Date(currentYear - maxUserAge, currentMonth, currentDay)
 
   const handleClickOutside = (event: MouseEvent) => {
     if (ref.current && !ref.current.contains(event.target as Node)) {
@@ -61,12 +84,13 @@ export const CustomDatePicker: FC<CustomDatePickerProps> = ({
       onChangeDates?.(dates.map(date => (date ? formatISO(date) : null)))
     } else {
       onChange?.(formatISO(dates))
+      onChangeValidUserAge(dates.getTime() >= minAgeDate.getTime())
     }
   }
 
   return (
     <div ref={ref} className={cls.wrapper}>
-      <div className={cls.container}>
+      <div className={classNames(cls.container, {}, [])}>
         <label className={cls.label}>
           {title}
           <DatePicker
@@ -86,7 +110,29 @@ export const CustomDatePicker: FC<CustomDatePickerProps> = ({
             onChange={onChangeHandler}
             calendarClassName={cls.calendar}
             onInputClick={() => setIsOpen(prev => !prev)}
+            dateFormat={'dd.MM.yyyy'}
+            locale={ruLocale}
+            minDate={minDate}
+            maxDate={maxDate}
           />
+          {!isOpen && isDateValid && (
+            <Text
+              tag={'span'}
+              color={TextColorTheme.ERROR}
+              font={TextFontTheme.INTER_REGULAR_M}
+              className={cls.errorText}
+            >
+              {'A user under 13 cannot create a profile'}
+              &nbsp;
+              <NavLink
+                className={cls.text_decoration}
+                href={PATH.PRIVACY}
+                color={NavLinkColor.SECONDARY}
+              >
+                {t.register.policy}
+              </NavLink>
+            </Text>
+          )}
         </label>
       </div>
 
@@ -107,6 +153,8 @@ export const CustomDatePicker: FC<CustomDatePickerProps> = ({
             showMonthDropdown
             showYearDropdown
             dropdownMode="select"
+            minDate={minDate}
+            maxDate={maxDate}
           />
         </div>
       )}
