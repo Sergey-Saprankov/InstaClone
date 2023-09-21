@@ -3,12 +3,12 @@ import React from 'react'
 import type { Meta, StoryObj } from '@storybook/react'
 import { Provider } from 'react-redux'
 
-import { UserProfile } from 'features/profile/userProfile/ui/UserProfile'
+import { PostsLoader } from 'features/profile/userProfile/ui/UserProfileContent/PostsLoader/PostsLoader'
 import { store } from 'store/store'
 
 const meta = {
-  title: 'Profile/User Profile/User Profile',
-  component: UserProfile,
+  title: 'Profile/User Profile Content/Posts Loader',
+  component: PostsLoader,
   tags: ['autodocs'],
   // parameters: {
   //   design: {
@@ -23,13 +23,13 @@ const meta = {
       </Provider>
     ),
   ],
-} satisfies Meta<typeof UserProfile>
+} satisfies Meta<typeof PostsLoader>
 
 export default meta
-type Story = StoryObj<typeof UserProfile>
+type Story = StoryObj<typeof PostsLoader>
 
-export const UserProfileStory: Story = {
+export const PostsLoaderStory: Story = {
   render: () => {
-    return <UserProfile />
+    return <PostsLoader />
   },
 }

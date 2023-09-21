@@ -4,12 +4,19 @@ import { GoogleOAuthProvider } from '@react-oauth/google'
 import type { Meta, StoryObj } from '@storybook/react'
 import { Provider } from 'react-redux'
 
-import { LoginForm } from 'features/auth/login/ui/LoginForm'
+import Profile from 'pages/profile/index'
 import { store } from 'store/store'
 
 const meta = {
-  title: 'Auth/Login Form',
-  component: LoginForm,
+  title: 'Pages/Profile',
+  component: Profile,
+  tags: ['autodocs'],
+  // parameters: {
+  //   design: {
+  //     type: 'figma',
+  //     url: 'https://www.figma.com/file/M7753HAzy0tm9rQWyRBrnI/Inctagram?type=design&node-id=301-5874&mode=design&t=6uYwrdp5m2F8ORTm-4',
+  //   },
+  // },
   decorators: [
     Story => (
       <Provider store={store}>
@@ -19,20 +26,13 @@ const meta = {
       </Provider>
     ),
   ],
-  tags: ['autodocs'],
-  parameters: {
-    design: {
-      type: 'figma',
-      url: 'https://www.figma.com/file/M7753HAzy0tm9rQWyRBrnI/Inctagram?type=design&node-id=303-3695&mode=design&t=tETCZWr8PNXPQquC-4',
-    },
-  },
-} satisfies Meta<typeof LoginForm>
+} satisfies Meta<typeof Profile>
 
 export default meta
-type Story = StoryObj<typeof LoginForm>
+type Story = StoryObj<typeof Profile>
 
-export const LoginFormStory: Story = {
+export const ProfileStory: Story = {
   render: () => {
-    return <LoginForm />
+    return <Profile />
   },
 }

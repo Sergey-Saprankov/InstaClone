@@ -8,8 +8,15 @@ import { LoginForm } from 'features/auth/login/ui/LoginForm'
 import { store } from 'store/store'
 
 const meta = {
-  title: 'Auth/Login Form',
+  title: 'Pages/Auth/Login Form',
   component: LoginForm,
+  tags: ['autodocs'],
+  parameters: {
+    design: {
+      type: 'figma',
+      url: 'https://www.figma.com/file/M7753HAzy0tm9rQWyRBrnI/Inctagram?type=design&node-id=303-3695&mode=design&t=tETCZWr8PNXPQquC-4',
+    },
+  },
   decorators: [
     Story => (
       <Provider store={store}>
@@ -19,13 +26,6 @@ const meta = {
       </Provider>
     ),
   ],
-  tags: ['autodocs'],
-  parameters: {
-    design: {
-      type: 'figma',
-      url: 'https://www.figma.com/file/M7753HAzy0tm9rQWyRBrnI/Inctagram?type=design&node-id=303-3695&mode=design&t=tETCZWr8PNXPQquC-4',
-    },
-  },
 } satisfies Meta<typeof LoginForm>
 
 export default meta

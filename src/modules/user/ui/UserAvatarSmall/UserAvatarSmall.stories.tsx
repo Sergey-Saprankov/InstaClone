@@ -24,6 +24,6 @@ type Story = StoryObj<typeof UserAvatarSmall>
 
 export const UserAvatarSmallStory: Story = {
   render: args => {
-    return <UserAvatarSmall description={'rr'} />
+    return <UserAvatarSmall description={args.description} />
   },
 }
