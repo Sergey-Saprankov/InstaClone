@@ -10,6 +10,10 @@ import formCls from '../../logOut/ui/LogOutComponent.module.scss'
 import cls from './LoginForm.module.scss'
 
 import { useLoginMutation } from 'features/auth/login/authByEmail/service/authByEmail'
+import {
+  useLoginGithubQuery,
+  useLazyLoginGithubQuery,
+} from 'features/auth/login/authByGitHub/service/authByGithub'
 import { useLoginGoogleMutation } from 'features/auth/login/authByGoogle/service/authByGoogle'
 import { PATH } from 'shared/const/path'
 import { useLoginForm } from 'shared/hooks/useLoginForm'
@@ -24,12 +28,18 @@ export const LoginForm = () => {
   const router = useRouter()
   const [login, { isLoading, isSuccess }] = useLoginMutation()
   const { control, handleSubmit } = useLoginForm()
-  const [loginGoogle, { isSuccess: isGoogleSuccess }] = useLoginGoogleMutation()
-  const googleLogin = useGoogleLogin({
-    onSuccess: codeResponse => loginGoogle(codeResponse),
-    redirect_uri: 'http://localhost:3000',
-    flow: 'auth-code',
-  })
+  // const [loginGoogle, { isSuccess: isGoogleSuccess }] = useLoginGoogleMutation()
+  const [trigger, { data }] = useLazyLoginGithubQuery()
+  // const googleLogin = useGoogleLogin({
+  //   onSuccess: codeResponse => loginGoogle(codeResponse),
+  //   redirect_uri: 'http://localhost:3000',
+  //   flow: 'auth-code',
+  // })
+
+  const handleClick = () => {
+    trigger()
+  }
+
   const { t } = useTranslation()
 
   const onSubmit = handleSubmit(data => {
@@ -38,7 +48,7 @@ export const LoginForm = () => {
 
   if (isLoading) return <Loader />
 
-  if (isSuccess || isGoogleSuccess) {
+  if (isSuccess) {
     router.push(PATH.HOME)
 
     return <></>
@@ -59,11 +69,15 @@ export const LoginForm = () => {
         <Button
           className={formCls.transform}
           theme={ButtonTheme.Clear}
-          onClick={() => googleLogin()}
+          // onClick={() => googleLogin()}
         >
           <Google width={36} height={36} />
         </Button>
-        <Button className={formCls.transform} theme={ButtonTheme.Clear}>
+        <Button
+          className={formCls.transform}
+          theme={ButtonTheme.Clear}
+          onClick={() => handleClick()}
+        >
           <Github width={36} height={36} />
         </Button>
       </div>
