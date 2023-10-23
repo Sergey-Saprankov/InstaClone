@@ -14,7 +14,6 @@ import { SomethingWentWrong } from 'shared/ui/SomethingWentWrong/SomethingWentWr
 
 export const UserProfile = () => {
   const [isLoading, setIsLoading] = useState(true)
-  // const [page, setPage] = useState(1)
 
   const { idLastUploadedPost } = useAppSelector(state => state.userProfile)
 

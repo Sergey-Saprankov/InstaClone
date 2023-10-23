@@ -1,5 +1,3 @@
-import { postsApi } from '../../../features/profile/userProfile'
-
 import { IUpdatePostRequest, ResponsePost } from './types'
 
 import { baseAPI } from 'shared/api/baseAPI'

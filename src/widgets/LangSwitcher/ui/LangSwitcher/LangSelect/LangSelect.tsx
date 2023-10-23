@@ -3,12 +3,12 @@ import { useState } from 'react'
 import { Listbox } from '@headlessui/react'
 
 import ArrowLight from '../../../../../../public/icon/arrow-ios-forward.svg'
-import { useSelectKeyboardHandling } from '../../../../../shared/hooks/useSelectKeyboardHandling'
 import { LangOption } from '../LangOption/LangOption'
 import { LanguageType } from '../LangSwitcher'
 
 import cls from './LangSelect.module.scss'
 
+import { useSelectKeyboardHandling } from 'shared/hooks/useSelectKeyboardHandling'
 import { classNames } from 'shared/lib/classNames/classNames'
 
 interface LangSelectProps {

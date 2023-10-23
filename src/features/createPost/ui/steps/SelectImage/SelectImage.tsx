@@ -1,7 +1,6 @@
 import React, { useCallback } from 'react'
 
 import ImageMedia from '../../../../../../public/icon/media.svg'
-import { useTranslation } from '../../../../../shared/hooks/useTranslation'
 
 import cls from './SelectImage.module.scss'
 
@@ -9,6 +8,7 @@ import { setImages, setStep } from 'features/createPost/model/slice/uploadPhotoS
 import { STEP } from 'features/createPost/model/types/const'
 import { Image } from 'features/createPost/model/types/uploadPhotoSchema'
 import { useAppDispatch } from 'shared/hooks/useAppDispatch'
+import { useTranslation } from 'shared/hooks/useTranslation'
 import { InputTypeFile } from 'shared/ui/InputTypeFile/InputTypeFile'
 import { Text, TextColorTheme, TextFontTheme } from 'shared/ui/Text/Text'
 

@@ -1,9 +1,7 @@
-import React, { FC, memo, useCallback, useState, useEffect } from 'react'
+import React, { FC, memo, useCallback, useEffect, useState } from 'react'
 
 import { useInView } from 'react-intersection-observer'
 
-import { useAppDispatch } from '../../../../../shared/hooks/useAppDispatch'
-import { useAppSelector } from '../../../../../shared/hooks/useAppSelector'
 import { setIdLastUploadedPost } from '../../model/slice/userProfileSlice'
 import { PostsResponse } from '../../service/types'
 
@@ -11,6 +9,8 @@ import { PostsLoader } from './PostsLoader'
 import cls from './UserProfileContent.module.scss'
 
 import { Post } from 'modules/post'
+import { useAppDispatch } from 'shared/hooks/useAppDispatch'
+import { useAppSelector } from 'shared/hooks/useAppSelector'
 import { getCurrentPostData } from 'shared/lib/getCurrentPostData/getCurrentPostData'
 import { Card } from 'shared/ui/Card/Card'
 

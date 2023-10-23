@@ -2,12 +2,12 @@ import React, { FC, memo } from 'react'
 
 import Bookmark from '../../../../public/icon/bookmark.svg'
 import Statistic from '../../../../public/icon/trending-up.svg'
-import { useTranslation } from '../../../shared/hooks/useTranslation'
 import { userInformationType } from '../../UserNavigation/ui/UserNavigation'
 
 import cls from './UserInformation.module.scss'
 
 import { PATH } from 'shared/const/path'
+import { useTranslation } from 'shared/hooks/useTranslation'
 import { classNames } from 'shared/lib/classNames/classNames'
 import { NavLink, NavLinkColor } from 'shared/ui/NavLink/Navlink'
 import { Text, TextFontTheme } from 'shared/ui/Text/Text'

@@ -7,7 +7,7 @@ type FilterType = {
   filter: string
 }
 
-const filters: FilterType[] = [
+export const filters: FilterType[] = [
   {
     id: 1,
     title: 'Aden',

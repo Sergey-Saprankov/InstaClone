@@ -8,14 +8,13 @@ import {
 import { setupListeners } from '@reduxjs/toolkit/query'
 import { toast } from 'react-toastify'
 
-import { userProfileReducer } from '../features/profile/userProfile/model/slice/userProfileSlice'
-
 import { StateSchema } from './stateSchema'
 
 import { loginReducer } from 'features/auth/login'
 import { registrationReducer } from 'features/auth/registration/model/slice/registrationSlice'
 import { uploadPhotoReducer } from 'features/createPost'
 import { accountManagementReducer } from 'features/profile/profileSetting/accountManagement/model/slice/accountManagementSlice'
+import { userProfileReducer } from 'features/profile/userProfile/model/slice/userProfileSlice'
 import { baseAPI } from 'shared/api/baseAPI'
 import { authMeReducer } from 'shared/hoc'
 import { loadState, saveState } from 'shared/lib/localStorage/localStorage'
